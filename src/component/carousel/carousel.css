@@ -1,0 +1,31 @@
+.carousel-item {
+  background-image: url("../../assets/Moon.svg");
+  background-color: #e3ffe6;
+}
+.carousel-item h2 {
+  color: "#0f172a";
+  font-size: 60px;
+  z-index: 2;
+  font-family: "Poppins", sans-serif;
+}
+.carousel-item span {
+  font-family: "Poppins", sans-serif;
+}
+.carousel-item .image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.carousel-item img {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+}
+.carousel-item .text {
+  position: relative;
+  z-index: 1;
+}
+/* ..carousel-control-prev-icon */
