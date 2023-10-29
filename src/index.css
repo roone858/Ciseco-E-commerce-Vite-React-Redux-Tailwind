@@ -16,8 +16,8 @@ opacity: 0.3;
 }
  */
 .carousel-item:not(.active) .text {
-  transform: translateX(-50px);
-  opacity: 0.6;
+  transform: translateX(-100px);
+  opacity: 0.4;
   transition: 0.8s;
 }
 
@@ -29,8 +29,8 @@ opacity: 0.3;
 }
 
 .carousel-item:not(.active) .image-container {
-     transform: translateX(50px);
-  opacity: 0.6;
+     transform: translateX(100px);
+  opacity: 0.4;
   transition: 0.8s;
   
 }

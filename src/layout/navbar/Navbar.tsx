@@ -3,15 +3,15 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../assets/logo.svg";
-import "./navbar.css"
+import "./navbar.css";
 function NavbarComponent() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid >
+      <Container fluid style={{ padding: "0px 40px", height: "4rem" }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Brand className="mx-auto" href="#home">
-          <img src={logo} alt="logo" />
+        <Navbar.Brand className="mx-auto p-1" href="#home">
+          <img src={logo} alt="logo" height={40} />
         </Navbar.Brand>
 
         <Navbar.Collapse className="mx-auto" id="basic-navbar-nav">
@@ -60,7 +60,7 @@ function NavbarComponent() {
               </g>
             </svg>
           </span>
-          <span >
+          <span>
             <svg
               width="26px"
               height="26px"

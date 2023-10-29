@@ -41,8 +41,9 @@ const ItemContent = ({ image }: { image: string }) => {
           </h2>
         </div>
         <a
-          className="btn btn-dark rounded-5   px-5 py-3 mt-5"
+          className="btn btn-dark rounded-5  mt-5"
           href="/"
+          style={{padding:"20px 36px"}}
           
         >
           <span className="me-2">Explore now</span>
@@ -77,7 +78,7 @@ const ItemContent = ({ image }: { image: string }) => {
       <div className="image-container mt-10  w-50">
         <img
           alt="Exclusive collection for everyone"
-          className=" relative  h-100  "
+          className=" "
           sizes="(max-width: 768px) 100vw, 50vw"
           src={image}
         />
