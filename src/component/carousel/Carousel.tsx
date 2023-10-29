@@ -26,7 +26,7 @@ const ItemContent = ({ image }: { image: string }) => {
   return (
     <div
       className="relative"
-      style={{ height: "700px", padding: "176px 40px" }}
+      style={{ height: "600px", padding: "176px 40px" }}
     >
       <div className=" text relative w-75">
         <div className="">
