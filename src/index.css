@@ -29,18 +29,20 @@ opacity: 0.3;
 }
 
 .carousel-item:not(.active) .image-container {
-     transform: translateX(100px);
+  transform: translateY(100px);
   opacity: 0.4;
   transition: 0.8s;
-  
 }
 
 .carousel-item.active .image-container {
-     transform: translateX(0px);
+  transform: translateY(0px);
   opacity: 1;
 
   transition: 0.8s;
 }
 .navbar {
-     background-color: #fff !important;
-   }
+  background-color: #fff !important;
+  position:sticky !important;
+  top: 0;
+  z-index: 555;
+}

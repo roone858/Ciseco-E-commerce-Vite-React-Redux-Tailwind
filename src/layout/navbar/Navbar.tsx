@@ -6,7 +6,7 @@ import logo from "../../assets/logo.svg";
 import "./navbar.css";
 function NavbarComponent() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" >
       <Container fluid style={{ padding: "0px 40px", height: "4rem" }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -20,7 +20,7 @@ function NavbarComponent() {
             <Nav.Link href="#home">Women</Nav.Link>
             <Nav.Link href="#home">Beauty</Nav.Link>
             <Nav.Link href="#home">Sport</Nav.Link>
-            <NavDropdown title="Explore" id="basic-nav-dropdown">
+            <NavDropdown className="position-relative  z-5" title="Explore" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -33,8 +33,8 @@ function NavbarComponent() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <div className="icons">
-          <span className="me-2">
+        <div className="icons d-none d-sm-block ">
+          <span className="me-2 d-none d-md-inline ">
             <svg
               width="24px"
               height="24px"

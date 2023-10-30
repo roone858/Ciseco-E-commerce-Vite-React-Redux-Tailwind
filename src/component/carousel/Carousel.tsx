@@ -26,7 +26,7 @@ const ItemContent = ({ image }: { image: string }) => {
   return (
     <div
       className="relative"
-      style={{ height: "600px", padding: "176px 40px" }}
+      style={{ padding: "176px 40px" }}
     >
       <div className=" text relative w-75">
         <div className="">
@@ -75,11 +75,11 @@ const ItemContent = ({ image }: { image: string }) => {
           </span>
         </a>
       </div>
-      <div className="image-container mt-10  w-50">
+      <div className="image-container mt-10  w-75">
         <img
           alt="Exclusive collection for everyone"
           className=" "
-          sizes="(max-width: 768px) 100vw, 50vw"
+     
           src={image}
         />
       </div>
