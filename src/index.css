@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,34 +18,34 @@ background-size: 50%;
 opacity: 0.3;
 }
  */
-/* .carousel-item:not(.active) .text {
+.swiper-wrapper .swiper-slide:not(.swiper-slide-active) .text {
   transform: translateX(-100px);
-  opacity: 0.4; */
-  /* transition: 0.8s;
-} */
+  opacity: 0.4;
+  transition: 0.8s;
+}
 
-/* .carousel-item.active .text {
+.swiper-slide.swiper-slide-active .text {
   transform: translateX(0px);
   opacity: 1;
 
   transition: 1s;
-} */
+}
 
-/* .carousel-item:not(.active) .image-container {
-  transform: translateY(100px);
-  /* opacity: 0.4; */
-  /* transition: 0.8s;
-} */
+.swiper-wrapper .swiper-slide:not(.swiper-slide-active) .image-container {
+  transform: translateY(20px);
+  opacity: 0.4;
+  transition: 0.8s;
+}
 
-/* .carousel-item.active .image-container {
+.swiper-slide.swiper-slide-active .image-container {
   transform: translateY(0px);
   opacity: 1;
 
   transition: 0.8s;
-}  */
+}
 .navbar {
   background-color: #fff !important;
-  position:sticky !important;
+  position: sticky !important;
   top: 0;
   z-index: 555;
 }

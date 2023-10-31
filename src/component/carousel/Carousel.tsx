@@ -49,9 +49,9 @@ export default function App() {
 const ItemContent = ({ image }: { image: string }) => {
   return (
     <div className="relative carousel-item ">
-      <div className="px-10 py-44">
-        <div className="relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 ">
-          <div className="space-y-5 sm:space-y-6">
+      <div className=" px-10 py-44">
+        <div className="  text relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 ">
+          <div className=" space-y-5 sm:space-y-6">
             <span className="block text-base md:text-xl text-slate-700 font-medium">
               In this season, find the best 🔥
             </span>
