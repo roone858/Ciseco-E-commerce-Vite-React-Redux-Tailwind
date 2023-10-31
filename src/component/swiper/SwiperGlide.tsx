@@ -1,43 +1,30 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import DiscoverCard from "../discoverCard/DiscoverCard";
-import shirt from "../../assets/yellow-shirt.webp";
-import ball from "../../assets/ball.webp";
-import dog from "../../assets/dog.webp";
-import oil from "../../assets/oil.webp";
+
 
 export default function SwiperGlide({
   handleSwiper,
+  cards,
+  slidesPerView
 }: {
-  handleSwiper: (swiper:any) => void;
+  handleSwiper: (swiper: any) => void;
+  cards: JSX.Element[];
+  slidesPerView:number
 }) {
   return (
     <>
       <Swiper
         onSwiper={handleSwiper}
-        slidesPerView={3}
+        slidesPerView={slidesPerView}
         spaceBetween={30}
         pagination={{
           clickable: true,
         }}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <DiscoverCard color={"rgb(254 252 232)"} image={shirt} />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <DiscoverCard color={" rgb(254 242 242)"} image={ball} />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <DiscoverCard color={"rgb(239 246 255)"} image={dog} />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <DiscoverCard color={"rgb(240 253 244)"} image={oil} />
-        </SwiperSlide>
+        {cards.map((card: any) => (
+          <SwiperSlide> {card}</SwiperSlide>
+        ))}
 
         <SwiperSlide> </SwiperSlide>
         <SwiperSlide> </SwiperSlide>
@@ -46,26 +33,30 @@ export default function SwiperGlide({
   );
 }
 
-export const NextNavigationButton = ({ swiperRef }: {swiperRef:any}) => {
+export const NavigationButton = ({
+  swiperRef,
+  title,
+}: {
+  swiperRef: any;
+  title: "next" | "prev";
+}) => {
   return (
     <div>
       <button
-        className="btn border-dark border-1 bg-transparent rounded-circle"
-        onClick={() => swiperRef.current.slideNext()}
+        className="w-10 h-10  border-slate-200 dark:border-slate-600 rounded-full flex items-center justify-center border-2"
+        onClick={() =>
+          title == "next"
+            ? swiperRef.current.slideNext()
+            : swiperRef.current.slidePrev()
+        }
       >
-        <i className="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
-  );
-};
-export const PrevNavigationButton = ({ swiperRef }:{swiperRef:any}) => {
-  return (
-    <div>
-      <button
-        className="btn border-dark border-1 bg-transparent rounded-circle"
-        onClick={() => swiperRef.current.slidePrev()}
-      >
-        <i className="fa-solid fa-arrow-left"></i>
+        <i
+          className={
+            title == "next"
+              ? "fa-solid fa-arrow-right"
+              : "fa-solid fa-arrow-left"
+          }
+        ></i>
       </button>
     </div>
   );

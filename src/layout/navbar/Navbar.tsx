@@ -6,7 +6,7 @@ import logo from "../../assets/logo.svg";
 import "./navbar.css";
 function NavbarComponent() {
   return (
-    <Navbar expand="lg" >
+    <Navbar expand="lg" className="shadow-sm">
       <Container fluid style={{ padding: "0px 40px", height: "4rem" }}>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -14,13 +14,17 @@ function NavbarComponent() {
           <img src={logo} alt="logo" height={40} />
         </Navbar.Brand>
 
-        <Navbar.Collapse className="mx-auto" id="basic-navbar-nav">
+        <Navbar.Collapse className="mx-auto bg-white" id="basic-navbar-nav">
           <Nav className="mx-auto">
             <Nav.Link href="#home">Men</Nav.Link>
             <Nav.Link href="#home">Women</Nav.Link>
             <Nav.Link href="#home">Beauty</Nav.Link>
             <Nav.Link href="#home">Sport</Nav.Link>
-            <NavDropdown className="position-relative  z-5" title="Explore" id="basic-nav-dropdown">
+            <NavDropdown
+              className="position-relative  z-5"
+              title="Explore"
+              id="basic-nav-dropdown"
+            >
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -33,8 +37,8 @@ function NavbarComponent() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <div className="icons d-none d-sm-block ">
-          <span className="me-2 d-none d-md-inline ">
+        <div className="icons hidden sm:flex justify-center items-center  bg-white sm:w-full  md:w-auto">
+          <span className="mr-2  hidden md:block hover:bg-slate-100 cursor-pointer rounded-full p-2 duration-200">
             <svg
               width="24px"
               height="24px"
@@ -60,7 +64,7 @@ function NavbarComponent() {
               </g>
             </svg>
           </span>
-          <span>
+          <span className="hover:bg-slate-100 cursor-pointer rounded-full p-2 duration-200">
             <svg
               width="26px"
               height="26px"
@@ -86,7 +90,7 @@ function NavbarComponent() {
               </g>
             </svg>
           </span>
-          <span>
+          <span className="hover:bg-slate-100 cursor-pointer rounded-full p-2 duration-200">
             <svg
               width="26px"
               height="26px"

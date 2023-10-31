@@ -41,13 +41,14 @@ const ItemContent = ({ image }: { image: string }) => {
           </h2>
         </div>
         <a
-          className="btn btn-dark rounded-5  mt-5"
+          className="btn btn-dark rounded-full  mt-5 "
           href="/"
           style={{padding:"20px 36px"}}
           
         >
-          <span className="me-2">Explore now</span>
-          <span>
+       <div className="flex justify-center items-center">
+       <span className="mr-2 inline">Explore now</span>
+          <span className="inline-block">
             <svg
               width="18px"
               height="18px"
@@ -73,6 +74,7 @@ const ItemContent = ({ image }: { image: string }) => {
               </g>
             </svg>
           </span>
+       </div>
         </a>
       </div>
       <div className="image-container mt-10  w-75">
