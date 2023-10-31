@@ -49,13 +49,13 @@ export default function App() {
 const ItemContent = ({ image }: { image: string }) => {
   return (
     <div className="relative carousel-item ">
-      <div className="px-20 py-44">
-        <div className="relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 nc-SectionHero2Item__left">
+      <div className="px-10 py-44">
+        <div className="relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 ">
           <div className="space-y-5 sm:space-y-6">
-            <span className="nc-SectionHero2Item__subheading block text-base md:text-xl text-slate-700 font-medium">
+            <span className="block text-base md:text-xl text-slate-700 font-medium">
               In this season, find the best 🔥
             </span>
-            <h2 className="nc-SectionHero2Item__heading font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl !leading-[114%] text-slate-900">
+            <h2 className=" font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl !leading-[114%] text-slate-900">
               Exclusive collection for everyone
             </h2>
           </div>
