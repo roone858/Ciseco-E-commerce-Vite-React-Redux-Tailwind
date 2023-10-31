@@ -1,15 +1,28 @@
-import greenShirt from "../../assets/green-shirt.webp";
+import { useState } from "react";
+import "./productCard.css";
 import pattern from "../../assets/pattern-1.jpg";
 import pattern2 from "../../assets/pattern-2.jpg";
 import pattern3 from "../../assets/pattern-3.jpg";
 import pattern4 from "../../assets/pattern-4.jpg";
 import pattern5 from "../../assets/pattern-5.jpg";
 
-const ProductCard = () => {
+const ProductCard = ({
+  product,
+}: {
+  product: {
+    image: string;
+    title: string;
+    category: string;
+    price: number;
+    description: string;
+    rating: { rate: number; count: number };
+  };
+}) => {
+  const [isFav, setIsFav] = useState(false);
   return (
     <div className=" nc-ProductCard relative flex flex-col bg-transparent   ">
       <a className="absolute inset-0" href="/product-detail"></a>
-      <div className="group relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 ">
+      <div className=" relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
         <a className="block" href="/product-detail">
           <div className="flex aspect-w-11 aspect-h-12 h-72 relative ">
             <img
@@ -17,7 +30,7 @@ const ProductCard = () => {
               loading="lazy"
               className="object-cover w-full h-full drop-shadow-xl"
               sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 40vw"
-              src={greenShirt}
+              src={product.image}
               style={{
                 position: "absolute",
                 height: "100%",
@@ -28,13 +41,16 @@ const ProductCard = () => {
             />
           </div>
         </a>
-        <button className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 nc-shadow-lg absolute top-3 right-3 z-10">
+        <button
+          onClick={() => setIsFav(!isFav)}
+          className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 nc-shadow-lg absolute top-3 right-3 z-10"
+        >
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
             <path
               d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
-              stroke="#111"
+              stroke={isFav ? "#ef4444" : "#111"}
               // stroke="#ef4444"
-              fill="#fff"
+              fill={isFav ? "#ef4444" : "#fff"}
               // fill="#ef4444"
               stroke-width="1.5"
               stroke-linecap="round"
@@ -42,7 +58,7 @@ const ProductCard = () => {
             ></path>
           </svg>
         </button>
-        <div className="absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
+        <div className="assets absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
           <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
             XS
           </div>
@@ -105,16 +121,18 @@ const ProductCard = () => {
         </div>
         <div>
           <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
-            Leather Gloves
+            {product.title}
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ">
-            Perfect mint green
+            {product.category}
           </p>
         </div>
         <div className="flex justify-between items-end ">
           <div className="">
             <div className="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
-              <span className="text-green-500 !leading-none">$42</span>
+              <span className="text-green-500 !leading-none">
+                ${product.price}
+              </span>
             </div>
           </div>
           <div className="flex items-center mb-0.5">
@@ -132,7 +150,7 @@ const ProductCard = () => {
               ></path>
             </svg>
             <span className="text-sm ml-1 text-slate-500 dark:text-slate-400">
-              4.9 (98 reviews)
+              {product.rating.rate}({product.rating.count} reviews)
             </span>
           </div>
         </div>

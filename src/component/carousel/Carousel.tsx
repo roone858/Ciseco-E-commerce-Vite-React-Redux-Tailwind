@@ -1,87 +1,94 @@
 import image1 from "../../assets/hero-right.webp";
 import image2 from "../../assets/hero-right-2.webp";
 import image3 from "../../assets/hero-right-3.webp";
-import Carousel from "react-bootstrap/Carousel";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay, Navigation, Pagination } from "swiper/modules";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./carousel.css";
 
-function UncontrolledExample() {
+// import required modules
+
+export default function App() {
   return (
-    <Carousel slide={true}>
-      <Carousel.Item className="carousel-item">
-        <ItemContent image={image1} />
-      </Carousel.Item>
-      <Carousel.Item className="carousel-item">
-        <ItemContent image={image2} />
-      </Carousel.Item>
-      <Carousel.Item className="carousel-item">
-        <ItemContent image={image3} />
-      </Carousel.Item>
-    </Carousel>
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        effect="fade"
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, EffectFade, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <ItemContent image={image1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemContent image={image2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ItemContent image={image3} />
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 }
 
-export default UncontrolledExample;
-
 const ItemContent = ({ image }: { image: string }) => {
   return (
-    <div
-      className="relative"
-      style={{ padding: "176px 40px" }}
-    >
-      <div className=" text relative w-75">
-        <div className="">
-          <span
-            className="block display-6 fw-bolder  "
-            style={{ color: "#334155", fontSize: 20 }}
+    <div className="relative carousel-item ">
+      <div className="px-20 py-44">
+        <div className="relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 nc-SectionHero2Item__left">
+          <div className="space-y-5 sm:space-y-6">
+            <span className="nc-SectionHero2Item__subheading block text-base md:text-xl text-slate-700 font-medium">
+              In this season, find the best 🔥
+            </span>
+            <h2 className="nc-SectionHero2Item__heading font-semibold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl !leading-[114%] text-slate-900">
+              Exclusive collection for everyone
+            </h2>
+          </div>
+          <a
+            className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-6 sm:py-5 sm:px-9  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl nc-SectionHero2Item__button dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0 "
+            href="/"
           >
-            In this season, find the best 🔥
-          </span>
-          <h2 className="fw-bolder relative  mt-4 ">
-            Exclusive collection for everyone
-          </h2>
-        </div>
-        <a
-          className="btn btn-dark rounded-full  mt-5 "
-          href="/"
-          style={{padding:"20px 36px"}}
-          
-        >
-       <div className="flex justify-center items-center">
-       <span className="mr-2 inline">Explore now</span>
-          <span className="inline-block">
-            <svg
-              width="18px"
-              height="18px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke=""
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
+            <span>Explore now</span>
+            <span>
+              <svg className="w-5 h-5 ml-2.5" viewBox="0 0 24 24" fill="none">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11ZM11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C13.125 20 15.078 19.2635 16.6177 18.0319L20.2929 21.7071C20.6834 22.0976 21.3166 22.0976 21.7071 21.7071C22.0976 21.3166 22.0976 20.6834 21.7071 20.2929L18.0319 16.6177C19.2635 15.078 20 13.125 20 11C20 6.02944 15.9706 2 11 2Z"
-                  fill="#ffffff"
-                ></path>{" "}
-              </g>
-            </svg>
-          </span>
-       </div>
-        </a>
+                  d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M22 22L20 20"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
-      <div className="image-container mt-10  w-75">
+      <div className="image-container absolute w-full top-0 right-0">
         <img
           alt="Exclusive collection for everyone"
           className=" "
-     
           src={image}
         />
       </div>

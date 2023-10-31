@@ -1,10 +1,9 @@
 import Carousel from "./component/carousel/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import NavbarComponent from "./layout/navbar/Navbar";
+import NavbarComponent from "./layout/navbar copy/Navbar";
 import DiscoverSection from "./component/discoverSection/DiscoverSection";
 import ArrivalsSection from "./component/arrivalsSection/ArrivalsSection";
-
+// import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <>
