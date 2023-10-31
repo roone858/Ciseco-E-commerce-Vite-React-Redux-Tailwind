@@ -1,10 +1,15 @@
 import greenShirt from "../../assets/green-shirt.webp";
-import test from "../../assets/clothing-color.jpg";
+import pattern from "../../assets/pattern-1.jpg";
+import pattern2 from "../../assets/pattern-2.jpg";
+import pattern3 from "../../assets/pattern-3.jpg";
+import pattern4 from "../../assets/pattern-4.jpg";
+import pattern5 from "../../assets/pattern-5.jpg";
+
 const ProductCard = () => {
   return (
-    <div className="nc-ProductCard relative flex flex-col bg-transparent   ">
+    <div className=" nc-ProductCard relative flex flex-col bg-transparent   ">
       <a className="absolute inset-0" href="/product-detail"></a>
-      <div className="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
+      <div className="group relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 ">
         <a className="block" href="/product-detail">
           <div className="flex aspect-w-11 aspect-h-12 h-72 relative ">
             <img
@@ -27,8 +32,10 @@ const ProductCard = () => {
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
             <path
               d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z"
-              stroke="#ef4444"
-              fill="#ef4444"
+              stroke="#111"
+              // stroke="#ef4444"
+              fill="#fff"
+              // fill="#ef4444"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -55,38 +62,45 @@ const ProductCard = () => {
       </div>
       <div className="space-y-4 px-2.5 pt-[1.5rem] pb-2.5">
         <div className="flex ">
-          <div
-            className="relative w-11 h-6  rounded-full overflow-hidden z-10 border cursor-pointer border-black dark:border-slate-300"
-            title="Black"
-          >
-            <img className="absolute overflow-hidden z-0 " src={test} />
+          <div className="p-[4px] border  rounded-full">
+            <div
+              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer dark:border-slate-300"
+              title="Black"
+            >
+              <img className="absolute overflow-hidden z-0 " src={pattern} />
+            </div>
           </div>
-          <div
-            className="relative w-11 h-6  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-            title="White"
-          >
-            <img
-              className="absolute overflow-hidden z-0 "
-             src={test}
-            />
+          <div className="p-[4px]">
+            <div
+              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
+              title="White"
+            >
+              <img className="absolute overflow-hidden z-0 " src={pattern2} />
+            </div>
           </div>
-          <div
-            className="relative w-11 h-6  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-            title="Orange"
-          >
-            <img className="absolute overflow-hidden z-0 " src={test} />
+          <div className="p-[4px]">
+            <div
+              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
+              title="Orange"
+            >
+              <img className="absolute overflow-hidden z-0 " src={pattern3} />
+            </div>
           </div>
-          <div
-            className="relative w-11 h-6  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-            title="Sky Blue"
-          >
-            <img className="absolute overflow-hidden z-0 " src={test} />
+          <div className="p-[4px]">
+            <div
+              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
+              title="Sky Blue"
+            >
+              <img className="absolute overflow-hidden z-0 " src={pattern4} />
+            </div>
           </div>
-          <div
-            className="relative w-11 h-6  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-            title="Natural"
-          >
-            <img className="absolute overflow-hidden z-0 " src={test} />
+          <div className="p-[4px]">
+            <div
+              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
+              title="Natural"
+            >
+              <img className="absolute overflow-hidden z-0 " src={pattern5} />
+            </div>
           </div>
         </div>
         <div>
