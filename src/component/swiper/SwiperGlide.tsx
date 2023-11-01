@@ -20,7 +20,7 @@ export default function SwiperGlide({
         pagination={{
           clickable: true,
         }}
-        className="mySwiper"
+        className="mySwiper  "
       >
         {cards.map((card: any) => (
           <SwiperSlide> {card}</SwiperSlide>

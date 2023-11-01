@@ -1,7 +1,7 @@
 import { NavigationButton } from "../swiper/SwiperGlide";
 const SectionHeaderComponent = ({ title, subTitle, swiperRef }: any) => {
   return (
-    <div className="header flex justify-between items-center pr-5 mb-5  ">
+    <div className="header flex justify-between items-center   mb-14  ">
       <h2 style={{ color: "#111827", fontSize: "36px", fontWeight: 600 }}>
         {title}
         <span style={{ color: "#6b7280" }}>

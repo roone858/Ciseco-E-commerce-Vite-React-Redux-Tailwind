@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./productCard.css";
-import pattern from "../../assets/pattern-1.jpg";
-import pattern2 from "../../assets/pattern-2.jpg";
-import pattern3 from "../../assets/pattern-3.jpg";
-import pattern4 from "../../assets/pattern-4.jpg";
-import pattern5 from "../../assets/pattern-5.jpg";
+
+import ProductSizes from "../productSizes/ProductSizes";
+import ProductPatterns from "../productPatterns/ProductPatterns";
+import ProductColors from "../productColors/ProductColors";
+import ProductActions from "../productActions/ProductActions";
 
 const ProductCard = ({
   product,
@@ -13,6 +13,7 @@ const ProductCard = ({
     image: string;
     title: string;
     category: string;
+    type: string;
     price: number;
     description: string;
     rating: { rate: number; count: number };
@@ -59,66 +60,11 @@ const ProductCard = ({
           </svg>
         </button>
         <div className="assets absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
-          <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
-            XS
-          </div>
-          <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
-            S
-          </div>
-          <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
-            M
-          </div>
-          <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
-            L
-          </div>
-          <div className="nc-shadow-lg w-10 h-10 rounded-xl bg-white hover:bg-slate-900 hover:text-white transition-colors cursor-pointer flex items-center justify-center uppercase font-semibold tracking-tight text-sm text-slate-900">
-            XL
-          </div>
+          {product.type == "clothing" ? <ProductSizes /> : <ProductActions />}
         </div>
       </div>
       <div className="space-y-4 px-2.5 pt-[1.5rem] pb-2.5">
-        <div className="flex ">
-          <div className="p-[4px] border  rounded-full">
-            <div
-              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer dark:border-slate-300"
-              title="Black"
-            >
-              <img className="absolute overflow-hidden z-0 " src={pattern} />
-            </div>
-          </div>
-          <div className="p-[4px]">
-            <div
-              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-              title="White"
-            >
-              <img className="absolute overflow-hidden z-0 " src={pattern2} />
-            </div>
-          </div>
-          <div className="p-[4px]">
-            <div
-              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-              title="Orange"
-            >
-              <img className="absolute overflow-hidden z-0 " src={pattern3} />
-            </div>
-          </div>
-          <div className="p-[4px]">
-            <div
-              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-              title="Sky Blue"
-            >
-              <img className="absolute overflow-hidden z-0 " src={pattern4} />
-            </div>
-          </div>
-          <div className="p-[4px]">
-            <div
-              className="relative w-11 h-5  rounded-full overflow-hidden z-10 border cursor-pointer border-transparent"
-              title="Natural"
-            >
-              <img className="absolute overflow-hidden z-0 " src={pattern5} />
-            </div>
-          </div>
-        </div>
+        {product.type == "sport" ? <ProductColors /> : <ProductPatterns />}
         <div>
           <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
             {product.title}

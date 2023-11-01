@@ -6,7 +6,7 @@ function NavbarComponent() {
   return (
     <div className="sticky top-0 w-full z-40 ">
       <div className="relative z-10 bg-white dark:bg-neutral-900 border-b border-slate-100 dark:border-slate-700">
-        <div className="px-10">
+        <div className=" ">
           <div className="h-20 flex justify-between">
             {/* toggle button */}
             <div className="flex items-center lg:hidden flex-1">

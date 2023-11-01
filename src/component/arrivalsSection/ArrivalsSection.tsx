@@ -13,6 +13,7 @@ const products = [
     title: "Leather Gloves ",
     category: "Perfect mint green",
     price: 42,
+    type: "clothing",
     description: "lorem lorem lorem ",
     rating: { rate: 4.9, count: 98 },
   },
@@ -21,6 +22,7 @@ const products = [
     title: "Manhattan Toy WRT ",
     category: "New design 2023",
     price: 30,
+    type: "sport",
     description: "lorem lorem lorem ",
     rating: { rate: 4.9, count: 98 },
   },
@@ -29,6 +31,7 @@ const products = [
     title: "Ella Leather Tote",
     category: "Cream pink",
     price: 145,
+    type: "clothing",
     description: "lorem lorem lorem ",
     rating: { rate: 4.9, count: 98 },
   },
@@ -36,6 +39,7 @@ const products = [
     image: sportTow,
     title: "Jump Rope Kids",
     category: "Classic green",
+    type: "sport",
     price: 68,
     description: "lorem lorem lorem ",
     rating: { rate: 4.9, count: 98 },
@@ -45,6 +49,7 @@ const products = [
     title: "Wool Cashmere Jacket",
     category: "Matte black",
     price: 12,
+    type: "clothing",
     description: "lorem lorem lorem ",
     rating: { rate: 4.9, count: 98 },
   },
@@ -56,7 +61,7 @@ const ArrivalsSection = () => {
     swiperRef.current = swiper;
   };
   return (
-    <div className=" ps-5 overflow-hidden " style={{ margin: "8rem 0rem" }}>
+    <div className="overflow-hidden " style={{ margin: "8rem 0rem" }}>
       <SectionHeaderComponent
         title="New Arrivals."
         subTitle=" REY backpacks & bags"

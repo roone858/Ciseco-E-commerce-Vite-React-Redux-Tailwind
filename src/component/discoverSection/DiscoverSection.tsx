@@ -19,7 +19,7 @@ const DiscoverSection = () => {
     swiperRef.current = swiper;
   };
   return (
-    <div className=" ps-5 overflow-hidden " style={{ margin: "8rem 0rem" }}>
+    <div className=" overflow-hidden " style={{ margin: "8rem 0rem" }}>
       <SectionHeaderComponent
         title="Discover more."
         subTitle=" Good things are waiting for you"
