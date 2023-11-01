@@ -1,12 +1,10 @@
-import { useRef } from "react";
-import SwiperGlide from "../swiper/SwiperGlide";
-import SectionHeaderComponent from "../sectionHeaderComponent/SectionHeaderComponent";
 import ProductCard from "../productCard/ProductCard";
 import greenShirt from "../../assets/green-shirt.webp";
 import sportOne from "../../assets/sport-1.webp";
 import short from "../../assets/short.webp";
 import sportTow from "../../assets/sport-2.webp";
 import bag from "../../assets/bag.webp";
+import SwiperWithHeader from "../swiperWithHeader/SwiperWithHeader";
 const products = [
   {
     image: greenShirt,
@@ -56,27 +54,16 @@ const products = [
 ];
 
 const ArrivalsSection = () => {
-  const swiperRef = useRef(null);
-  const handleSwiper = (swiper: any) => {
-    swiperRef.current = swiper;
-  };
   return (
-    <div className="overflow-hidden " style={{ margin: "8rem 0rem" }}>
-      <SectionHeaderComponent
+    <div className="overflow-hidden" >
+      <SwiperWithHeader
+        cards={products.map((product) => (
+          <ProductCard product={product} />
+        ))}
         title="New Arrivals."
         subTitle=" REY backpacks & bags"
-        swiperRef={swiperRef}
+        slidesPerView={4}
       />
-
-      <div>
-        <SwiperGlide
-          slidesPerView={4}
-          cards={products.map((product) => (
-            <ProductCard product={product} />
-          ))}
-          handleSwiper={handleSwiper}
-        />
-      </div>
     </div>
   );
 };
