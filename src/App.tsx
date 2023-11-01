@@ -10,6 +10,8 @@ import CategoriesSection from "./component/categoriesSection/CategoriesSection";
 import PromoTow from "./component/promoTow/PromoTow";
 import CollectionsSections from "./component/collectionsSection/CollectionsSections";
 import DepartmentSection from "./component/depatrmentSection/DepartmentSection";
+import PromoThree from "./component/promoThree/PromoThree";
+import TrendingSection from "./component/trendingSection/TrendingSection";
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <PromoTow />
           <CollectionsSections />
           <DepartmentSection />
+          <PromoThree />
+          <TrendingSection />
         </div>
       </div>
     </>
