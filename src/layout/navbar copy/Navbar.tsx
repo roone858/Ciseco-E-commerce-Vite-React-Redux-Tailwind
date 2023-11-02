@@ -25,8 +25,8 @@ function NavbarComponent() {
                 </svg>
               </button>
             </div>
-              {/*end toggle button */}
-              {/*logo image */}
+            {/*end toggle button */}
+            {/*logo image */}
             <div className="lg:flex-1 flex items-center">
               <a
                 className="ttnc-logo inline-block text-slate-600 flex-shrink-0"
@@ -42,10 +42,9 @@ function NavbarComponent() {
                   style={{ color: "transparent" }}
                   src={logo}
                 />
-           
               </a>
             </div>
-                {/*end logo image */}
+            {/*end logo image */}
             <div className="flex-[2] hidden lg:flex justify-center mx-4">
               <ul className="nc-Navigation flex items-center">
                 <li className="menu-item flex-shrink-0">
@@ -111,9 +110,7 @@ function NavbarComponent() {
                     </a>
                   </div>
                   <div className="invisible sub-menu absolute top-full inset-x-0 transform z-50">
-                    <div className="bg-white dark:bg-neutral-900 shadow-lg">
-                     
-                    </div>
+                    <div className="bg-white dark:bg-neutral-900 shadow-lg"></div>
                   </div>
                 </li>
                 <li
@@ -213,13 +210,7 @@ function NavbarComponent() {
                 text-opacity-90
                  group w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative"
                   type="button"
-                  aria-expanded="false"
-                  data-headlessui-state=""
-                  id="headlessui-popover-button-:R3oba:"
                 >
-                  <div className="w-3.5 h-3.5 flex items-center justify-center bg-primary-500 absolute top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
-                    <span className="mt-[1px]">3</span>
-                  </div>
                   <svg
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
@@ -259,10 +250,9 @@ function NavbarComponent() {
                       stroke-linejoin="round"
                     ></path>
                   </svg>
-                  <a
-                    className="block md:hidden absolute inset-0"
-                    href="/cart"
-                  ></a>
+                  <div className="w-3.5  h-3.5 absolute inline-flex items-center justify-center bg-sky-500  top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
+                    <span className="mt-[1px]">3</span>
+                  </div>
                 </button>
               </div>
             </div>
