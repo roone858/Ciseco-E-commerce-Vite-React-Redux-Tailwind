@@ -16,7 +16,7 @@ import "./carousel.css";
 
 export default function App() {
   return (
-    <>
+  
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -42,13 +42,13 @@ export default function App() {
           <ItemContent image={image3} />
         </SwiperSlide>
       </Swiper>
-    </>
+  
   );
 }
 
 const ItemContent = ({ image }: { image: string }) => {
   return (
-    <div className="relative carousel-item ">
+    <div className="relative carousel-item px-10 ">
       <div className="   py-44">
         <div className="  text relative z-[1] w-full max-w-3xl space-y-8 sm:space-y-14 ">
           <div className=" space-y-5 sm:space-y-6">

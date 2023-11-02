@@ -19,6 +19,7 @@ const SwiperWithHeader = ({
         title={title}
         subTitle={subTitle}
         swiperRef={swiperRef}
+        buttons={true}
       />
       <SwiperGlide
         handleSwiper={handleSwiper}

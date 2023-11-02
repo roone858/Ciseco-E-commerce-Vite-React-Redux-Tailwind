@@ -35,31 +35,31 @@ const MainBlogCard = () => {
       >
         <a
           href="#"
-          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7 text-base hover:bg-neutral-100"
+          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7  hover:bg-neutral-100"
           title="Share on Facebook"
         >
-          <i className="lab la-facebook-f"></i>
+          <i className="fa-brands fa-facebook-f text-gray-600"></i>
         </a>
         <a
           href="#"
-          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7 text-base hover:bg-neutral-100"
+          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7  hover:bg-neutral-100"
           title="Share on Twitter"
         >
-          <i className="lab la-twitter"></i>
+          <i className="fa-brands fa-twitter text-gray-600"></i>
         </a>
         <a
           href="#"
-          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7 text-base hover:bg-neutral-100"
+          className="rounded-full leading-none flex items-center justify-center  bg-white text-neutral-6000 w-7 h-7      hover:bg-neutral-100"
           title="Share on Linkedin"
         >
-          <i className="lab la-linkedin-in"></i>
+          <i className="fa-brands  fa-linkedin-in text-gray-600"></i>
         </a>
         <a
           href="#"
-          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7 text-base hover:bg-neutral-100"
+          className="rounded-full leading-none flex items-center justify-center bg-white text-neutral-6000 w-7 h-7  hover:bg-neutral-100"
           title="Share on Instagram"
         >
-          <i className="lab la-instagram"></i>
+          <i className="fa-brands  fa-instagram text-gray-600"></i>
         </a>
       </div>
       <div className=" mt-8 pr-10 flex flex-col">

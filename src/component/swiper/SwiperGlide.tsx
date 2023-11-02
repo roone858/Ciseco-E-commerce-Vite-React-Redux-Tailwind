@@ -1,15 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-
 export default function SwiperGlide({
   handleSwiper,
   cards,
-  slidesPerView
+  slidesPerView,
 }: {
   handleSwiper: (swiper: any) => void;
   cards: JSX.Element[];
-  slidesPerView:number
+  slidesPerView: number;
 }) {
   return (
     <>
@@ -26,8 +25,13 @@ export default function SwiperGlide({
           <SwiperSlide> {card}</SwiperSlide>
         ))}
 
-        <SwiperSlide> </SwiperSlide>
-        <SwiperSlide> </SwiperSlide>
+        {slidesPerView > 1 && (
+          <>
+            {" "}
+            <SwiperSlide> </SwiperSlide>
+            <SwiperSlide> </SwiperSlide>
+          </>
+        )}
       </Swiper>
     </>
   );

@@ -13,6 +13,7 @@ import DepartmentSection from "./component/depatrmentSection/DepartmentSection";
 import PromoThree from "./component/promoThree/PromoThree";
 import TrendingSection from "./component/trendingSection/TrendingSection";
 import BlogsSection from "./component/BlogsSection/BlogsSection";
+import ClientSection from "./component/clientSection/ClientSection";
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <div className="light ">
         <NavbarComponent />
         <Carousel />
-        <div className=" relative  my-24 px-10 lg:my-32">
+        <div className=" container relative px-12 my-24 lg:px-12 lg:my-32">
           <DiscoverSection />
           <ArrivalsSection />
           <FeaturesSection />
@@ -32,6 +33,7 @@ function App() {
           <PromoThree />
           <TrendingSection />
           <BlogsSection />
+          <ClientSection />
         </div>
       </div>
     </>
