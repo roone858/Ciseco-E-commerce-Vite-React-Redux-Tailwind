@@ -3,7 +3,9 @@ import shirt from "../../assets/yellow-shirt.webp";
 import ball from "../../assets/ball.webp";
 import dog from "../../assets/dog.webp";
 import oil from "../../assets/oil.webp";
-import SwiperWithHeader from "../swiperWithHeader/SwiperWithHeader";
+import SwiperGlide from "../swiper/SwiperGlide";
+import SectionHeaderComponent from "../sectionHeaderComponent/SectionHeaderComponent";
+import { useRef } from "react";
 
 const cards = [
   <DiscoverCard color={"rgb(254 252 232)"} image={shirt} />,
@@ -12,14 +14,28 @@ const cards = [
   <DiscoverCard color={"rgb(240 253 244)"} image={oil} />,
 ];
 const DiscoverSection = () => {
+  const swiperRef = useRef(null);
+  const handleSwiper = (swiper: any) => {
+    swiperRef.current = swiper;
+  };
   return (
-    <div className=" overflow-hidden ">
-      <SwiperWithHeader
-        cards={cards}
-        title="Discover more."
-        subTitle=" Good things are waiting for you"
-        slidesPerView={3}
-      />
+    <div className="overflow-hidden  mb-32 ">
+      <div className={"pr-12"}>
+        <SectionHeaderComponent
+          swiperRef={swiperRef}
+          title="Discover more. "
+          subTitle="Good things are waiting for you"
+          buttons={true}
+        />
+      </div>
+      <div className="min-w-[1400px]">
+        <SwiperGlide
+          cards={cards}
+          handleSwiper={handleSwiper}
+          slidesPerView={3}
+          emptySlides={true}
+        />
+      </div>
     </div>
   );
 };

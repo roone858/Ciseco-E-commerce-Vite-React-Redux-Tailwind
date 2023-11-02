@@ -5,10 +5,12 @@ export default function SwiperGlide({
   handleSwiper,
   cards,
   slidesPerView,
+  emptySlides,
 }: {
   handleSwiper: (swiper: any) => void;
   cards: JSX.Element[];
   slidesPerView: number;
+  emptySlides?: boolean;
 }) {
   return (
     <>
@@ -25,7 +27,7 @@ export default function SwiperGlide({
           <SwiperSlide> {card}</SwiperSlide>
         ))}
 
-        {slidesPerView > 1 && (
+        {emptySlides && (
           <>
             {" "}
             <SwiperSlide> </SwiperSlide>
