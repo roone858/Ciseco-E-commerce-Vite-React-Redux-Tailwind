@@ -12,6 +12,7 @@ import CollectionsSections from "./component/collectionsSection/CollectionsSecti
 import DepartmentSection from "./component/depatrmentSection/DepartmentSection";
 import PromoThree from "./component/promoThree/PromoThree";
 import TrendingSection from "./component/trendingSection/TrendingSection";
+import BlogsSection from "./component/BlogsSection/BlogsSection";
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <DepartmentSection />
           <PromoThree />
           <TrendingSection />
+          <BlogsSection />
         </div>
       </div>
     </>
