@@ -22,8 +22,11 @@ function App() {
       <div className="light ">
         <NavbarComponent />
         <Carousel />
-        <div className=" container relative px-12 mt-24 lg:px-12 lg:mt-32">
+      
+
           <DiscoverSection />
+        
+        <div className="  relative px-6 md:px-8 lg:px-12 mt-24  lg:mt-32">
           <ArrivalsSection />
           <FeaturesSection />
           <PromoOne />

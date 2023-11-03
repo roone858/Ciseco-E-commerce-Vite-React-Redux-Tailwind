@@ -16,12 +16,26 @@ export default function SwiperGlide({
     <>
       <Swiper
         onSwiper={handleSwiper}
-        slidesPerView={slidesPerView}
+        slidesPerView={1}
         spaceBetween={30}
         pagination={{
           clickable: true,
         }}
-        className="mySwiper  "
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: slidesPerView,
+            spaceBetween: 40,
+          },
+          // 1024: {
+          //   slidesPerView: 5,
+          //   spaceBetween: 50,
+          // },
+        }}
+        className="mySwiper"
       >
         {cards.map((card: any) => (
           <SwiperSlide> {card}</SwiperSlide>

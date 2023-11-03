@@ -19,8 +19,8 @@ const DiscoverSection = () => {
     swiperRef.current = swiper;
   };
   return (
-    <div className="overflow-hidden  mb-32 ">
-      <div className={"pr-12"}>
+    <div className="overflow-hidden relative pl-6 md:pl-8 mt-24 lg:pl-12 lg:mt-32  mb-32 ">
+      <div className={"mr-12"}>
         <SectionHeaderComponent
           swiperRef={swiperRef}
           title="Discover more. "
