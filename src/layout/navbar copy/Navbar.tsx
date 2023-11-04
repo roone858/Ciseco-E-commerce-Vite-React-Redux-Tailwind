@@ -250,7 +250,7 @@ function NavbarComponent() {
                       stroke-linejoin="round"
                     ></path>
                   </svg>
-                  <div className="w-3.5  h-3.5 absolute inline-flex items-center justify-center bg-sky-500  top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
+                  <div className=" cart w-3.5  h-3.5 absolute inline-flex items-center justify-center bg-sky-500  top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
                     <span className="mt-[1px]">3</span>
                   </div>
                 </button>

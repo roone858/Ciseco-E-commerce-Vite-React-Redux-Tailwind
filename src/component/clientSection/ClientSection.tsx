@@ -3,6 +3,15 @@ import SwiperGlide from "../swiper/SwiperGlide";
 import quotation from "../../assets/quotation.webp";
 import quotation2 from "../../assets/quotation2.webp";
 import clientSayMain from "../../assets/clientSayMain.webp";
+import clientSay1 from "../../assets/clientSay1.webp";
+import clientSay2 from "../../assets/clientSay2.webp";
+import clientSay3 from "../../assets/clientSay3.webp";
+import clientSay4 from "../../assets/clientSay4.webp";
+import clientSay5 from "../../assets/clientSay5.webp";
+import clientSay6 from "../../assets/clientSay6.jpg";
+import './clientSection.css'
+
+
 const ClientSection = () => {
   return (
     <div className="SectionClientSay relative flow-root mt-32 ">
@@ -25,7 +34,14 @@ const ClientSection = () => {
           className="mx-auto"
           src={clientSayMain}
         />
-        <div className="mt-12 lg:mt-16 relative ">
+        <div className=" images mt-12 lg:mt-16 relative ">
+          <img id="one" src={clientSay1}/>
+          <img id="two" src={clientSay2}/>
+          <img id="three" src={clientSay3}/>
+          <img id="four" src={clientSay4}/>
+          <img id="five" src={clientSay5}/>
+          <img id="six" src={clientSay6}/>
+        
           <img
             alt=""
             loading="lazy"
@@ -33,7 +49,9 @@ const ClientSection = () => {
             height="45"
             decoding="async"
             data-nimg="1"
-            className="opacity-50 md:opacity-100 absolute -mr-16 lg:mr-3 right-full top-1"
+            className="opacity-50 md:opacity-100
+             absolute -mr-16 lg:mr-3 right-full
+              top-1"
             src={quotation}
           />
           <img
@@ -43,12 +61,15 @@ const ClientSection = () => {
             height="45"
             decoding="async"
             data-nimg="1"
-            className="opacity-50 md:opacity-100 absolute -ml-16 lg:ml-3 left-full top-1"
+            className="opacity-50
+             md:opacity-100 absolute -ml-16 
+             lg:ml-3 left-full 
+             top-1"
             src={quotation2}
           />
 
           <SwiperGlide
-            handleSwiper={() => {}}
+            handleSwiper={() => { }}
             slidesPerView={1}
             cards={[<ClientQuote />, <ClientQuote />, <ClientQuote />]}
           />

@@ -1,6 +1,6 @@
 import avatar from "../../assets/avatar.webp";
 import blog from "../../assets/blog-1.webp";
-const BlogCard = () => {
+function BlogCard() {
   return (
     <div className="nc-Card13 relative flex " data-nc-id="Card13">
       <div className="flex flex-col h-full py-2">
@@ -49,8 +49,7 @@ const BlogCard = () => {
                     color: "transparent",
                   }}
                   sizes="100px"
-                  src={avatar}
-                />
+                  src={avatar} />
                 <span className="wil-avatar__name">J</span>
               </div>
               <span className="block text-neutral-6000 hover:text-black dark:text-neutral-300 dark:hover:text-white font-medium">
@@ -88,12 +87,11 @@ const BlogCard = () => {
               color: "transparent",
             }}
             sizes="400px"
-            src={blog}
-          />
+            src={blog} />
         </div>
       </a>
     </div>
   );
-};
+}
 
 export default BlogCard;
