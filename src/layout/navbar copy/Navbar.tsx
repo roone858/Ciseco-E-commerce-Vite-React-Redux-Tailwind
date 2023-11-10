@@ -3,8 +3,10 @@ import { CartIcon, SearchIcon, UserIcon } from "../../component/icons/Icons";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";
 import ShoppingCart from "../../component/Cards/shoppingCart/ShoppingCart";
+import { useState } from "react";
 
 const NavbarComponent = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="fixed top-0 w-full z-40 ">
       <div className="relative z-10 bg-white dark:bg-neutral-900 border-b border-slate-100 dark:border-slate-700">
@@ -117,7 +119,7 @@ const NavbarComponent = () => {
                 </li>
                 <li
                   className="menu-item menu-dropdown relative"
-                  data-headlessui-state=""
+              
                 >
                   <div className="h-20 flex-shrink-0 flex items-center">
                     <a
@@ -148,23 +150,23 @@ const NavbarComponent = () => {
                 <SearchIcon />
               </button>
               <div className="AvatarDropdown ">
-                <div className="relative" data-headlessui-state="">
+                <div className="relative" >
                   <button
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none flex items-center justify-center"
                     type="button"
                     aria-expanded="false"
-                    data-headlessui-state=""
-                    id="headlessui-popover-button-:R38ba:"
                   >
                     <UserIcon />
                   </button>
                 </div>
               </div>
 
-              <div tabIndex={0} className="relative group  ">
+              <div tabIndex={0} className="relative  group ">
                 <button
                   className=" text-opacity-90   w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative"
                   type="button"
+                  onClick={() => setOpen(!open)}
+                  onBlur={() => setOpen(false)}
                 >
                   <CartIcon />
                   <div className=" cart w-3.5  h-3.5 absolute inline-flex items-center justify-center bg-sky-500  top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
@@ -172,11 +174,16 @@ const NavbarComponent = () => {
                   </div>
                 </button>
 
-                <div className="   opacity-0 group-focus-within:opacity-100 duration-400 transition-all   absolute z-10 w-screen max-w-xs sm:max-w-md px-4 mt-3.5 -right-28 sm:right-0 sm:px-0  translate-y-0">
-                 <div className=" hidden duration-400 group-focus-within:block">
-
-                  <ShoppingCart />
-                 </div>
+                <div
+                  style={{ opacity: open ? "1" : "0" }}
+                  className="duration-600 transition-all  absolute z-10 w-screen max-w-xs sm:max-w-md px-4 mt-3.5 -right-28 sm:right-0 sm:px-0  translate-y-0"
+                >
+                  <div
+                    className="  duration-600 transition-all "
+                    style={{ display: open ? "block" : "none" }}
+                  >
+                    <ShoppingCart />
+                  </div>
                 </div>
               </div>
             </div>
