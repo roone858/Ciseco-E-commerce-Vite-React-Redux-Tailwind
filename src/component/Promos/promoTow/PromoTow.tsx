@@ -1,6 +1,6 @@
-import logo from "../../assets/logo.svg";
-import promo2 from "../../assets/promo2.webp";
-import moon from "../../assets/Moon.svg";
+import logo from "../../../assets/logo.svg";
+import promo2 from "../../../assets/promo2.webp";
+import moon from "../../../assets/Moon.svg";
 const PromoTow = () => {
   return (
     <div className="nc-SectionPromo2 lg:pt-10">
@@ -10,7 +10,7 @@ const PromoTow = () => {
             alt="backgroundLineSvg"
             loading="lazy"
             decoding="async"
-            data-nimg="fill"
+            
             className="absolute w-full h-full object-contain dark:opacity-5"
             src={moon}
             style={{
@@ -23,13 +23,12 @@ const PromoTow = () => {
           />
         </div>
         <div className="lg:w-[45%] max-w-lg relative">
-          <a className="ttnc-logo inline-block text-slate-600 w-28" href="/">
+          <a className=" inline-block text-slate-600 w-28" href="/">
             <img
               alt="Logo"
               width="162"
               height="46"
-              decoding="async"
-              data-nimg="1"
+           
               className="block h-8 sm:h-10 w-auto dark:hidden"
               src={logo}
             />
@@ -44,7 +43,7 @@ const PromoTow = () => {
           </span>
           <div className="flex space-x-2 sm:space-x-5 mt-6 sm:mt-12">
             <a
-              className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl dark:bg-slate-200 dark:text-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0 "
+              className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6   disabled:bg-opacity-90 bg-slate-900  hover:bg-slate-800 text-slate-50 shadow-xl dark:bg-slate-200 dark:text-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0 "
               href="/search"
             >
               Discover more
@@ -57,9 +56,6 @@ const PromoTow = () => {
             loading="lazy"
             width="851"
             height="852"
-            decoding="async"
-            data-nimg="1"
-            className=""
             sizes="(max-width: 768px) 100vw, 50vw"
             src={promo2}
           />

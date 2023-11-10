@@ -1,4 +1,4 @@
-import { BelowArrowIcon, FilterIcon, TopArrowIcon } from "../icons/Icons";
+import { BelowArrowIcon, FilterIcon, TopArrowIcon } from "../../icons/Icons";
 
 const FilterNav = ({ setToggle, toggle }:any) => {
   return (

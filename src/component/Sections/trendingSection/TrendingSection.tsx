@@ -1,10 +1,10 @@
 import { useState } from "react";
-import FilterDropMenu from "../../filterDropMenu/FilterDropMenu";
-import FilterNav from "../../filterNav/FilterNav";
+import FilterDropMenu from "../../DropdownMenus/filterDropMenu/FilterDropMenu";
+import FilterNav from "../../ChoicesList/filterNav/FilterNav";
 
 import ProductCard from "../../Cards/productCard/ProductCard";
 
-import ShowMoreSpanner from "../../spanners/ShowMoreSpanner";
+import ShowMoreSpanner from "../../Spanners/ShowMoreSpanner";
 import { useSelector } from "react-redux";
 import { State } from "../../../types";
 

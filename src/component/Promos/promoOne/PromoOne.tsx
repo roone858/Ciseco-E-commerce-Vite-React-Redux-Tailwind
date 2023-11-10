@@ -1,5 +1,5 @@
-import logo from "../../assets/logo.svg";
-import image from "../../assets/promo-one.webp";
+import logo from "../../../assets/logo.svg";
+import image from "../../../assets/promo-one.webp";
 
 const PromoOne = () => {
   return (

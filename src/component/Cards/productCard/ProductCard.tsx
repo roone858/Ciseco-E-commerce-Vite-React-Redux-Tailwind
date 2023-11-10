@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./productCard.css";
 
-import ProductSizes from "../../productSizes/ProductSizes";
-import ProductPatterns from "../../productPatterns/ProductPatterns";
-import ProductColors from "../../productColors/ProductColors";
-import ProductActions from "../../productActions/ProductActions";
-import ProductPrice from "../../productPrice/ProductPrice";
+import ProductSizes from "../../ChoicesList/productSizes/ProductSizes";
+import ProductPatterns from "../../ChoicesList/productPatterns/ProductPatterns";
+import ProductColors from "../../ChoicesList/productColors/ProductColors";
+import ProductActions from "../../ChoicesList/productActions/ProductActions";
+import ProductPrice from "../../Badges/productPrice/ProductPrice";
 import { Product } from "../../../types";
 import { HartIcon } from "../../icons/Icons";
 

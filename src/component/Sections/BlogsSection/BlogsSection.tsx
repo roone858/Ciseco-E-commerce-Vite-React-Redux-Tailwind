@@ -1,6 +1,6 @@
 import BlogCard from "../../Cards/blogCard/BlogCard";
 import MainBlogCard from "../../Cards/mainBlogCard/MainBlogCard";
-import SectionHeaderComponent from "../../sectionHeaderComponent/SectionHeaderComponent";
+import SectionHeaderComponent from "../../Others/sectionHeaderComponent/SectionHeaderComponent";
 
 const BlogsSection = () => {
   return (

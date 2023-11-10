@@ -1,5 +1,5 @@
 import React from "react";
-import SwiperWithHeader from "../../swiperWithHeader/SwiperWithHeader";
+import SwiperWithHeader from "../../Sliders/swiperWithHeader/SwiperWithHeader";
 import DepartmentCard from "../../Cards/departmentCard/DepartmentCard";
 
 const DepartmentSection = () => {

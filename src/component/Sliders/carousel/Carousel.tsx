@@ -1,6 +1,6 @@
-import image1 from "../../assets/hero-right.webp";
-import image2 from "../../assets/hero-right-2.webp";
-import image3 from "../../assets/hero-right-3.webp";
+import image1 from "../../../assets/hero-right.webp";
+import image2 from "../../../assets/hero-right-2.webp";
+import image3 from "../../../assets/hero-right-3.webp";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";

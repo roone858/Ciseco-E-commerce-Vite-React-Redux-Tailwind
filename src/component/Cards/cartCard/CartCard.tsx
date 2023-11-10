@@ -1,15 +1,15 @@
+import ProductPrice from "../../Badges/productPrice/ProductPrice";
+import image from "../../../assets/ball.webp";
+
 const CartCard = () => {
   return (
     <div className="flex py-5 last:pb-0">
       <div className="relative h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
         <img
           alt="Rey Nylon Backpack"
-          loading="lazy"
-          decoding="async"
-          data-nimg="fill"
           className="h-full w-full object-contain object-center"
           sizes="100vw"
-          src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F17.fcfa959c.png&amp;w=3840&amp;q=75"
+          src={image}
           style={{
             position: "absolute",
             height: "100%",
@@ -34,9 +34,7 @@ const CartCard = () => {
               </p>
             </div>
             <div className="mt-0.5">
-              <div className="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
-                <span className="text-green-500 !leading-none">$74</span>
-              </div>
+              <ProductPrice price={45}/>
             </div>
           </div>
         </div>
@@ -45,7 +43,7 @@ const CartCard = () => {
           <div className="flex">
             <button
               type="button"
-              className="font-medium text-primary-6000 dark:text-primary-500 "
+              className="font-medium text-sky-600 dark:text-primary-500 "
             >
               Remove
             </button>

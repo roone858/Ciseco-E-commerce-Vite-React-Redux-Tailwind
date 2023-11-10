@@ -1,4 +1,4 @@
-import DropdownButton from "../DropdownButton/DropdownButton";
+import DropdownButton from "../../Buttons/DropdownButton/DropdownButton";
 import {
   
   CurrentColorIcon,
@@ -6,7 +6,7 @@ import {
   NoteIcon,
   SizingIcon,
   SortIcon,
-} from "../icons/Icons";
+} from "../../icons/Icons";
 
 const FilterDropMenu = () => {
   return (

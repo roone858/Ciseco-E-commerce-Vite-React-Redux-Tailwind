@@ -1,5 +1,5 @@
-import ClientQuote from "../../clientQuotes/ClientQuote";
-import SwiperGlide from "../../swiper/SwiperGlide";
+import ClientQuote from "../../Others/clientQuotes/ClientQuote";
+import SwiperGlide from "../../Sliders/swiper/SwiperGlide";
 import quotation from "../../../assets/quotation.webp";
 import quotation2 from "../../../assets/quotation2.webp";
 import clientSayMain from "../../../assets/clientSayMain.webp";

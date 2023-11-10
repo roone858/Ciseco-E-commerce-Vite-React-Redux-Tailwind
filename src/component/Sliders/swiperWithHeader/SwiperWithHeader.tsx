@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import SectionHeaderComponent from "../sectionHeaderComponent/SectionHeaderComponent";
+import SectionHeaderComponent from "../../Others/sectionHeaderComponent/SectionHeaderComponent";
 import SwiperGlide from "../swiper/SwiperGlide";
 
 

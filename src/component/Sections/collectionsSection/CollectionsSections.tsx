@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import CollectionCard from "../../Cards/collectionCard/CollectionCard";
-import SwiperWithHeader from "../../swiperWithHeader/SwiperWithHeader";
+import SwiperWithHeader from "../../Sliders/swiperWithHeader/SwiperWithHeader";
 import { State } from "../../../types";
 
 const CollectionsSections = () => {

@@ -1,4 +1,4 @@
-import { NavigationButton } from "../swiper/SwiperGlide";
+import { NavigationButton } from "../../Sliders/swiper/SwiperGlide";
 const SectionHeaderComponent = ({
   title,
   subTitle,

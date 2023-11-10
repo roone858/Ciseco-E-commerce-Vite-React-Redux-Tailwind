@@ -1,5 +1,5 @@
-import moon from "../../assets/Moon.svg"
-import promo from "../../assets/promo3.webp"
+import moon from "../../../assets/Moon.svg"
+import promo from "../../../assets/promo3.webp"
 const PromoThree = () => {
   return (
     <div className="SectionPromo3 lg:pt-10">
@@ -7,9 +7,7 @@ const PromoThree = () => {
         <div className="absolute inset-0">
           <img
             alt="backgroundLineSvg"
-            loading="lazy"
-            decoding="async"
-            data-nimg="fill"
+
             className="absolute w-full h-full object-contain object-bottom dark:opacity-5"
             src={moon}
             style={{
@@ -31,7 +29,7 @@ const PromoThree = () => {
           </span>
           <ul className="space-y-4 mt-10">
             <li className="flex items-center space-x-4">
-              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs relative text-purple-800 bg-purple-100  relative">
+              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs  text-purple-800 bg-purple-100  relative">
                 01
               </span>
               <span className="font-medium text-neutral-700 dark:text-neutral-300">
@@ -39,7 +37,7 @@ const PromoThree = () => {
               </span>
             </li>
             <li className="flex items-center space-x-4">
-              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs relative text-blue-800 bg-blue-100  relative">
+              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs  text-blue-800 bg-blue-100  relative">
                 02
               </span>
               <span className="font-medium text-neutral-700 dark:text-neutral-300">
@@ -47,7 +45,7 @@ const PromoThree = () => {
               </span>
             </li>
             <li className="flex items-center space-x-4">
-              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs relative text-red-800 bg-red-100  relative">
+              <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs  text-red-800 bg-red-100  relative">
                 03
               </span>
               <span className="font-medium text-neutral-700 dark:text-neutral-300">
@@ -64,7 +62,7 @@ const PromoThree = () => {
               type="email"
             />
             <button
-              className="ttnc-ButtonCircle flex items-center justify-center rounded-full !leading-none disabled:bg-opacity-70 bg-slate-900 hover:bg-slate-800 
+              className=" flex items-center justify-center rounded-full !leading-none disabled:bg-opacity-70 bg-slate-900 hover:bg-slate-800 
         text-slate-50 absolute transform top-1/2 -translate-y-1/2 right-1  w-9 h-9  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
               type="submit"
             >
@@ -90,9 +88,6 @@ const PromoThree = () => {
             loading="lazy"
             width="751"
             height="824"
-            decoding="async"
-            data-nimg="1"
-            className=""
             sizes="(max-width: 768px) 100vw, 50vw"
             src={promo}
           />

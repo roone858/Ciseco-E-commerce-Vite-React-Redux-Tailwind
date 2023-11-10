@@ -3,8 +3,8 @@ import shirt from "../../../assets/yellow-shirt.webp";
 import ball from "../../../assets/ball.webp";
 import dog from "../../../assets/dog.webp";
 import oil from "../../../assets/oil.webp";
-import SwiperGlide from "../../swiper/SwiperGlide";
-import SectionHeaderComponent from "../../sectionHeaderComponent/SectionHeaderComponent";
+import SwiperGlide from "../../Sliders/swiper/SwiperGlide";
+import SectionHeaderComponent from "../../Others/sectionHeaderComponent/SectionHeaderComponent";
 import { useRef } from "react";
 
 const cards = [

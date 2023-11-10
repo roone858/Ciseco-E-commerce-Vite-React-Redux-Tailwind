@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { BelowArrowIcon } from "../icons/Icons";
+import { BelowArrowIcon } from "../../icons/Icons";
+import DropdownProvider from "../../Providers/dropdownProvider/DropdownProvider";
 
 const DropdownButton = ({
   icon,
@@ -10,12 +11,12 @@ const DropdownButton = ({
   list: string[];
 }) => {
   const [open, setOpen] = useState(false);
+
   return (
-    <div className="relative">
-      <div className="dropdown duration-300 ">
+    <DropdownProvider setOpen={setOpen}>
+      <div className=" duration-300 ">
         <button
           onClick={() => setOpen(!open)}
-          onBlur={() => setOpen(false)}
           tabIndex={0}
           className="flex items-center  focus:border-sky-400 focus:ring-0 justify-center px-4 py-2 text-sm rounded-full border focus:outline-none select-none  !border-primary-500 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:border-neutral-400 dark:hover:border-neutral-500"
           style={{
@@ -188,7 +189,7 @@ const DropdownButton = ({
           </div>
         </div>
       </div>
-    </div>
+    </DropdownProvider>
   );
 };
 
