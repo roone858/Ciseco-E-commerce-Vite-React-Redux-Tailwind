@@ -1,5 +1,3 @@
-
-
 const ProductColors = () => {
   return (
     <div className="flex space-x-1">

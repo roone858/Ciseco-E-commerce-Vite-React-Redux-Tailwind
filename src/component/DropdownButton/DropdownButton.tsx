@@ -29,8 +29,7 @@ const DropdownButton = ({
         <div
           style={{ display: open ? "block" : "none" }}
           className="absolute z-40 w-screen max-w-sm px-4 mt-3 left-0 sm:px-0 lg:max-w-md opacity-100 translate-y-0"
-          id="headlessui-popover-panel-:r1g:"
-          data-headlessui-state="open"
+    
         >
           <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700">
             <div className="relative flex flex-col px-5 py-6 space-y-5">

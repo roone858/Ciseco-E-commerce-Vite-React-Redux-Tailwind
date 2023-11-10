@@ -37,8 +37,8 @@ export default function SwiperGlide({
         }}
         className="mySwiper"
       >
-        {cards.map((card: any) => (
-          <SwiperSlide> {card}</SwiperSlide>
+        {cards.map((card: any, key: number) => (
+          <SwiperSlide key={key}> {card}</SwiperSlide>
         ))}
 
         {emptySlides && (
