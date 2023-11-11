@@ -1,12 +1,15 @@
 // import { useState } from "react";
-import { CartIcon, SearchIcon, UserIcon } from "../../component/icons/Icons";
+import { CartIcon, DownArrowIcon, SearchIcon, UserIcon } from "../../component/icons/Icons";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";
 import ShoppingCart from "../../component/DropdownMenus/shoppingCartMenu/ShoppingCartMenu";
 import UserDropdown from "../../component/DropdownMenus/userMenu/UserMenu";
 import NavDropdown from "../../component/Buttons/NavDropdownButton/NavDropdown";
+import { useState } from "react";
+import ResponsiveNavbar from "../responsiveNavbar/ResponsiveNavbar";
 
 const NavbarComponent = () => {
+  const [toggle, setToggle] = useState(false)
   return (
     <div className="fixed top-0 w-full z-40 ">
       <div className="relative z-10 bg-white dark:bg-neutral-900 border-b border-slate-100 dark:border-slate-700">
@@ -14,26 +17,16 @@ const NavbarComponent = () => {
           <div className="h-20 flex justify-between">
             {/* toggle button */}
             <div className="flex items-center lg:hidden flex-1">
-              <button className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-7 w-7"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+              <button onClick={() => setToggle(!toggle)} className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center">
+                <DownArrowIcon />
               </button>
+              {toggle && <ResponsiveNavbar setToggle={setToggle} />}
             </div>
             {/*end toggle button */}
             {/*logo image */}
             <div className="lg:flex-1 flex items-center">
               <a
-                className=" ttnc-logo inline-block text-slate-600 flex-shrink-0"
+                className="inline-block text-slate-600 flex-shrink-0"
                 href="/"
               >
                 <img
@@ -41,7 +34,6 @@ const NavbarComponent = () => {
                   width="162"
                   height="46"
                   className="block h-8 sm:h-10 w-auto dark:hidden"
-                  style={{ color: "transparent" }}
                   src={logo}
                 />
               </a>
@@ -89,7 +81,7 @@ const NavbarComponent = () => {
                     </a>
                   </div>
                 </li>
-                <li className="menu-item flex-shrink-0 menu-megamenu menu-megamenu--large">
+                <li className="menu-item flex-shrink-0 ">
                   <div className="h-20 flex-shrink-0 flex items-center">
                     <a
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
