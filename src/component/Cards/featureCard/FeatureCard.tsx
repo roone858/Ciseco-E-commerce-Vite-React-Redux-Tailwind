@@ -1,11 +1,16 @@
+import StepBadge from "../../Badges/stepBadge/StepBadge";
+
 const FeatureCard = ({
   image,
-  badge,
+  badgeColors,
+  badgeTitle,
   title,
   text,
 }: {
   image: string;
-  badge: string;
+  badgeColors: string;
+  badgeTitle: string;
+
   title: string;
   text: string;
 }) => {
@@ -22,9 +27,7 @@ const FeatureCard = ({
         />
       </div>
       <div className="text-center mt-auto space-y-5">
-        <span className="nc-Badge inline-flex px-2.5 py-1 rounded-full font-medium text-xs  text-red-800 bg-indigo-100  relative">
-          {badge}
-        </span>
+        <StepBadge badgeColors={badgeColors} badgeTitle={badgeTitle} />
         <h3 className="text-base font-semibold">{title}</h3>
         <span className="block text-slate-600 dark:text-slate-400 text-sm leading-6">
           {text}

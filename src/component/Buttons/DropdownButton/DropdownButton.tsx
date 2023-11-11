@@ -5,10 +5,13 @@ import DropdownProvider from "../../Providers/dropdownProvider/DropdownProvider"
 const DropdownButton = ({
   icon,
   title,
+
 }: {
   icon: JSX.Element;
   title: string;
   list: string[];
+
+
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -51,132 +54,14 @@ const DropdownButton = ({
                 </label>
               </div>
               <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="New Arrivals"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="New Arrivals"
-                  />
-                  <label
-                    htmlFor="New Arrivals"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      New Arrivals
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Sale"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Sale"
-                  />
-                  <label
-                    htmlFor="Sale"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Sale
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Backpacks"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Backpacks"
-                  />
-                  <label
-                    htmlFor="Backpacks"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Backpacks
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Travel Bags"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Travel Bags"
-                  />
-                  <label
-                    htmlFor="Travel Bags"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Travel Bags
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Laptop Sleeves"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Laptop Sleeves"
-                  />
-                  <label
-                    htmlFor="Laptop Sleeves"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Laptop Sleeves
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Organization"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Organization"
-                  />
-                  <label
-                    htmlFor="Organization"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Organization
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div className="">
-                <div className="flex text-sm sm:text-base ">
-                  <input
-                    id="Accessories"
-                    className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
-                    type="checkbox"
-                    name="Accessories"
-                  />
-                  <label
-                    htmlFor="Accessories"
-                    className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
-                  >
-                    <span className="text-slate-900 dark:text-slate-100  ">
-                      Accessories
-                    </span>
-                  </label>
-                </div>
-              </div>
+
+
+
+              <CheckBox title="test 1" />
+              <CheckBox title="test 2" />
+              <CheckBox title="test 3" />
+
+
             </div>
             <div className="p-5 bg-neutral-50 dark:bg-neutral-900 dark:border-t dark:border-neutral-800 flex items-center justify-between">
               <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium px-4 py-2 sm:px-5  ttnc-ButtonThird text-neutral-700 border border-neutral-200 dark:text-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
@@ -194,3 +79,27 @@ const DropdownButton = ({
 };
 
 export default DropdownButton;
+
+
+export const CheckBox = ({ title }: { title: string }) => {
+  return (
+    <div className="">
+      <div className="flex text-sm sm:text-base ">
+        <input
+          id="Laptop Sleeves"
+          className="focus:ring-action-primary text-primary-500 rounded border-slate-400 hover:border-slate-700 bg-transparent dark:border-slate-700 dark:hover:border-slate-500 dark:checked:bg-primary-500 focus:ring-primary-500 w-6 h-6"
+          type="checkbox"
+          name="Laptop Sleeves"
+        />
+        <label
+          htmlFor="Laptop Sleeves"
+          className="pl-2.5 sm:pl-3.5 flex flex-col flex-1 justify-center select-none"
+        >
+          <span className="text-slate-900 dark:text-slate-100  ">
+            {title}
+          </span>
+        </label>
+      </div>
+    </div>
+  )
+}

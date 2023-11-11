@@ -1,12 +1,12 @@
 // import { useState } from "react";
-import { CartIcon, DownArrowIcon, SearchIcon, UserIcon } from "../../component/icons/Icons";
-import logo from "../../assets/logo.svg";
-import "./navbar.css";
+import { useState } from "react";
+import { CartIcon, SearchIcon, ToggleIcon, UserIcon } from "../../component/icons/Icons";
 import ShoppingCart from "../../component/DropdownMenus/shoppingCartMenu/ShoppingCartMenu";
 import UserDropdown from "../../component/DropdownMenus/userMenu/UserMenu";
 import NavDropdown from "../../component/Buttons/NavDropdownButton/NavDropdown";
-import { useState } from "react";
 import ResponsiveNavbar from "../responsiveNavbar/ResponsiveNavbar";
+import logo from "../../assets/logo.svg";
+import "./navbar.css";
 
 const NavbarComponent = () => {
   const [toggle, setToggle] = useState(false)
@@ -18,7 +18,7 @@ const NavbarComponent = () => {
             {/* toggle button */}
             <div className="flex items-center lg:hidden flex-1">
               <button onClick={() => setToggle(!toggle)} className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center">
-                <DownArrowIcon />
+                <ToggleIcon />
               </button>
               {toggle && <ResponsiveNavbar setToggle={setToggle} />}
             </div>
