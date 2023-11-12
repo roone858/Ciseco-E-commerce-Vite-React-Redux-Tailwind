@@ -6,18 +6,20 @@ export default function SwiperGlide({
   cards,
   slidesPerView,
   emptySlides,
+  spaceBetween
 }: {
   handleSwiper: (swiper: any) => void;
   cards: JSX.Element[];
   slidesPerView: number;
   emptySlides?: boolean;
+  spaceBetween?: number
 }) {
   return (
     <>
       <Swiper
         onSwiper={handleSwiper}
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={spaceBetween ? spaceBetween : 30}
         pagination={{
           clickable: true,
         }}

@@ -8,6 +8,7 @@ const SwiperWithHeader = ({
   subTitle,
   slidesPerView,
   cards,
+  spaceBetween
 }: any) => {
   const swiperRef = useRef(null);
   const handleSwiper = (swiper: any) => {
@@ -22,6 +23,7 @@ const SwiperWithHeader = ({
         buttons={true}
       />
       <SwiperGlide
+        spaceBetween={spaceBetween }
         handleSwiper={handleSwiper}
         slidesPerView={slidesPerView}
         cards={cards}
