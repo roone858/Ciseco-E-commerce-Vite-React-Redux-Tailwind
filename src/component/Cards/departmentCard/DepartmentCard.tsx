@@ -13,7 +13,7 @@ const DepartmentCard = ({
     <a className="relative h-80" href="/collection">
       <div
         className={
-          "flex-1 relative rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 " +
+          "flex-1 relative   rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 " +
           bgColor
         }
       >
@@ -37,3 +37,5 @@ const DepartmentCard = ({
 };
 
 export default DepartmentCard;
+
+
