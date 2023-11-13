@@ -5,7 +5,7 @@ import Home from "./page/Home/Home";
 function App() {
   return (
     <>
-      <div className="light overflow-hidden ">
+      <div data-theme="light" className="light overflow-hidden ">
         <Home />
       </div>
     </>
