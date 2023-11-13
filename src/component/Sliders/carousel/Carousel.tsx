@@ -60,7 +60,7 @@ const ItemContent = ({ image }: { image: string }) => {
             </h2>
           </div>
           <a
-            className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-6 sm:py-5 sm:px-9  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl nc-SectionHero2Item__button dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0 "
+            className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-6 sm:py-5 sm:px-9  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900  hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl nc-SectionHero2Item__button dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0 "
             href="/"
           >
             <span>Explore now</span>
