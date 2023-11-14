@@ -17,11 +17,15 @@ import ReviewSection from "../../component/Sections/reviewSection/ReviewSection"
 import SwiperWithHeader from "../../component/Sliders/swiperWithHeader/SwiperWithHeader";
 import ProductCard from "../../component/Cards/productCard/ProductCard";
 import PromoTow from "../../component/Promos/promoTow/PromoTow";
+import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
-  const productId = 10;
+  const productId = useParams().id;
+  console.log(productId)
   const products = useSelector((state: State) => state.products.data);
-  const product = products.find((product: Product) => product.id == productId);
+  const product = products.find(
+    (product: Product) => productId && product.id == +productId
+  );
   return (
     <div className="container p-10">
       <div className="lg:flex">
@@ -123,30 +127,7 @@ const ProductDetails = () => {
                     Color:<span className="ml-1 font-semibold">Orange</span>
                   </span>
                 </label>
-                {/* pattern s*/}
-                {/* <div className="flex mt-3">
-                  <div className="relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer border-transparent">
-                    <div
-                      className="absolute inset-0.5 rounded-full overflow-hidden z-0 object-cover bg-cover"
-                      style={{
-                        backgroundImage:
-                          "url(&quot;/_next/static/media/v6.8375417b.jpg&quot;);",
-                      }}
-                    ></div>
-                  </div>
-                  <div className="relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer border-transparent">
-                    <div className="absolute inset-0.5 rounded-full overflow-hidden z-0 object-cover bg-cover"></div>
-                  </div>
-                  <div className="relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer border-primary-6000 dark:border-primary-500">
-                    <div className="absolute inset-0.5 rounded-full overflow-hidden z-0 object-cover bg-cover"></div>
-                  </div>
-                  <div className="relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer border-transparent">
-                    <div className="absolute inset-0.5 rounded-full overflow-hidden z-0 object-cover bg-cover"></div>
-                  </div>
-                  <div className="relative flex-1 max-w-[75px] h-10 sm:h-11 rounded-full border-2 cursor-pointer border-transparent">
-                    <div className="absolute inset-0.5 rounded-full overflow-hidden z-0 object-cover bg-cover"></div>
-                  </div>
-                </div> */}
+          
               </div>
             </div>
             <div className="">
@@ -234,7 +215,7 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+              <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
                 <BagIcon />
                 <span className="ml-3">Add to cart</span>
               </button>

@@ -1,4 +1,3 @@
-import React from "react";
 
 const ContactSection = () => {
   return (
@@ -101,7 +100,7 @@ const ContactSection = () => {
                   Email address
                 </label>
                 <input
-                  className="block w-full border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1"
+                  className="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1"
                   placeholder="example@example.com"
                   type="email"
                 />
@@ -114,7 +113,7 @@ const ContactSection = () => {
                   Message
                 </label>
                 <textarea
-                  className="block w-full text-sm rounded-2xl border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 mt-1"
+                  className="block w-full border text-sm rounded-2xl border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 mt-1"
                   rows={6}
                 ></textarea>
               </label>
