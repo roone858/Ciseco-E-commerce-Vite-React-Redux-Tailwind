@@ -6,13 +6,13 @@ export default function SwiperGlide({
   cards,
   slidesPerView,
   emptySlides,
-  spaceBetween
+  spaceBetween,
 }: {
   handleSwiper: (swiper: any) => void;
   cards: JSX.Element[];
   slidesPerView: number;
   emptySlides?: boolean;
-  spaceBetween?: number
+  spaceBetween?: number;
 }) {
   return (
     <>

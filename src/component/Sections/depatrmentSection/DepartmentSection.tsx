@@ -40,18 +40,18 @@ const MoreCollection = () => {
               <path
                 d="M18.0701 9.57L12.0001 3.5L5.93005 9.57"
                 stroke="currentColor"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
               <path
                 d="M12 20.4999V3.66992"
                 stroke="currentColor"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeMiterlimit="10"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </div>

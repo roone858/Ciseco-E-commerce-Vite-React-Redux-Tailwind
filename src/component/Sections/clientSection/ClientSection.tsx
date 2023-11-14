@@ -14,7 +14,7 @@ import './clientSection.css'
 
 const ClientSection = () => {
   return (
-    <div className="SectionClientSay relative flow-root mt-32 ">
+    <div className="SectionClientSay relative flow-root mt-12 ">
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         <div className="nc-Section-Heading relative flex flex-col sm:flex-row sm:items-end justify-between mb-12 lg:mb-14 text-neutral-900 dark:text-neutral-50">
           <div className="flex flex-col items-center text-center w-full mx-auto">

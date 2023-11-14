@@ -7,7 +7,8 @@ import NavDropdown from "../../component/Buttons/NavDropdownButton/NavDropdown";
 import ResponsiveNavbar from "../responsiveNavbar/ResponsiveNavbar";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";
-import Hovertemplates from "../../component/hovertemplates/Hovertemplates";
+import { Link } from "react-router-dom";
+
 
 const NavbarComponent = () => {
   const [toggle, setToggle] = useState(false)
@@ -26,9 +27,9 @@ const NavbarComponent = () => {
             {/*end toggle button */}
             {/*logo image */}
             <div className="lg:flex-1 flex items-center">
-              <a
+              <Link
                 className="inline-block text-slate-600 flex-shrink-0"
-                href="/"
+                to="/"
               >
                 <img
                   alt="Logo"
@@ -37,76 +38,60 @@ const NavbarComponent = () => {
                   className="block h-8 sm:h-10 w-auto dark:hidden"
                   src={logo}
                 />
-              </a>
+              </Link>
             </div>
             {/*end logo image */}
             <div className="flex-[2] hidden lg:flex justify-center mx-4">
               <ul className="nc-Navigation flex items-center">
                 <li className="menu-item flex-shrink-0">
                   <div className="h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/collection"
+                      to="/collection"
                     >
                       Men
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="menu-item flex-shrink-0">
                   <div className="h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/collection-2"
+                      to="/collection"
                     >
                       Women
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="menu-item flex-shrink-0">
                   <div className="h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/collection"
+                      to="/collection"
                     >
                       Beauty
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="menu-item flex-shrink-0">
                   <div className="h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/collection-2"
+                      to={"/collection"}
                     >
                       Sport
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="menu-item flex-shrink-0 ">
                   <div className="relative group h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/collection"
+                      to="/about"
                     >
-                      Templates
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="ml-1 -mr-1 h-4 w-4 text-slate-400"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </a>
-                    <div className="hidden absolute top-20 border border-b-slate-300  bg-white p-10 w-[1280px]  -left-[700px] group-hover:block">
-
-                      <Hovertemplates />
-                    </div>
+                      About us
+                  
+                    </Link>
                   </div>
                   <div className="invisible sub-menu absolute top-full inset-x-0 transform z-50">
                     <div className="bg-white dark:bg-neutral-900 shadow-lg"></div>
@@ -114,25 +99,13 @@ const NavbarComponent = () => {
                 </li>
                 <li className="menu-item menu-dropdown relative">
                   <div className="h-20 flex-shrink-0 flex items-center">
-                    <a
+                    <Link
                       className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
-                      href="/search"
+                      to="/contact"
                     >
-                      Explore
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        className="ml-1 -mr-1 h-4 w-4 text-slate-400"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </a>
+                      Contact us
+                  
+                    </Link>
                   </div>
                 </li>
               </ul>

@@ -1,22 +1,14 @@
-import moon from "../../../assets/Moon.svg"
-import promo from "../../../assets/promo3.webp"
+import moon from "../../../assets/Moon.svg";
+import promo from "../../../assets/promo3.webp";
 const PromoThree = () => {
   return (
-    <div className="SectionPromo3 lg:pt-10">
+    <div className="SectionPromo3 mt-28 lg:pt-10">
       <div className="relative flex flex-col lg:flex-row bg-slate-50 dark:bg-slate-800 rounded-2xl sm:rounded-[40px] p-4 pb-0 sm:p-5 sm:pb-0 lg:p-24">
         <div className="absolute inset-0">
           <img
             alt="backgroundLineSvg"
-
             className="absolute w-full h-full object-contain object-bottom dark:opacity-5"
             src={moon}
-            style={{
-              position: "absolute",
-              height: "100%",
-              width: "100%",
-              inset: " 0px",
-              color: "transparent",
-            }}
           />
         </div>
         <div className="lg:w-[50%] max-w-lg relative">
