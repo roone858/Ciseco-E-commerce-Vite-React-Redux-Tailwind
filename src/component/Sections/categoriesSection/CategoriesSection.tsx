@@ -38,8 +38,8 @@ const CategoriesSection = () => {
             >
               <ul className="flex  p-1 bg-white dark:bg-neutral-800 rounded-full shadow-lg overflow-x-auto hiddenScrollbar">
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
-                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
+                  <button className="block font-medium whitespace-nowrap px-1 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
+                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <FemaleIcon />
                       </span>
@@ -48,8 +48,8 @@ const CategoriesSection = () => {
                   </button>
                 </li>
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full bg-slate-900 text-slate-50 focus:outline-none">
-                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
+                  <button className="block font-medium whitespace-nowrap px-1.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full bg-slate-900 text-slate-50 focus:outline-none">
+                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <MaleIcon />
                       </span>
@@ -58,8 +58,8 @@ const CategoriesSection = () => {
                   </button>
                 </li>
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
-                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
+                  <button className="block font-medium whitespace-nowrap px-1 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
+                    <div className="flex items-center justify-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <KidIcon />
                       </span>
@@ -68,7 +68,7 @@ const CategoriesSection = () => {
                   </button>
                 </li>
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
+                  <button className="block font-medium whitespace-nowrap px-1 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
                     <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <SportIcon />
@@ -78,7 +78,7 @@ const CategoriesSection = () => {
                   </button>
                 </li>
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
+                  <button className="block font-medium whitespace-nowrap px-1 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
                     <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <BeautyIcon />
@@ -88,7 +88,7 @@ const CategoriesSection = () => {
                   </button>
                 </li>
                 <li className="nc-NavItem2 relative" data-nc-id="NavItem2">
-                  <button className="block font-medium whitespace-nowrap px-3.5 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
+                  <button className="block font-medium whitespace-nowrap px-1 py-2 text-sm sm:px-7 sm:py-3 capitalize rounded-full text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 hover:text-slate-900  focus:outline-none">
                     <div className="flex items-center justify-center space-x-1.5 sm:space-x-2.5 text-xs sm:text-sm ">
                       <span className="inline-block">
                         <JewelryIcon />

@@ -29,7 +29,7 @@ const ProductDetails = () => {
                 }}
               />
             </div>
-            <div className="absolute top-3 left-3 px-2.5 py-1.5 text-xs bg-white dark:bg-slate-900 nc-shadow-lg rounded-full flex items-center justify-center text-slate-700 text-slate-900 dark:text-slate-300">
+            <div className="absolute top-3 left-3 px-2.5 py-1.5 text-xs bg-white dark:bg-slate-900 nc-shadow-lg rounded-full flex items-center justify-center text-slate-900 dark:text-slate-300">
               <NewIcon />
               <span className="ml-1 leading-none">New in</span>
             </div>
