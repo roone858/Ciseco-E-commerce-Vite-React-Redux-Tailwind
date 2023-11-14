@@ -3,7 +3,7 @@ import image from "../../../assets/promo-one.webp";
 
 const PromoOne = () => {
   return (
-    <div className="mt-32   relative flex flex-col lg:flex-row items-center ">
+    <div className="mt-28   relative flex flex-col lg:flex-row items-center ">
       <div className="relative flex-shrink-0 mb-16 lg:mb-0 lg:mr-10 lg:w-2/5">
         <a className="ttnc-logo inline-block text-slate-600 w-28" href="/">
           <img
