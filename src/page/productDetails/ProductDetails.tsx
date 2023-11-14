@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import CollapsePlus from "../../component/Buttons/collapsePlus/CollapsePlus";
 import {
   BagIcon,
@@ -11,22 +12,26 @@ import {
   ShippingIcon,
   StarIcon,
 } from "../../component/icons/Icons";
+import { Product, State } from "../../types";
+import ReviewSection from "../../component/Sections/reviewSection/ReviewSection";
+import SwiperWithHeader from "../../component/Sliders/swiperWithHeader/SwiperWithHeader";
+import ProductCard from "../../component/Cards/productCard/ProductCard";
+import PromoTow from "../../component/Promos/promoTow/PromoTow";
 
 const ProductDetails = () => {
+  const productId = 10;
+  const products = useSelector((state: State) => state.products.data);
+  const product = products.find((product: Product) => product.id == productId);
   return (
-    <div>
+    <div className="container p-10">
       <div className="lg:flex">
         <div className="w-full lg:w-[55%] ">
           <div className="relative">
-            <div className="aspect-w-16 aspect-h-16 relative">
+            <div className="aspect-w-16  aspect-h-16 relative">
               <img
                 alt="product detail 1"
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
                 className="w-full rounded-2xl object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-                src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdetail1.38019683.jpg&amp;w=3840&amp;q=75"
+                src={product?.image}
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -41,18 +46,15 @@ const ProductDetails = () => {
               <span className="ml-1 leading-none">New in</span>
             </div>
             <button className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 nc-shadow-lg absolute right-3 top-3 ">
-       <HartIcon isFav={true} />
+              <HartIcon isFav={true} />
             </button>
           </div>
           <div className="grid grid-cols-2 gap-3 mt-3 sm:gap-6 sm:mt-6 xl:gap-8 xl:mt-8">
             <div className="aspect-w-11 xl:aspect-w-10 2xl:aspect-w-11 aspect-h-16 relative">
               <img
                 alt="product detail 1"
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
+                src={product?.images[1]}
                 className="w-full rounded-2xl object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -67,8 +69,7 @@ const ProductDetails = () => {
                 alt="product detail 1"
                 loading="lazy"
                 className="w-full rounded-2xl object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-                src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdetail3.e0a5aca4.jpg&amp;w=3840&amp;q=75"
+                src={product?.images[0]}
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -359,8 +360,54 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <div className="mt-12 sm:mt-16 space-y-10 sm:space-y-16">
+        <DetailsComponent />
+        <hr className="border-slate-200 dark:border-slate-700" />
+        <ReviewSection />
+        <hr className="border-slate-200 dark:border-slate-700" />
+        <SwiperWithHeader
+          title="Customers also purchased"
+          subTitle=""
+          slidesPerView={4}
+          cards={products?.slice(0, 5).map((product: Product) => (
+            <ProductCard product={product} />
+          ))}
+        />
+        <hr className="border" />
+        <PromoTow />
+      </div>
     </div>
   );
 };
 
 export default ProductDetails;
+
+export const DetailsComponent = () => {
+  return (
+    <div className="">
+      <h2 className="text-2xl font-semibold">Product Details</h2>
+      <div className="prose prose-sm sm:prose text-slate-700 sm:max-w-4xl mt-7">
+        <p>
+          The patented eighteen-inch hardwood Arrowhead deck --- finely mortised
+          in, makes this the strongest and most rigid canoe ever built. You
+          cannot buy a canoe that will afford greater satisfaction.
+        </p>
+        <p className="my-4">
+          The St. Louis Meramec Canoe Company was founded by Alfred Wickett in
+          1922. Wickett had previously worked for the Old Town Canoe Co from
+          1900 to 1914. Manufacturing of the classic wooden canoes in Valley
+          Park, Missouri ceased in 1978.
+        </p>
+        <ul className="list-disc list-inside leading-7 pl-7 mt-5 ">
+          <li>Regular fit, mid-weight t-shirt</li>
+          <li>Natural color, 100% premium combed organic cotton</li>
+          <li>
+            Quality cotton grown without the use of herbicides or pesticides -
+            GOTS certified
+          </li>
+          <li>Soft touch water based printed in the USA</li>
+        </ul>
+      </div>
+    </div>
+  );
+};

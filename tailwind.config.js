@@ -8,6 +8,9 @@ export default {
   daisyui: {
     themes: ["light", "dark", "cupcake"],
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   // eslint-disable-next-line no-undef
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/aspect-ratio")],
 };
