@@ -1,5 +1,5 @@
 import { StarIcon } from "../../icons/Icons";
-
+// import avatar from ""
 const ReviewCard = () => {
   return (
     <div className=" flex flex-col ">
@@ -9,7 +9,7 @@ const ReviewCard = () => {
             <img
               alt="Cody Fisher"
               className="absolute inset-0 w-full h-full object-cover rounded-full"
-              src={""}
+              src={"../src/assets/customers/1.png"}
             />
             <span className="wil-avatar__name">C</span>
           </div>

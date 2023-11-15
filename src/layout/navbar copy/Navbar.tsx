@@ -1,6 +1,12 @@
 // import { useState } from "react";
 import { useState } from "react";
-import { CartIcon, SearchIcon, ToggleIcon, UserIcon } from "../../component/icons/Icons";
+import {
+  CartIcon,
+  LoginIcon,
+  SearchIcon,
+  ToggleIcon,
+  UserIcon,
+} from "../../component/icons/Icons";
 import ShoppingCart from "../../component/DropdownMenus/shoppingCartMenu/ShoppingCartMenu";
 import UserDropdown from "../../component/DropdownMenus/userMenu/UserMenu";
 import NavDropdown from "../../component/Buttons/NavDropdownButton/NavDropdown";
@@ -8,10 +14,12 @@ import ResponsiveNavbar from "../responsiveNavbar/ResponsiveNavbar";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import { State } from "../../types";
 
 const NavbarComponent = () => {
-  const [toggle, setToggle] = useState(false)
+  const login = useSelector((state: State) => state.login);
+  const [toggle, setToggle] = useState(false);
   return (
     <div className="fixed top-0 w-full z-40 ">
       <div className="relative z-10 bg-white dark:bg-neutral-900 border-b border-slate-100 dark:border-slate-700">
@@ -19,7 +27,10 @@ const NavbarComponent = () => {
           <div className="h-20 flex justify-between">
             {/* toggle button */}
             <div className="flex items-center lg:hidden flex-1">
-              <button onClick={() => setToggle(!toggle)} className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center">
+              <button
+                onClick={() => setToggle(!toggle)}
+                className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center"
+              >
                 <ToggleIcon />
               </button>
               {toggle && <ResponsiveNavbar setToggle={setToggle} />}
@@ -90,7 +101,6 @@ const NavbarComponent = () => {
                       to="/about"
                     >
                       About us
-                  
                     </Link>
                   </div>
                   <div className="invisible sub-menu absolute top-full inset-x-0 transform z-50">
@@ -104,7 +114,6 @@ const NavbarComponent = () => {
                       to="/contact"
                     >
                       Contact us
-                  
                     </Link>
                   </div>
                 </li>
@@ -115,7 +124,13 @@ const NavbarComponent = () => {
                 <SearchIcon />
               </button>
 
-              <NavDropdown icon={<UserIcon />} list={<UserDropdown />} />
+              {login.isLoggedIn ? (
+                <NavDropdown icon={<UserIcon />} list={<UserDropdown user={login.user} />} />
+              ) : (
+                <Link to={"/login"} className="hidden lg:flex w-10 h-10 sm:w-12 sm:h-12 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none items-center justify-center">
+                  <LoginIcon />
+                </Link>
+              )}
               <NavDropdown
                 icon={
                   <>

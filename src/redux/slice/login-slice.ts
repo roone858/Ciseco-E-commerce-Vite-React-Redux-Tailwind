@@ -1,23 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LoginState } from '../../types/type';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Customer, LoginState } from "../../types";
 
 const initialState: LoginState = {
-  username: null,
+  user: null,
   isLoggedIn: false,
   isLoading: false,
   error: null,
 };
 
 const loginSlice = createSlice({
-  name: 'login',
+  name: "login",
   initialState,
   reducers: {
     loginRequest: (state) => {
       state.isLoading = true;
       state.error = null;
     },
-    loginSuccess: (state, action: PayloadAction<string>) => {
-      state.username = action.payload;
+    loginSuccess: (state, action: PayloadAction<Customer>) => {
+      state.user = action.payload;
       state.isLoggedIn = true;
       state.isLoading = false;
       state.error = null;
@@ -27,7 +27,7 @@ const loginSlice = createSlice({
       state.error = action.payload;
     },
     logout: (state) => {
-      state.username = null;
+      state.user = null;
       state.isLoggedIn = false;
       state.isLoading = false;
       state.error = null;

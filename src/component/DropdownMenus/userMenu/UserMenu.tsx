@@ -1,9 +1,8 @@
-const UserDropdown = () => {
+import { Customer } from "../../../types";
+
+const UserDropdown = ({ user }: { user: Customer | null }) => {
   return (
-    <div
-      className="absolute z-10 w-screen max-w-[260px] px-4 mt-3.5 -right-10 sm:right-0 sm:px-0 opacity-100 translate-y-0"
-      data-headlessui-state="open"
-    >
+    <div className="absolute z-10 w-screen max-w-[260px] px-4 -right-10 sm:right-0 sm:px-0 opacity-100 translate-y-0">
       <div className="overflow-hidden rounded-3xl shadow-lg ring-1 ring-black ring-opacity-5">
         <div className="relative grid grid-cols-1 gap-6 bg-white dark:bg-neutral-800 py-7 px-6">
           <div className="flex items-center space-x-3">
@@ -15,7 +14,7 @@ const UserDropdown = () => {
                 data-nimg="fill"
                 className="absolute inset-0 w-full h-full object-cover rounded-full"
                 sizes="100px"
-                src="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FImage-8.a9a0d423.png&amp;w=3840&amp;q=75"
+                src={"src/assets/customers/" + user?.image}
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -27,8 +26,10 @@ const UserDropdown = () => {
               <span className="wil-avatar__name">J</span>
             </div>
             <div className="flex-grow">
-              <h4 className="font-semibold">Eden Smith</h4>
-              <p className="text-xs mt-0.5">Los Angeles, CA</p>
+              <h4 className="font-semibold">{user?.name}</h4>
+              <p className="text-xs mt-0.5">
+                {user?.address.city}, {user?.address.street}
+              </p>
             </div>
           </div>
           <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
@@ -170,10 +171,8 @@ const UserDropdown = () => {
               <button
                 className="bg-teal-600
           relative inline-flex h-[22px] w-[42px] shrink-0 cursor-pointer rounded-full border-4 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
-          
                 role="switch"
                 type="button"
-           
                 aria-checked="false"
                 data-headlessui-state=""
               >
