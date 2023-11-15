@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavbarComponent />
-        <div className="light overflow-hidden  px-12 ">
+        <div className="light overflow-hidden   ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
