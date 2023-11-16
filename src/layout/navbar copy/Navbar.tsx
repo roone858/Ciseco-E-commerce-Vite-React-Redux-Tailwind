@@ -19,6 +19,7 @@ import { State } from "../../types";
 
 const NavbarComponent = () => {
   const login = useSelector((state: State) => state.login);
+  const cart = useSelector((state: State) => state.cart);
   const [toggle, setToggle] = useState(false);
   return (
     <div className="fixed top-0 w-full z-40 ">
@@ -143,7 +144,7 @@ const NavbarComponent = () => {
                     {" "}
                     <CartIcon />
                     <div className=" cart w-3.5  h-3.5 absolute inline-flex items-center justify-center bg-sky-500  top-1.5 right-1.5 rounded-full text-[10px] leading-none text-white font-medium">
-                      <span className="mt-[1px]">3</span>
+                      <span className="mt-[1px]">{cart.items.length}</span>
                     </div>
                   </>
                 }

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CollapsePlus from "../../component/Buttons/collapsePlus/CollapsePlus";
 import {
   BagIcon,
@@ -10,6 +10,7 @@ import {
   RefundIcon,
   ReturnIcon,
   ShippingIcon,
+  SpannerIcon,
   StarIcon,
 } from "../../component/icons/Icons";
 import { Product, State } from "../../types";
@@ -18,15 +19,33 @@ import SwiperWithHeader from "../../component/Sliders/swiperWithHeader/SwiperWit
 import ProductCard from "../../component/Cards/productCard/ProductCard";
 import PromoTow from "../../component/Promos/promoTow/PromoTow";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import NewBadge from "../../component/Badges/newBadge/NewBadge";
+import { addItem } from "../../redux/slice/shoppingCart-slice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({ size: "", color: "", count: 1 });
   const productId = useParams().id;
   const products = useSelector((state: State) => state.products.data);
   const product = products.find(
     (product: Product) => productId && product.id == +productId
   );
+  const [loading, setLoading] = useState(false);
+
+  const getLoading = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Adjust the delay time as needed
+  };
+  useEffect(() => {
+    setData({
+      size: product?.sizes.find((size) => size) || " ",
+      color: product?.colors.find((size) => size) || " ",
+      count: 1,
+    });
+  }, []);
   return (
     <div className="container p-10 mt-16">
       <div className="lg:flex">
@@ -95,7 +114,9 @@ const ProductDetails = () => {
               <div className="flex items-center mt-5 space-x-4 sm:space-x-5">
                 <div className="">
                   <div className="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-3 text-lg font-semibold">
-                    <span className="text-green-500 !leading-none">$112</span>
+                    <span className="text-green-500 !leading-none">
+                      ${product?.price}
+                    </span>
                   </div>
                 </div>
                 <div className="h-7 border-l border-slate-300 dark:border-slate-700"></div>
@@ -114,10 +135,7 @@ const ProductDetails = () => {
                     </div>
                   </a>
                   <span className="hidden sm:block mx-2.5">·</span>
-                  <div className="hidden sm:flex items-center text-sm">
-                    <NewIcon />
-                    <span className="ml-1 leading-none">New in</span>
-                  </div>
+                  <NewBadge />
                 </div>
               </div>
             </div>
@@ -153,9 +171,12 @@ const ProductDetails = () => {
                 </div>
                 <div className="grid grid-cols-5 sm:grid-cols-7 gap-2 mt-3">
                   {product?.sizes
-                    ? product?.sizes.map((size: string) =>
+                    ? product?.sizes.map((size: string, index: number) =>
                         size ? (
-                          <div onClick={() => setData({ ...data, size: size })}>
+                          <div
+                            key={index}
+                            onClick={() => setData({ ...data, size: size })}
+                          >
                             {" "}
                             <AvailableSize
                               size={size}
@@ -163,7 +184,7 @@ const ProductDetails = () => {
                             />
                           </div>
                         ) : (
-                          <UnavailableSize size={size} />
+                          <UnavailableSize key={index} size={size} />
                         )
                       )
                     : ""}
@@ -198,9 +219,31 @@ const ProductDetails = () => {
                   </div>
                 </div>
               </div>
-              <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  Buttonsky disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0">
-                <BagIcon />
-                <span className="ml-3">Add to cart</span>
+              <button
+                onClick={() => {
+                  product &&
+                    dispatch(
+                      addItem({
+                        id: "0",
+                        productId: product.id,
+                        price: product.price,
+                        color: data.color,
+                        count: data.count,
+                        size: data.size,
+                      })
+                    );
+                  getLoading();
+                }}
+                className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  Buttonsky disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0"
+              >
+                {loading ? (
+                  <SpannerIcon />
+                ) : (
+                  <>
+                    <BagIcon />
+                    <span className="ml-3">Add to cart</span>
+                  </>
+                )}
               </button>
             </div>
             <hr className=" 2xl:!my-10 border-slate-200 dark:border-slate-700" />

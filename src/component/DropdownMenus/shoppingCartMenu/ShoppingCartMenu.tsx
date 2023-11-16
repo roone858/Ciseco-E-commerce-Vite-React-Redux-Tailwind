@@ -1,17 +1,19 @@
+import { useSelector } from "react-redux";
 import DarkButton from "../../Buttons/DarkButton/DarkButton";
 import CartCard from "../../Cards/cartCard/CartCard";
+import { State } from "../../../types";
 
 const ShoppingCart = () => {
+  const cart = useSelector((state: State) => state.cart);
   return (
     <div className="overflow-hidden   duration-500 rounded-2xl shadow-lg  ring-1 ring-black/5 dark:ring-white/10">
       <div className="  relative bg-white dark:bg-neutral-800">
         <div className="max-h-[60vh] p-5 overflow-y-auto  no-scrollbar">
           <h3 className="text-xl font-semibold">Shopping cart</h3>
           <div className="divide-y  divide-slate-100 dark:divide-slate-700">
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
+            {cart.items.map((item) => (
+              <CartCard item={item} />
+            ))}
           </div>
         </div>
         <div className="bg-neutral-50 dark:bg-slate-900 p-5">
@@ -22,7 +24,7 @@ const ShoppingCart = () => {
                 Shipping and taxes calculated at checkout.
               </span>
             </span>
-            <span className="">$299.00</span>
+            <span className="">${cart.total}</span>
           </p>
           <div className="flex space-x-2 mt-5">
             <DarkButton />

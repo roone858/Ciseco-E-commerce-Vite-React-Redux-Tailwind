@@ -7,7 +7,10 @@ const ProductPatterns = () => {
       >
         <div
           className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
-          style={{ backgroundImage: 'url("src/assets/pattern-1.jpg")' }}
+          style={{
+            backgroundImage:
+              'url("http://127.0.0.1:5173/src/assets/pattern-1.jpg")',
+          }}
         ></div>
       </div>
       <div
@@ -16,7 +19,10 @@ const ProductPatterns = () => {
       >
         <div
           className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
-          style={{ backgroundImage: 'url("src/assets/pattern-2.jpg")' }}
+          style={{
+            backgroundImage:
+              'url("http://127.0.0.1:5173/src/assets/pattern-2.jpg")',
+          }}
         ></div>
       </div>
       <div
@@ -25,7 +31,10 @@ const ProductPatterns = () => {
       >
         <div
           className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
-          style={{ backgroundImage: 'url("src/assets/pattern-3.jpg")' }}
+          style={{
+            backgroundImage:
+              'url("http://127.0.0.1:5173/src/assets/pattern-3.jpg")',
+          }}
         ></div>
       </div>
       <div
@@ -34,7 +43,10 @@ const ProductPatterns = () => {
       >
         <div
           className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
-          style={{ backgroundImage: 'url("src/assets/pattern-4.jpg")' }}
+          style={{
+            backgroundImage:
+              'url("http://127.0.0.1:5173/src/assets/pattern-4.jpg")',
+          }}
         ></div>
       </div>
       <div
@@ -43,7 +55,10 @@ const ProductPatterns = () => {
       >
         <div
           className="absolute inset-0.5 rounded-full overflow-hidden z-0 bg-cover"
-          style={{ backgroundImage: 'url("src/assets/pattern-5.jpg")' }}
+          style={{
+            backgroundImage:
+              'url("http://127.0.0.1:5173/src/assets/pattern-5.jpg")',
+          }}
         ></div>
       </div>
     </div>

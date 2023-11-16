@@ -37,7 +37,18 @@ export interface Customer {
   };
   phone: string;
 }
-
+export interface CartItem {
+  id: string;
+  productId: number;
+  price: number;
+  size: string;
+  color: string;
+  count: number;
+}
+export interface CartState {
+  items: CartItem[];
+  total: number;
+}
 export interface LoginState {
   user: null | Customer;
   isLoggedIn: boolean;
@@ -46,6 +57,7 @@ export interface LoginState {
 }
 export interface State {
   products: { data: Product[]; isLoading: boolean; error: any };
+  cart: CartState;
   login: LoginState;
   customers: { data: Customer[]; isLoading: boolean; error: any };
 }
