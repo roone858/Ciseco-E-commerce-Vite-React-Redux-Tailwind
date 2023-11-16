@@ -1,6 +1,10 @@
 import { Customer } from "../../../types";
+import { LogoutIcon } from "../../icons/Icons";
 
 const UserDropdown = ({ user }: { user: Customer | null }) => {
+  const logOut = () => {
+    localStorage.removeItem("login");
+  };
   return (
     <div className="absolute z-10 w-screen max-w-[260px] px-4 -right-10 sm:right-0 sm:px-0 opacity-100 translate-y-0">
       <div className="overflow-hidden rounded-3xl shadow-lg ring-1 ring-black ring-opacity-5">
@@ -14,7 +18,9 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
                 data-nimg="fill"
                 className="absolute inset-0 w-full h-full object-cover rounded-full"
                 sizes="100px"
-                src={"src/assets/customers/" + user?.image}
+                src={
+                  "http://127.0.0.1:5173/src/assets/customers/" + user?.image
+                }
                 style={{
                   position: "absolute",
                   height: "100%",
@@ -129,62 +135,6 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             </div>
           </a>
           <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-          <div className="flex items-center justify-between p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-            <div className="flex items-center">
-              <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.0001 7.88989L10.9301 9.74989C10.6901 10.1599 10.8901 10.4999 11.3601 10.4999H12.6301C13.1101 10.4999 13.3001 10.8399 13.0601 11.2499L12.0001 13.1099"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                  <path
-                    d="M8.30011 18.0399V16.8799C6.00011 15.4899 4.11011 12.7799 4.11011 9.89993C4.11011 4.94993 8.66011 1.06993 13.8001 2.18993C16.0601 2.68993 18.0401 4.18993 19.0701 6.25993C21.1601 10.4599 18.9601 14.9199 15.7301 16.8699V18.0299C15.7301 18.3199 15.8401 18.9899 14.7701 18.9899H9.26011C8.16011 18.9999 8.30011 18.5699 8.30011 18.0399Z"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                  <path
-                    d="M8.5 22C10.79 21.35 13.21 21.35 15.5 22"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium ">Dark theme</p>
-              </div>
-            </div>
-            <div className="inline-flex">
-              <span className="sr-only">Enable dark mode</span>
-              <button
-                className="bg-teal-600
-          relative inline-flex h-[22px] w-[42px] shrink-0 cursor-pointer rounded-full border-4 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
-                role="switch"
-                type="button"
-                aria-checked="false"
-                data-headlessui-state=""
-              >
-                <span className="sr-only">Enable dark mode</span>
-                <span
-                  aria-hidden="true"
-                  className="translate-x-0
-            pointer-events-none inline-block h-[14px] w-[14px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
-                ></span>
-              </button>
-            </div>
-          </div>
           <a
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
             href="/"
@@ -246,39 +196,12 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             </div>
           </a>
           <a
+            href="/"
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            href="/#"
+            onClick={logOut}
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.90002 7.55999C9.21002 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.24002 20.08 8.91002 16.54"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-                <path
-                  d="M15 12H3.62"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-                <path
-                  d="M5.85 8.6499L2.5 11.9999L5.85 15.3499"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </svg>
+              <LogoutIcon />
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium ">Log out</p>

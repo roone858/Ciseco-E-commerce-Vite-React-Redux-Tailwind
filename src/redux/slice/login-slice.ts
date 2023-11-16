@@ -1,12 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Customer, LoginState } from "../../types";
 
-const initialState: LoginState = {
-  user: null,
-  isLoggedIn: false,
-  isLoading: false,
-  error: null,
-};
+const initialState: LoginState = checkLocalStorage();
 
 const loginSlice = createSlice({
   name: "login",
@@ -39,3 +34,15 @@ export const { loginRequest, loginSuccess, loginFailure, logout } =
   loginSlice.actions;
 
 export default loginSlice.reducer;
+
+function checkLocalStorage () {
+  const loginStorage = localStorage.getItem("login");
+  if (loginStorage) return JSON.parse(loginStorage);
+  else
+    return {
+      user: null,
+      isLoggedIn: false,
+      isLoading: false,
+      error: null,
+    };
+}

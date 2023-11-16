@@ -9,9 +9,13 @@ export interface Product {
   rating: { rate: number; count: number } | number;
   stock: number;
   brand: string;
+  sizes: string[];
+  colors: string[];
   category: string;
+  subCategory: string;
   thumbnail: string;
   images: string[];
+  highlights: string[];
   feature: string;
 }
 export interface Customer {

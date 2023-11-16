@@ -18,16 +18,17 @@ import SwiperWithHeader from "../../component/Sliders/swiperWithHeader/SwiperWit
 import ProductCard from "../../component/Cards/productCard/ProductCard";
 import PromoTow from "../../component/Promos/promoTow/PromoTow";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 const ProductDetails = () => {
+  const [data, setData] = useState({ size: "", color: "", count: 1 });
   const productId = useParams().id;
-  console.log(productId)
   const products = useSelector((state: State) => state.products.data);
   const product = products.find(
     (product: Product) => productId && product.id == +productId
   );
   return (
-    <div className="container p-10">
+    <div className="container p-10 mt-16">
       <div className="lg:flex">
         <div className="w-full lg:w-[55%] ">
           <div className="relative">
@@ -89,7 +90,7 @@ const ProductDetails = () => {
           <div className="space-y-7 2xl:space-y-8">
             <div>
               <h2 className="text-2xl sm:text-3xl font-semibold">
-                Heavy Weight Shoes
+                {product?.title}
               </h2>
               <div className="flex items-center mt-5 space-x-4 sm:space-x-5">
                 <div className="">
@@ -124,10 +125,12 @@ const ProductDetails = () => {
               <div>
                 <label htmlFor="">
                   <span className="text-sm font-medium">
-                    Color:<span className="ml-1 font-semibold">Orange</span>
+                    Color:
+                    <span className="ml-1 font-semibold">
+                      {product?.colors ? product?.colors[0] : "Orange"}
+                    </span>
                   </span>
                 </label>
-          
               </div>
             </div>
             <div className="">
@@ -135,61 +138,35 @@ const ProductDetails = () => {
                 <div className="flex justify-between font-medium text-sm">
                   <label htmlFor="">
                     <span className="">
-                      Size:<span className="ml-1 font-semibold">XS</span>
+                      Size:
+                      <span className="ml-1 font-semibold">{data.size}</span>
                     </span>
                   </label>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href="##"
-                    className="text-primary-6000 hover:text-primary-500"
+                    className="text-sky-6000 hover:text-sky-500"
                   >
                     See sizing chart
                   </a>
                 </div>
                 <div className="grid grid-cols-5 sm:grid-cols-7 gap-2 mt-3">
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer bg-primary-6000 border-primary-6000 text-white hover:bg-primary-6000"
-                  >
-                    XS
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    S
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    M
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    L
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    XL
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 text-opacity-20 dark:text-opacity-20 cursor-not-allowed border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    2XL
-                  </div>
-                  <div
-                    className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
-                text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 text-opacity-20 dark:text-opacity-20 cursor-not-allowed border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
-                  >
-                    3XL
-                  </div>
+                  {product?.sizes
+                    ? product?.sizes.map((size: string) =>
+                        size ? (
+                          <div onClick={() => setData({ ...data, size: size })}>
+                            {" "}
+                            <AvailableSize
+                              size={size}
+                              active={size == data.size ? true : false}
+                            />
+                          </div>
+                        ) : (
+                          <UnavailableSize size={size} />
+                        )
+                      )
+                    : ""}
                 </div>
               </div>
             </div>
@@ -200,22 +177,28 @@ const ProductDetails = () => {
                     <button
                       className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 focus:outline-none hover:border-neutral-700 dark:hover:border-neutral-400 disabled:hover:border-neutral-400 dark:disabled:hover:border-neutral-500 disabled:opacity-50 disabled:cursor-default"
                       type="button"
+                      onClick={() =>
+                        setData({ ...data, count: data.count - 1 })
+                      }
                     >
                       <MinusIcon />
                     </button>
                     <span className="select-none block flex-1 text-center leading-none">
-                      1
+                      {data.count}
                     </span>
                     <button
                       className="w-8 h-8 rounded-full flex items-center justify-center border border-neutral-400 dark:border-neutral-500 bg-white dark:bg-neutral-900 focus:outline-none hover:border-neutral-700 dark:hover:border-neutral-400 disabled:hover:border-neutral-400 dark:disabled:hover:border-neutral-500 disabled:opacity-50 disabled:cursor-default"
                       type="button"
+                      onClick={() =>
+                        setData({ ...data, count: data.count + 1 })
+                      }
                     >
                       <PlusIcon />
                     </button>
                   </div>
                 </div>
               </div>
-              <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+              <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  Buttonsky disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0">
                 <BagIcon />
                 <span className="ml-3">Add to cart</span>
               </button>
@@ -226,10 +209,7 @@ const ProductDetails = () => {
                 title="Description"
                 Content={
                   <div className="pt-3 last:pb-0 text-slate-600 text-sm dark:text-slate-300 leading-6">
-                    Fashion is a form of self-expression and autonomy at a
-                    particular period and place and in a specific context, of
-                    clothing, footwear, lifestyle, accessories, makeup,
-                    hairstyle, and body posture.
+                    {product?.description}
                   </div>
                 }
               />
@@ -238,10 +218,21 @@ const ProductDetails = () => {
                 Content={
                   <div className="p-4 pt-3 pl-0  last:pb-0 text-slate-600 text-sm dark:text-slate-300 leading-6">
                     <ul className="list-disc list-inside leading-7">
-                      <li>Made from a sheer Belgian power micromesh.</li>
-                      <li>74% Polyamide (Nylon) 26% Elastane (Spandex)</li>
-                      <li>Adjustable hook &amp; eye closure and straps</li>
-                      <li>Hand wash in cold water, dry flat</li>
+                      {product?.highlights ? (
+                        product.highlights.map(
+                          (item: string, index: number) => (
+                            <li key={index}> {item}</li>
+                          )
+                        )
+                      ) : (
+                        <>
+                          {" "}
+                          <li>Made from a sheer Belgian power micromesh.</li>
+                          <li>74% Polyamide (Nylon) 26% Elastane (Spandex)</li>
+                          <li>Adjustable hook &amp; eye closure and straps</li>
+                          <li>Hand wash in cold water, dry flat</li>
+                        </>
+                      )}
                     </ul>
                   </div>
                 }
@@ -342,7 +333,10 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="mt-12 sm:mt-16 space-y-10 sm:space-y-16">
-        <DetailsComponent />
+        <DetailsComponent
+          description={product?.description}
+          highlights={product?.highlights}
+        />
         <hr className="border-slate-200 dark:border-slate-700" />
         <ReviewSection />
         <hr className="border-slate-200 dark:border-slate-700" />
@@ -363,15 +357,21 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-export const DetailsComponent = () => {
+export const DetailsComponent = ({
+  description,
+  highlights,
+}: {
+  description?: string;
+  highlights?: string[];
+}) => {
   return (
     <div className="">
       <h2 className="text-2xl font-semibold">Product Details</h2>
       <div className="prose prose-sm sm:prose text-slate-700 sm:max-w-4xl mt-7">
         <p>
-          The patented eighteen-inch hardwood Arrowhead deck --- finely mortised
-          in, makes this the strongest and most rigid canoe ever built. You
-          cannot buy a canoe that will afford greater satisfaction.
+          {description
+            ? description
+            : "The patented eighteen-inch hardwood Arrowhead deck --- finely mortised in, makes this the strongest and most rigid canoe ever built. You cannot buy a canoe that will afford greater satisfaction."}
         </p>
         <p className="my-4">
           The St. Louis Meramec Canoe Company was founded by Alfred Wickett in
@@ -380,15 +380,48 @@ export const DetailsComponent = () => {
           Park, Missouri ceased in 1978.
         </p>
         <ul className="list-disc list-inside leading-7 pl-7 mt-5 ">
-          <li>Regular fit, mid-weight t-shirt</li>
-          <li>Natural color, 100% premium combed organic cotton</li>
-          <li>
-            Quality cotton grown without the use of herbicides or pesticides -
-            GOTS certified
-          </li>
-          <li>Soft touch water based printed in the USA</li>
+          {highlights ? (
+            highlights?.map((item: string, index: number) => (
+              <li key={index}> {item}</li>
+            ))
+          ) : (
+            <>
+              <li>Regular fit, mid-weight t-shirt</li>
+              <li>Natural color, 100% premium combed organic cotton</li>
+              <li>
+                Quality cotton grown without the use of herbicides or pesticides
+                - GOTS certified
+              </li>
+              <li>Soft touch water based printed in the USA</li>
+            </>
+          )}
         </ul>
       </div>
+    </div>
+  );
+};
+
+export const AvailableSize = ({
+  size,
+  active,
+}: {
+  size: string;
+  active: boolean;
+}) => {
+  const unActiveClass =
+    "relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700";
+  const activeClass =
+    "relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 cursor-pointer bg-sky-600 border-sky-600 text-white hover:bg-sky-600";
+  return <div className={active ? activeClass : unActiveClass}>{size}</div>;
+};
+
+export const UnavailableSize = ({ size }: { size: string }) => {
+  return (
+    <div
+      className="relative h-10 sm:h-11 rounded-2xl border flex items-center justify-center 
+text-sm sm:text-base uppercase font-semibold select-none overflow-hidden z-0 text-opacity-20 dark:text-opacity-20 cursor-not-allowed border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-200 hover:bg-neutral-50 dark:hover:bg-neutral-700"
+    >
+      {size}
     </div>
   );
 };

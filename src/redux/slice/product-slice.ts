@@ -1,9 +1,10 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Product } from "../../types";
+
 const data = [
   {
     id: 1,
-    image: "src/assets/green-shirt.webp",
+    image: "http://127.0.0.1:5173/src/assets/green-shirt.webp",
     images: [""],
     title: "Leather Gloves ",
     description: "Perfect mint green",
@@ -14,7 +15,7 @@ const data = [
   },
   {
     id: 2,
-    image: "src/assets/sport-1.webp",
+    image: "http://127.0.0.1:5173/src/assets/sport-1.webp",
     images: [""],
     title: "Manhattan Toy WRT ",
     description: "New design 2023",
@@ -25,7 +26,7 @@ const data = [
   },
   {
     id: 3,
-    image: "src/assets/short.webp",
+    image: "http://127.0.0.1:5173/src/assets/short.webp",
     images: [""],
     title: "Ella Leather Tote",
     description: "Cream pink",
@@ -36,7 +37,7 @@ const data = [
   },
   {
     id: 4,
-    image: "src/assets/sport-2.webp",
+    image: "http://127.0.0.1:5173/src/assets/sport-2.webp",
     images: [""],
     title: "Jump Rope Kids",
     description: "Classic green",
@@ -47,7 +48,7 @@ const data = [
   },
   {
     id: 5,
-    image: "src/assets/bag.webp",
+    image: "http://127.0.0.1:5173/src/assets/bag.webp",
     images: [""],
     title: "Wool Cashmere Jacket",
     description: "Matte black",
@@ -106,11 +107,11 @@ const data = [
   },
   {
     id: 10,
-    image: "src/assets/full1.webp",
+    image: "http://127.0.0.1:5173/src/assets/full1.webp",
     images: [
-      "src/assets/full1-1.webp",
-      "src/assets/full1-2.webp",
-      "src/assets/full1-3.webp",
+      "http://127.0.0.1:5173/src/assets/full1-1.webp",
+      "http://127.0.0.1:5173/src/assets/full1-2.webp",
+      "http://127.0.0.1:5173/src/assets/full1-3.webp",
     ],
     title: "Travel Bet Carrier",
     description: "Dark pink 2023",
@@ -158,6 +159,67 @@ const data = [
     expert: true,
     new: false,
     trend: false,
+    rating: { rate: 4.9, count: 98 },
+  },
+  {
+    id: 13,
+    image:
+      "https://f.nooncdn.com/p/pzsku/Z4A17D0BB1DCA03BCD10CZ/45/_/1674986012/b1a2f8fe-843f-4bf2-86eb-6c7de430fe88.jpg?format=avif&width=800",
+    images: [
+      "https://f.nooncdn.com/p/pzsku/Z4A17D0BB1DCA03BCD10CZ/45/_/1674986012/4c056e54-8aa0-4684-b5ff-c3c111e86dfe.jpg?format=avif&width=800",
+      "https://f.nooncdn.com/p/pzsku/Z4A17D0BB1DCA03BCD10CZ/45/_/1674986012/dcf3cd08-f804-4b80-a3f0-b8a47b67b8cc.jpg?format=avif&width=800",
+      "",
+    ],
+    title: "Basic Lace-Up Faux leather Fashion Sneaker For Men White",
+    description:
+      "Desert Shoes is pushing the boundaries of sneaker design with its latest trend-setting chunky sole sneakers. These shoes feature a bold and modern design that is sure to turn heads. The chunky sole adds a fashion-forward edge while the attractive color options are versatile and perfect for any season. These shoes are perfect for pairing with sweet pants, jeans, or shorts, making them the perfect choice for any casual occasion. Whether you're running errands, going out with friends or hitting the gym, these shoes will elevate your style.",
+    price: 88,
+    category: "men",
+    subCategory: "shoes",
+    sizes: ["", "", "", "44", "", ""],
+    colors: ["wight"],
+    highlights: [
+      "Lace-up closure with reinforced eyelets for a secure fit",
+      "Upper constructed from soft leather material",
+      "High-quality PVC sole material",
+      "Plush soft leather lining for ultimate comfort",
+      "Classic and timeless minimalist shoe design",
+    ],
+    feature: "trend",
+    expert: false,
+    discount: "30",
+    new: false,
+    trend: true,
+    rating: { rate: 4.9, count: 98 },
+  },
+  {
+    id: 14,
+    image:
+      "https://f.nooncdn.com/p/pzsku/ZCCD78A447532F7A1D0AEZ/45/_/1698495520/34782563-531f-42b5-ae46-0c5c5f30676a.jpg?format=avif&width=800",
+    images: [
+      "https://f.nooncdn.com/p/pzsku/ZCCD78A447532F7A1D0AEZ/45/_/1698495522/8ddfbb43-125c-46a0-8309-ad9f77e981e2.jpg?format=avif&width=800",
+      "https://f.nooncdn.com/p/pzsku/ZCCD78A447532F7A1D0AEZ/45/_/1698495521/8295c823-c38c-477c-b6ac-7394189f104e.jpg?format=avif&width=800",
+      "",
+    ],
+    title: "Basic Lace-Up Knit Flat Sneakers For Women",
+    description:
+      "Desert Shoes was established in 1975. We started to manufacture easy-to-manufacture shoes, and after they gained great popularity in the popular markets, production lines were developed and now Desert owns the largest production lines in Egypt and China on the highest quality standards to provide all kinds of shoes for Women, woWomen, and children Definitely, DESERT SHOES is your best choice",
+    price: 88,
+    category: "women",
+    subCategory: "shoes",
+    sizes: ["36", "37 ", "", "39", "40", "41"],
+    colors: ["blue"],
+    highlights: [
+      "Textile upper that is durable, lightweight, and affordable",
+      "Upper constructed from soft leather material",
+      "Basic design that suits with all outfits",
+      "Soft footbed to ensure all day comfort",
+    ],
+    feature: "trend",
+    expert: false,
+    discount: "46%",
+    new: false,
+    trend: true,
     rating: { rate: 4.9, count: 98 },
   },
 ];
