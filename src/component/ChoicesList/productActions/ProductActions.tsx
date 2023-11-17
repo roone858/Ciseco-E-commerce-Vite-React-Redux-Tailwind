@@ -1,10 +1,33 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addItem } from "../../../redux/slice/shoppingCart-slice";
+import { Product, State } from "../../../types";
 
 const ProductActions = ({ productId }: any) => {
+  const dispatch = useDispatch();
+  const products = useSelector((state: State) => state.products.data);
+  const product = products.find(
+    (product: Product) => productId && product.id == +productId
+  );
   return (
     // absolute bottom-0 group-hover:bottom-4 inset-x-1 flex justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all
     <>
-      <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+      <button
+        onClick={() => {
+          product &&
+            dispatch(
+              addItem({
+                id: "0",
+                productId: product.id,
+                price: product.price,
+                color: "",
+                size: "",
+                count: 1
+              })
+            );
+        }}
+        className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+      >
         <svg className="w-3.5 h-3.5 mb-0.5" viewBox="0 0 9 9" fill="none">
           <path
             d="M2.99997 4.125C3.20708 4.125 3.37497 4.29289 3.37497 4.5C3.37497 5.12132 3.87865 5.625 4.49997 5.625C5.12129 5.625 5.62497 5.12132 5.62497 4.5C5.62497 4.29289 5.79286 4.125 5.99997 4.125C6.20708 4.125 6.37497 4.29289 6.37497 4.5C6.37497 5.53553 5.5355 6.375 4.49997 6.375C3.46444 6.375 2.62497 5.53553 2.62497 4.5C2.62497 4.29289 2.79286 4.125 2.99997 4.125Z"
