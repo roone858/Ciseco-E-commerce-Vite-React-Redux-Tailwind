@@ -11,8 +11,8 @@ const ShoppingCart = () => {
         <div className="max-h-[60vh] p-5 overflow-y-auto  no-scrollbar">
           <h3 className="text-xl font-semibold">Shopping cart</h3>
           <div className="divide-y  divide-slate-100 dark:divide-slate-700">
-            {cart.items.map((item) => (
-              <CartCard item={item} />
+            {cart.items.map((item, key: number) => (
+              <CartCard key={key} item={item} />
             ))}
           </div>
         </div>
