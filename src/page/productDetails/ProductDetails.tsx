@@ -41,8 +41,8 @@ const ProductDetails = () => {
   };
   useEffect(() => {
     setData({
-      size: product?.sizes.find((size) => size) || " ",
-      color: product?.colors.find((size) => size) || " ",
+      size:  product?.sizes?.find((size) => size)||" ",
+      color: product?.colors?.find((size) => size) || " ",
       count: 1,
     });
   }, []);

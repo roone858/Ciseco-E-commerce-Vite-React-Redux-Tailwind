@@ -1,6 +1,5 @@
-import DropdownButton from "../../Buttons/DropdownButton/DropdownButton";
+import DropdownButton from "../../Buttons/filterDropdownButton/FilterDropdownButton";
 import {
-  
   CurrentColorIcon,
   DollarIcon,
   NoteIcon,
@@ -15,31 +14,31 @@ const FilterDropMenu = () => {
       <div className="flex lg:space-x-4">
         <div className="hidden lg:flex flex-1 space-x-4">
           <DropdownButton
-            icon={<DollarIcon/> }
+            icon={<DollarIcon />}
             title={"1$ - 500$"}
             list={["item 1", "item 2", "item 3"]}
           />
           <DropdownButton
             icon={<CurrentColorIcon />}
             title={"Colors"}
-            list={["item 1", "item 2", "item 3"]}
+            list={["Wight", "Red", "Blue"]}
           />
           <DropdownButton
             icon={<NoteIcon />}
             title={"Categories"}
-            list={["item 1", "item 2", "item 3"]}
+            list={["Men", "Women", "Kids", "Sport"]}
           />
           <DropdownButton
             icon={<SizingIcon />}
             title={"Sizes"}
-            list={["item 1", "item 2", "item 3"]}
+            list={["S", "M", "L", "XL", "2XL", "3XL"]}
           />
         </div>
         <DropdownButton
-            icon={<SortIcon />}
-            title={"sort order"}
-            list={["item 1", "item 2", "item 3"]}
-          />
+          icon={<SortIcon />}
+          title={"sort order"}
+          list={["Price", "New", "Categories"]}
+        />
       </div>
     </>
   );

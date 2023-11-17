@@ -8,14 +8,15 @@ import ProductActions from "../../ChoicesList/productActions/ProductActions";
 import ProductPrice from "../../Badges/productPrice/ProductPrice";
 import { Product } from "../../../types";
 import { HartIcon, StarIcon } from "../../icons/Icons";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const [isFav, setIsFav] = useState(false);
   return (
     <div className=" nc-ProductCard relative flex flex-col bg-transparent   ">
-      <a className="absolute inset-0" href="/product-detail"></a>
+      <Link className="absolute inset-0" to={"/collection/"+ product.id}></Link>
       <div className=" relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
-        <a className="block" href="/product-detail">
+        <Link className="block" to={"/collection/"+ product.id}>
           <div className="flex aspect-w-11 aspect-h-12 h-72 relative ">
             <img
               alt="product"
@@ -32,7 +33,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               }}
             />
           </div>
-        </a>
+        </Link>
         <button
           onClick={() => setIsFav(!isFav)}
           className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 nc-shadow-lg absolute top-3 right-3 z-10"
@@ -43,7 +44,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           {product.category == "clothing" ? (
             <ProductSizes />
           ) : (
-            <ProductActions />
+            <ProductActions productId={product.id} />
           )}
         </div>
       </div>

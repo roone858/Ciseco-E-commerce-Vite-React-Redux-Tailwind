@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
-const ProductActions = () => {
+const ProductActions = ({ productId }: any) => {
   return (
-     // absolute bottom-0 group-hover:bottom-4 inset-x-1 flex justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all
+    // absolute bottom-0 group-hover:bottom-4 inset-x-1 flex justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all
     <>
       <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
         <svg className="w-3.5 h-3.5 mb-0.5" viewBox="0 0 9 9" fill="none">
@@ -18,7 +19,10 @@ const ProductActions = () => {
         </svg>
         <span className="ml-1">Add to bag</span>
       </button>
-      <button className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonSecondary bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 ml-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0">
+      <Link
+        to={"/collection/" + productId}
+        className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full  text-xs py-2 px-4  ttnc-ButtonSecondary bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 ml-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -35,7 +39,7 @@ const ProductActions = () => {
           ></path>
         </svg>
         <span className="ml-1">Quick view</span>
-      </button>
+      </Link>
     </>
   );
 };
