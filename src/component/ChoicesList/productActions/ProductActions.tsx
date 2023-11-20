@@ -22,7 +22,7 @@ const ProductActions = ({ productId }: any) => {
                 price: product.price,
                 color: "",
                 size: "",
-                count: 1
+                count: 1,
               })
             );
         }}
@@ -44,6 +44,7 @@ const ProductActions = ({ productId }: any) => {
       </button>
       <Link
         to={"/collection/" + productId}
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
         className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full  text-xs py-2 px-4  ttnc-ButtonSecondary bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 ml-1.5 bg-white hover:!bg-gray-100 hover:text-slate-900 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
       >
         <svg

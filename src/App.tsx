@@ -10,6 +10,7 @@ import ProductDetails from "./page/productDetails/ProductDetails";
 import LoginPage from "./page/LoginPage/LoginPage";
 import { useSelector } from "react-redux";
 import { State } from "./types";
+import SearchPage from "./page/SearchPage/SearchPage";
 function App() {
   const isLoggedIn = useSelector((state: State) => state.login.isLoggedIn);
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/collection/:id" element={<ProductDetails />} />
             <Route path="/collection" element={<CollectionPage />} />
+            <Route path="/search" element={<SearchPage />} />
           </Routes>
           <Footer />
         </div>

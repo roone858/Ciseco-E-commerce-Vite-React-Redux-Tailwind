@@ -41,7 +41,7 @@ const ProductDetails = () => {
   };
   useEffect(() => {
     setData({
-      size:  product?.sizes?.find((size) => size)||" ",
+      size: product?.sizes?.find((size) => size) || " ",
       color: product?.colors?.find((size) => size) || " ",
       count: 1,
     });
@@ -140,16 +140,18 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="">
-              <div>
-                <label htmlFor="">
-                  <span className="text-sm font-medium">
-                    Color:
-                    <span className="ml-1 font-semibold">
-                      {product?.colors ? product?.colors[0] : "Orange"}
+              {product?.colors && (
+                <div>
+                  <label htmlFor="">
+                    <span className="text-sm font-medium">
+                      Color:
+                      <span className="ml-1 font-semibold">
+                        {product?.colors[0].toUpperCase() || "Orange"}
+                      </span>
                     </span>
-                  </span>
-                </label>
-              </div>
+                  </label>
+                </div>
+              )}
             </div>
             <div className="">
               <div>

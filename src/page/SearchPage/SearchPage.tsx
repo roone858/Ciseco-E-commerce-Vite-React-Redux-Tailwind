@@ -13,7 +13,7 @@ const SearchPage = () => {
   const products = useSelector((state: State) => state.products.data);
   const [filterDropdownToggle, setFilterDropdownToggle] = useState(true);
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-white pt-20">
       <div className="HeadBackgroundCommon h-24 2xl:h-28 top-0 left-0 right-0 w-full bg-sky-50 dark:bg-neutral-800/20 "></div>
       <div className="container">
         <header className="max-w-2xl mx-auto -mt-10 flex flex-col lg:-mt-7">

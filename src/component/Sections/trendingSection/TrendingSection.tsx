@@ -7,10 +7,13 @@ import ProductCard from "../../Cards/productCard/ProductCard";
 import ShowMoreSpanner from "../../Spanners/ShowMoreSpanner";
 import { useSelector } from "react-redux";
 import { State } from "../../../types";
+import { useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const TrendingSection = () => {
   const products = useSelector((state: State) => state.products.data);
   const [filterDropdownToggle, setFilterDropdownToggle] = useState(true);
+  const [searchParams] = useSearchParams();
   return (
     <div className="relative py-32">
       <div className="flex flex-col relative mb-12">
@@ -42,14 +45,25 @@ const TrendingSection = () => {
         </div>
       </div>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-        {products
-       
-          .slice(0, 8)
-          .map((product, key: number) => (
-            <ProductCard key={key} product={product} />
-          ))}
+        {searchParams.get("category")
+          ? products
+              .filter(
+                (product) => product.category == searchParams.get("category")
+              )
+              .map((p) => <ProductCard product={p} />)
+              .slice(0, 8)
+          : products
+              .slice(0, 8)
+              .map((product, key: number) => (
+                <ProductCard key={key} product={product} />
+              ))}
       </div>
-      <ShowMoreSpanner />
+      <Link
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+        to={"collection/?category=" + searchParams.get("category")}
+      >
+        <ShowMoreSpanner />
+      </Link>
     </div>
   );
 };

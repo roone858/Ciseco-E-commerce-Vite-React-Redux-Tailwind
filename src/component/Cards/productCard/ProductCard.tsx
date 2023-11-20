@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./productCard.css";
-
 import ProductSizes from "../../ChoicesList/productSizes/ProductSizes";
-import ProductPatterns from "../../ChoicesList/productPatterns/ProductPatterns";
-import ProductColors from "../../ChoicesList/productColors/ProductColors";
+// import ProductPatterns from "../../ChoicesList/productPatterns/ProductPatterns";
+// import ProductColors from "../../ChoicesList/productColors/ProductColors";
 import ProductActions from "../../ChoicesList/productActions/ProductActions";
 import ProductPrice from "../../Badges/productPrice/ProductPrice";
 import { Product } from "../../../types";
@@ -14,9 +13,13 @@ const ProductCard = ({ product }: { product: Product }) => {
   const [isFav, setIsFav] = useState(false);
   return (
     <div className=" nc-ProductCard relative flex flex-col bg-transparent   ">
-      <Link className="absolute inset-0" to={"/collection/"+ product.id}></Link>
+      <Link
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+        className="absolute inset-0"
+        to={"/collection/" + product.id}
+      ></Link>
       <div className=" relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
-        <Link className="block" to={"/collection/"+ product.id}>
+        <Link  onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })} className="block" to={"/collection/" + product.id}>
           <div className="flex aspect-w-11 aspect-h-12 h-72 relative ">
             <img
               alt="product"
@@ -49,13 +52,15 @@ const ProductCard = ({ product }: { product: Product }) => {
         </div>
       </div>
       <div className="space-y-4 px-2.5 pt-[1.5rem] pb-2.5">
-        {product.category == "sport" ? <ProductColors /> : <ProductPatterns />}
+        {/* {product.category == "sport" ? <ProductColors /> : <ProductPatterns />} */}
         <div className="h-16">
           <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
-            {product.title}
+            {product.title.length > 50
+              ? product.title.substring(0, 50) + "..."
+              : product.title}
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ">
-            {product.description.slice(0,30) + "..." }
+            {product.description.slice(0, 30) + "..."}
           </p>
         </div>
         <div className="flex justify-between items-end ">

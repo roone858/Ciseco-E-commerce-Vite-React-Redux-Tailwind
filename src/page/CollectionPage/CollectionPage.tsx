@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import CollectionsSections from "../../component/Sections/collectionsSection/CollectionsSections";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";
 
+
 const CollectionPage = () => {
   const products = useSelector((state: State) => state.products.data);
   const location = useLocation();
@@ -42,6 +43,11 @@ const CollectionPage = () => {
           : products.map((product, key: number) => (
               <ProductCard key={key} product={product} />
             ))}
+      </div>
+      <div className="flex justify-center items-center">
+
+      
+    
       </div>
       <hr className="border-slate-200 dark:border-slate-700"></hr>
       <CollectionsSections />
