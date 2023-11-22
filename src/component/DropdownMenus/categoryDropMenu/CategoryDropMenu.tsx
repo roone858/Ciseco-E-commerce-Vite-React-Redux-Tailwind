@@ -21,8 +21,8 @@ const CategoryDropMenu = ({ category, list }: any) => {
           </label>
         </div>
         <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-        {list.map((item: string) => (
-          <CheckBox category={category} value={item} />
+        {list.map((item: string, key: number) => (
+          <CheckBox key={key} category={category} value={item} />
         ))}
       </div>
       <div className="p-5 bg-neutral-50 dark:bg-neutral-900 dark:border-t dark:border-neutral-800 flex items-center justify-between">
