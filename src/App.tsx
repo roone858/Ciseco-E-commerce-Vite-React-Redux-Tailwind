@@ -11,6 +11,11 @@ import LoginPage from "./page/LoginPage/LoginPage";
 import { useSelector } from "react-redux";
 import { State } from "./types";
 import SearchPage from "./page/SearchPage/SearchPage";
+import AccountPage from "./page/AccountPage/AccountPage";
+import PaymentSection from "./component/Sections/paymentSection/PaymentSection";
+import UpdatePasswordForm from "./component/Sections/ChangePasswordSection/ChangePasswordSection";
+import SaveListSection from "./component/Sections/saveListSection/SaveListSection";
+import AccountInformationForm from "./component/Sections/accountInfo/AccountInfo";
 function App() {
   const isLoggedIn = useSelector((state: State) => state.login.isLoggedIn);
 
@@ -31,6 +36,16 @@ function App() {
             <Route path="/collection/:id" element={<ProductDetails />} />
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/account" element={<AccountPage />}>
+              <Route path="" element={<AccountInformationForm />} />
+              <Route path="payment" element={<PaymentSection />} />
+              <Route path="password" element={<UpdatePasswordForm />} />
+              <Route path="billing" element={<PaymentSection />} />
+              <Route
+                path="savelist"
+                element={<SaveListSection products={[]} />}
+              />
+            </Route>
           </Routes>
           <Footer />
         </div>

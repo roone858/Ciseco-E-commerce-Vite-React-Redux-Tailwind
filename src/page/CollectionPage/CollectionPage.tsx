@@ -1,18 +1,19 @@
 import { useSelector } from "react-redux";
 import FilterDropMenu from "../../component/DropdownMenus/filterDropMenu/FilterDropMenu";
 import { State } from "../../types";
-import ProductCard from "../../component/Cards/productCard/ProductCard";
 import { useLocation } from "react-router-dom";
 import CollectionsSections from "../../component/Sections/collectionsSection/CollectionsSections";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";
-
+import PaginatedItems from "../../component/pagination/Pagination";
 
 const CollectionPage = () => {
   const products = useSelector((state: State) => state.products.data);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const category = searchParams.get("category");
-  // const subCategory = searchParams.get("subcategory");
+  const filterProducts = category
+    ? products.filter((product) => product.category == category)
+    : products;
 
   return (
     <div className="my-28 px-12">
@@ -32,23 +33,8 @@ const CollectionPage = () => {
         </span>
       </div>
       <FilterDropMenu />
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  my-12">
-        {category
-          ? products.map(
-              (product, key: number) =>
-                product.category == category && (
-                  <ProductCard key={key} product={product} />
-                )
-            )
-          : products.map((product, key: number) => (
-              <ProductCard key={key} product={product} />
-            ))}
-      </div>
-      <div className="flex justify-center items-center">
-
-      
-    
-      </div>
+      <PaginatedItems itemsPerPage={8} items={filterProducts} />
+      <div className="flex justify-center items-center"></div>
       <hr className="border-slate-200 dark:border-slate-700"></hr>
       <CollectionsSections />
       <hr className="border-slate-200 dark:border-slate-700"></hr>
