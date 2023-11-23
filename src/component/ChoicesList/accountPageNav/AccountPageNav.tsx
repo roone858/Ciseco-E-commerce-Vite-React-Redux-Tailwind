@@ -17,7 +17,7 @@ const AccountPageNav = () => {
       </Link>
       <Link
         className="block py-5 md:py-8 border-b-2 flex-shrink-0 text-sm sm:text-base border-transparent text-slate-500  hover:text-slate-800 dark:hover:text-slate-200  focus:border-sky-500 focus:font-medium focus:text-slate-900 dark:text-slate-200"
-        to="/order"
+        to="/account/order"
       >
         My order
       </Link>

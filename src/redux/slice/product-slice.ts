@@ -1202,7 +1202,7 @@ const data = [
     title: "Slogan Graphic Drop Shoulder Sweatshirt Coffee Brown",
     description: "Sweatshirts are comfortable",
     price: 120.0,
-    category: "men",
+    category: "women",
     subCategory: "Sweatshirts",
     sizes: ["xs", "s", "m"],
     colors: ["Coffe Brown"],

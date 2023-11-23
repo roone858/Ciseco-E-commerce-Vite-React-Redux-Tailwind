@@ -17,6 +17,7 @@ import UpdatePasswordForm from "./component/Sections/ChangePasswordSection/Chang
 import SaveListSection from "./component/Sections/saveListSection/SaveListSection";
 import AccountInformationForm from "./component/Sections/accountInfo/AccountInfo";
 import CheckoutPage from "./page/CheckoutPage/CheckoutPage";
+import OrderSection from "./component/Sections/orderSection/OrderSection";
 function App() {
   const isLoggedIn = useSelector((state: State) => state.login.isLoggedIn);
 
@@ -36,13 +37,14 @@ function App() {
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/collection/:id" element={<ProductDetails />} />
             <Route path="/collection" element={<CollectionPage />} />
-            <Route path="/checkout" element={< CheckoutPage/>} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/account" element={<AccountPage />}>
               <Route path="" element={<AccountInformationForm />} />
               <Route path="payment" element={<PaymentSection />} />
               <Route path="password" element={<UpdatePasswordForm />} />
               <Route path="billing" element={<PaymentSection />} />
+              <Route path="order" element={<OrderSection />} />
               <Route
                 path="savelist"
                 element={<SaveListSection products={[]} />}

@@ -1,16 +1,32 @@
 import { useSelector } from "react-redux";
-import ProductCard from "../../component/Cards/productCard/ProductCard";
 import FilterNav from "../../component/ChoicesList/filterNav/FilterNav";
 import FilterDropMenu from "../../component/DropdownMenus/filterDropMenu/FilterDropMenu";
 import ShowMoreSpanner from "../../component/Spanners/ShowMoreSpanner";
 import { RightArrowIcon, SearchIcon } from "../../component/icons/Icons";
-import { Product, State } from "../../types";
+import { State } from "../../types";
 import { useState } from "react";
 import CollectionsSections from "../../component/Sections/collectionsSection/CollectionsSections";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";
+import ProductList from "../../component/Others/ProductList/ProductList";
+import { useSearchParams } from "react-router-dom";
 
 const SearchPage = () => {
   const products = useSelector((state: State) => state.products.data);
+  const [searchValue, setSearchValue] = useState("");
+
+  const [searchParams] = useSearchParams();
+  const filteredProduct = searchParams.get("category")
+    ? products.filter(
+        (product) =>
+          product.category == searchParams.get("category") &&
+          product.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    : searchValue
+    ? products.filter((product) =>
+        product.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    : products;
+
   const [filterDropdownToggle, setFilterDropdownToggle] = useState(true);
   return (
     <div className="relative bg-white pt-20">
@@ -24,6 +40,7 @@ const SearchPage = () => {
             >
               <span className="sr-only">Search all icons</span>
               <input
+                onChange={(e) => setSearchValue(e.target.value)}
                 className="block w-full border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white  disabled:bg-neutral-200 dark:disabled:bg-neutral-800 rounded-full text-sm font-normal pl-14 py-5 pr-5 md:pl-16 shadow-lg border-0 dark:border"
                 id="search-input"
                 placeholder="Type your keywords"
@@ -64,9 +81,7 @@ const SearchPage = () => {
             </div>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-            {products.slice(0, 8).map((product: Product, key: number) => (
-              <ProductCard key={key} product={product} />
-            ))}
+            {<ProductList products={filteredProduct} />}
           </div>
           <ShowMoreSpanner />
         </div>
