@@ -1,4 +1,4 @@
-import { Customer } from "../types";
+import { User } from "../interfaces";
 
 class customerService {
   static async deleteCustomer(id: number) {
@@ -42,7 +42,7 @@ class customerService {
       const response = await fetch(`http://localhost:3000/customers`);
       const customers = await response.json();
       const customer = customers.find(
-        (customer: Customer) => customer.email == email
+        (customer: User) => customer.email == email
       );
       if (customer) {
         if (customer.password == password) {

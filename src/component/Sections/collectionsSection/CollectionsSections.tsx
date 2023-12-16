@@ -1,20 +1,21 @@
 import { useSelector } from "react-redux";
 import CollectionCard from "../../Cards/collectionCard/CollectionCard";
 import SwiperWithHeader from "../../Sliders/swiperWithHeader/SwiperWithHeader";
-import { State } from "../../../types";
+import { State } from "../../../interfaces";
 
 const CollectionsSections = () => {
   const products = useSelector((state: State) => state.products.data);
-  const chosenProducts = products.filter((product) => product.expert);
+  const chosenExpertProducts = products.filter((product) => product.expert);
 
   return (
     <div className="my-32">
       <SwiperWithHeader
         cards={[
-          <CollectionCard product={chosenProducts[0]} />,
-          <CollectionCard product={chosenProducts[1]} />,
-          <CollectionCard product={chosenProducts[2]} />,
-          <MoreItems />,
+          chosenExpertProducts.map((product, key) => (
+            <CollectionCard key={key} product={product} />
+          )),
+
+          <MoreItems key={"moreItem"} />,
         ]}
         title="Chosen by our experts"
         subTitle=""

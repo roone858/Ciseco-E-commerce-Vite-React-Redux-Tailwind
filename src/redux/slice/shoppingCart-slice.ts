@@ -1,6 +1,6 @@
 // cartSlice.js
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { CartItem, CartState } from "../../types";
+import { CartItem, CartState } from "../../interfaces";
 
 const loadCartStateFromLocalStorage = (): CartState => {
   try {

@@ -240,11 +240,11 @@ export const AddressIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       fill="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
@@ -253,9 +253,9 @@ export const AddressIcon = () => {
         <g
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           {" "}
           <g
@@ -277,29 +277,49 @@ export const AddressIcon = () => {
   );
 };
 
-export const PhoneIcon = () => {
+export const ChangeImageIcon = () => {
   return (
     <svg
-      width="18px"
-      height="18px"
-      viewBox="0 0 24 24"
+      width="30"
+      height="30"
+      viewBox="0 0 30 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <path
+        d="M17.5 5H7.5C6.83696 5 6.20107 5.26339 5.73223 5.73223C5.26339 6.20107 5 6.83696 5 7.5V20M5 20V22.5C5 23.163 5.26339 23.7989 5.73223 24.2678C6.20107 24.7366 6.83696 25 7.5 25H22.5C23.163 25 23.7989 24.7366 24.2678 24.2678C24.7366 23.7989 25 23.163 25 22.5V17.5M5 20L10.7325 14.2675C11.2013 13.7988 11.8371 13.5355 12.5 13.5355C13.1629 13.5355 13.7987 13.7988 14.2675 14.2675L17.5 17.5M25 12.5V17.5M25 17.5L23.0175 15.5175C22.5487 15.0488 21.9129 14.7855 21.25 14.7855C20.5871 14.7855 19.9513 15.0488 19.4825 15.5175L17.5 17.5M17.5 17.5L20 20M22.5 5H27.5M25 2.5V7.5M17.5 10H17.5125"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const PhoneIcon = () => {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 24 24"
+      fill="#333333"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
         <path
           d="M15 3C16.5315 3.17014 17.9097 3.91107 19 5C20.0903 6.08893 20.8279 7.46869 21 9M14.5 6.5C15.2372 6.64382 15.9689 6.96892 16.5 7.5C17.0311 8.03108 17.3562 8.76284 17.5 9.5M8.20049 15.799C1.3025 8.90022 2.28338 5.74115 3.01055 4.72316C3.10396 4.55862 5.40647 1.11188 7.87459 3.13407C14.0008 8.17945 6.5 8 11.3894 12.6113C16.2788 17.2226 15.8214 9.99995 20.8659 16.1249C22.8882 18.594 19.4413 20.8964 19.2778 20.9888C18.2598 21.717 15.0995 22.6978 8.20049 15.799Z"
           stroke="#383838"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>{" "}
       </g>
     </svg>
@@ -309,17 +329,17 @@ export const PhoneIcon = () => {
 export const EmailIcon = () => {
   return (
     <svg
-      width="18px"
-      height="18px"
+      width="24px"
+      height="24px"
       viewBox="0 -2.5 20 20"
       version="1.1"
-      fill="#111"
+      fill="#333333"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         <title>email [#1573]</title> <desc>Created with Sketch.</desc>
@@ -327,14 +347,14 @@ export const EmailIcon = () => {
         <g
           id="Page-1"
           stroke="none"
-          stroke-width="1"
+          strokeWidth="1"
           fill="none"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         >
           <g
             id="Dribbble-Light-Preview"
             transform="translate(-300.000000, -922.000000)"
-            fill="#3d3d3d"
+            fill="#333333"
           >
             <g id="icons" transform="translate(56.000000, 160.000000)">
               <path
@@ -360,30 +380,30 @@ export const DiscountIcon = () => {
       <path
         d="M3.9889 14.6604L2.46891 13.1404C1.84891 12.5204 1.84891 11.5004 2.46891 10.8804L3.9889 9.36039C4.2489 9.10039 4.4589 8.59038 4.4589 8.23038V6.08036C4.4589 5.20036 5.1789 4.48038 6.0589 4.48038H8.2089C8.5689 4.48038 9.0789 4.27041 9.3389 4.01041L10.8589 2.49039C11.4789 1.87039 12.4989 1.87039 13.1189 2.49039L14.6389 4.01041C14.8989 4.27041 15.4089 4.48038 15.7689 4.48038H17.9189C18.7989 4.48038 19.5189 5.20036 19.5189 6.08036V8.23038C19.5189 8.59038 19.7289 9.10039 19.9889 9.36039L21.5089 10.8804C22.1289 11.5004 22.1289 12.5204 21.5089 13.1404L19.9889 14.6604C19.7289 14.9204 19.5189 15.4304 19.5189 15.7904V17.9403C19.5189 18.8203 18.7989 19.5404 17.9189 19.5404H15.7689C15.4089 19.5404 14.8989 19.7504 14.6389 20.0104L13.1189 21.5304C12.4989 22.1504 11.4789 22.1504 10.8589 21.5304L9.3389 20.0104C9.0789 19.7504 8.5689 19.5404 8.2089 19.5404H6.0589C5.1789 19.5404 4.4589 18.8203 4.4589 17.9403V15.7904C4.4589 15.4204 4.2489 14.9104 3.9889 14.6604Z"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M9 15L15 9"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M14.4945 14.5H14.5035"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
       <path
         d="M9.49451 9.5H9.50349"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></path>
     </svg>
   );
@@ -966,6 +986,129 @@ export const NoteIcon = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       ></path>
+    </svg>
+  );
+};
+
+const StateIcon = () => {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 1024 1024"
+      fill="#33333"
+      className="icon"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="#33333"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M512 1012.8c-253.6 0-511.2-54.4-511.2-158.4 0-92.8 198.4-131.2 283.2-143.2h3.2c12 0 22.4 8.8 24 20.8 0.8 6.4-0.8 12.8-4.8 17.6-4 4.8-9.6 8.8-16 9.6-176.8 25.6-242.4 72-242.4 96 0 44.8 180.8 110.4 463.2 110.4s463.2-65.6 463.2-110.4c0-24-66.4-70.4-244.8-96-6.4-0.8-12-4-16-9.6-4-4.8-5.6-11.2-4.8-17.6 1.6-12 12-20.8 24-20.8h3.2c85.6 12 285.6 50.4 285.6 143.2 0.8 103.2-256 158.4-509.6 158.4z m-16.8-169.6c-12-11.2-288.8-272.8-288.8-529.6 0-168 136.8-304.8 304.8-304.8S816 145.6 816 313.6c0 249.6-276.8 517.6-288.8 528.8l-16 16-16-15.2zM512 56.8c-141.6 0-256.8 115.2-256.8 256.8 0 200.8 196 416 256.8 477.6 61.6-63.2 257.6-282.4 257.6-477.6C768.8 172.8 653.6 56.8 512 56.8z m0 392.8c-80 0-144.8-64.8-144.8-144.8S432 160 512 160c80 0 144.8 64.8 144.8 144.8 0 80-64.8 144.8-144.8 144.8zM512 208c-53.6 0-96.8 43.2-96.8 96.8S458.4 401.6 512 401.6c53.6 0 96.8-43.2 96.8-96.8S564.8 208 512 208z"
+          fill=""
+        ></path>
+      </g>
+    </svg>
+  );
+};
+
+export default StateIcon;
+export const CityIcon = () => {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="#000000"
+      strokeWidth="0.00048000000000000007"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        {" "}
+        <path
+          d="M10 21C10 20.4477 10.4477 20 11 20H13C13.5523 20 14 20.4477 14 21V23C14 23.5523 13.5523 24 13 24H11C10.4477 24 10 23.5523 10 23V21Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M16 21C16 20.4477 16.4477 20 17 20H19C19.5523 20 20 20.4477 20 21V23C20 23.5523 19.5523 24 19 24H17C16.4477 24 16 23.5523 16 23V21Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M11 26C10.4477 26 10 26.4477 10 27V29C10 29.5523 10.4477 30 11 30H13C13.5523 30 14 29.5523 14 29V27C14 26.4477 13.5523 26 13 26H11Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M10 33C10 32.4477 10.4477 32 11 32H13C13.5523 32 14 32.4477 14 33V35C14 35.5523 13.5523 36 13 36H11C10.4477 36 10 35.5523 10 35V33Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M17 26C16.4477 26 16 26.4477 16 27V29C16 29.5523 16.4477 30 17 30H19C19.5523 30 20 29.5523 20 29V27C20 26.4477 19.5523 26 19 26H17Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M16 33C16 32.4477 16.4477 32 17 32H19C19.5523 32 20 32.4477 20 33V35C20 35.5523 19.5523 36 19 36H17C16.4477 36 16 35.5523 16 35V33Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M35 22C34.4477 22 34 22.4477 34 23V25C34 25.5523 34.4477 26 35 26H37C37.5523 26 38 25.5523 38 25V23C38 22.4477 37.5523 22 37 22H35Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M34 29C34 28.4477 34.4477 28 35 28H37C37.5523 28 38 28.4477 38 29V31C38 31.5523 37.5523 32 37 32H35C34.4477 32 34 31.5523 34 31V29Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          d="M35 34C34.4477 34 34 34.4477 34 35V37C34 37.5523 34.4477 38 35 38H37C37.5523 38 38 37.5523 38 37V35C38 34.4477 37.5523 34 37 34H35Z"
+          fill="#333333"
+        ></path>{" "}
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M6 42H4V44H44V42H42V21C42 19.3431 40.6569 18 39 18H33V7C33 5.34315 31.6569 4 30 4H18C16.3431 4 15 5.34315 15 7V16H9C7.34315 16 6 17.3431 6 19V42ZM22 42V19C22 18.4477 21.5523 18 21 18H9C8.44771 18 8 18.4477 8 19V42H22ZM40 42V21C40 20.4477 39.5523 20 39 20H33V42H40ZM20 8C19.4477 8 19 8.44772 19 9V11C19 11.5523 19.4477 12 20 12H22C22.5523 12 23 11.5523 23 11V9C23 8.44772 22.5523 8 22 8H20ZM20 14C19.4477 14 19 14.4477 19 15V16H21C21.7684 16 22.4692 16.2889 23 16.7639V15C23 14.4477 22.5523 14 22 14H20ZM26 8C25.4477 8 25 8.44772 25 9V11C25 11.5523 25.4477 12 26 12H28C28.5523 12 29 11.5523 29 11V9C29 8.44772 28.5523 8 28 8H26ZM25 15C25 14.4477 25.4477 14 26 14H28C28.5523 14 29 14.4477 29 15V17C29 17.5523 28.5523 18 28 18H26C25.4477 18 25 17.5523 25 17V15ZM26 20C25.4477 20 25 20.4477 25 21V23C25 23.5523 25.4477 24 26 24H28C28.5523 24 29 23.5523 29 23V21C29 20.4477 28.5523 20 28 20H26ZM25 27C25 26.4477 25.4477 26 26 26H28C28.5523 26 29 26.4477 29 27V29C29 29.5523 28.5523 30 28 30H26C25.4477 30 25 29.5523 25 29V27ZM26 32C25.4477 32 25 32.4477 25 33V35C25 35.5523 25.4477 36 26 36H28C28.5523 36 29 35.5523 29 35V33C29 32.4477 28.5523 32 28 32H26Z"
+          fill="#333333"
+        ></path>{" "}
+      </g>
+    </svg>
+  );
+};
+
+export const DateIcon = () => {
+  return (
+    <svg
+      width="24px"
+      height="24px"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#333333"
+      className="bi bi-calendar2-date"
+      stroke="#333333"
+      strokeWidth="0.00016"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        {" "}
+        <path d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"></path>{" "}
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>{" "}
+        <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"></path>{" "}
+      </g>
     </svg>
   );
 };

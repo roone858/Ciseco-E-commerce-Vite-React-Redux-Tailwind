@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addItem } from "../../../redux/slice/shoppingCart-slice";
-import { Product, State } from "../../../types";
+import { Product, State } from "../../../interfaces";
 
 const ProductActions = ({ productId }: any) => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import ProductPrice from "../../Badges/productPrice/ProductPrice";
-import { CartItem, State } from "../../../types";
+import { CartItem, State } from "../../../interfaces";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem } from "../../../redux/slice/shoppingCart-slice";
 

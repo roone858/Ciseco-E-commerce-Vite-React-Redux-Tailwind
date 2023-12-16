@@ -5,7 +5,7 @@ import ProductSizes from "../../ChoicesList/productSizes/ProductSizes";
 // import ProductColors from "../../ChoicesList/productColors/ProductColors";
 import ProductActions from "../../ChoicesList/productActions/ProductActions";
 import ProductPrice from "../../Badges/productPrice/ProductPrice";
-import { Product } from "../../../types";
+import { Product } from "../../../interfaces";
 import { HartIcon, StarIcon } from "../../icons/Icons";
 import { Link } from "react-router-dom";
 

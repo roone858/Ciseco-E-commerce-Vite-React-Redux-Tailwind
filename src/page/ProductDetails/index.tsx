@@ -13,7 +13,7 @@ import {
   SpannerIcon,
   StarIcon,
 } from "../../component/icons/Icons";
-import { Product, State } from "../../types";
+import { Product, State } from "../../interfaces";
 import ReviewSection from "../../component/Sections/reviewSection/ReviewSection";
 import SwiperWithHeader from "../../component/Sliders/swiperWithHeader/SwiperWithHeader";
 import ProductCard from "../../component/Cards/productCard/ProductCard";

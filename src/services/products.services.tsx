@@ -1,4 +1,8 @@
-class productService {
+import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { fetchProducts } from "../redux/slice/product-slice";
+import { Credentials, State } from "../interfaces";
+
+class productsService {
   static async deleteProduct(id: number) {
     await fetch(`http://localhost:3000/products/${id}`, {
       method: "DELETE",
@@ -8,16 +12,8 @@ class productService {
     // return response;
   }
 
-  static async getProducts() {
-    try {
-      const response = await fetch("http://localhost:3000/products");
-      const json = await response.json();
-   
-
-      return json;
-    } catch (error) {
-      console.log("error", error);
-    }
+  static async getProducts(dispatch: any) {
+    (dispatch as ThunkDispatch<State, Credentials, AnyAction>)(fetchProducts());
   }
   static async getProduct() {
     try {
@@ -69,4 +65,4 @@ class productService {
     }
   }
 }
-export default productService;
+export default productsService;

@@ -3,7 +3,7 @@ import FilterNav from "../../component/ChoicesList/filterNav/FilterNav";
 import FilterDropMenu from "../../component/DropdownMenus/filterDropMenu/FilterDropMenu";
 import ShowMoreSpanner from "../../component/Spanners/ShowMoreSpanner";
 import { RightArrowIcon, SearchIcon } from "../../component/icons/Icons";
-import { State } from "../../types";
+import { State } from "../../interfaces";
 import { useState } from "react";
 import CollectionsSections from "../../component/Sections/collectionsSection/CollectionsSections";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";

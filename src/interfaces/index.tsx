@@ -18,24 +18,25 @@ export interface Product {
   highlights: string[];
   feature: string;
 }
-export interface Customer {
-  id: string;
+export interface User {
+  id?: string;
   name: string;
   username: string;
   email: string;
+  dob: Date;
   password: string;
-  image: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
+  bio: string;
+  image?: string;
+  role: "user" | "admin";
+  address: Address;
   phone: string;
+  gender: "Male" | "Female";
+}
+export interface Address {
+  street: string;
+  state: string;
+  city: string;
+  zipcode: string;
 }
 export interface CartItem {
   id: string;
@@ -50,7 +51,7 @@ export interface CartState {
   total: number;
 }
 export interface LoginState {
-  user: null | Customer;
+  accessToken: null | string;
   isLoggedIn: boolean;
   isLoading: boolean;
   error: any;
@@ -59,5 +60,28 @@ export interface State {
   products: { data: Product[]; isLoading: boolean; error: any };
   cart: CartState;
   login: LoginState;
-  customers: { data: Customer[]; isLoading: boolean; error: any };
+  user: { data: User; isLoading: boolean; error: any };
+}
+export interface Credentials {
+  username: string;
+  password: string;
+}
+export enum HttpStatusCodes {
+  OK = 200,
+  Created = 201,
+  Accepted = 202,
+  NoContent = 204,
+  BadRequest = 400,
+  Unauthorized = 401,
+  Forbidden = 403,
+  NotFound = 404,
+  InternalServerError = 500,
+}
+export interface SignupFormValues {
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  gender: string;
 }

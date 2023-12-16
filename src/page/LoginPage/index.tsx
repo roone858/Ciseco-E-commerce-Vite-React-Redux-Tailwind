@@ -1,42 +1,37 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import twitter from "../../assets/twitter.svg";
 import facebook from "../../assets/facebook.svg";
 import google from "../../assets/telegram.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Customer, State } from "../../types";
-import { loginSuccess } from "../../redux/slice/login-slice";
+import { HttpStatusCodes, State } from "../../interfaces";
+import { SpannerIcon } from "../../component/icons/Icons";
+import authService from "../../services/auth.service";
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [data, setData] = useState({ email: "", password: "" });
-  const [err, setErr] = useState("");
+  const [data, setData] = useState({ username: "", password: "" });
+  const [errMessage, setErrMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const customer = useSelector((state: State) =>
-    state.customers.data.find(
-      (customer: Customer) => customer.email == data.email
-    )
-  );
-  const successLogin = (customer: Customer) => {
-    setErr("");
-    dispatch(loginSuccess(customer));
-    localStorage.setItem(
-      "login",
-      JSON.stringify({ isLoggedIn: true, user: customer })
+  const error = useSelector((state: State) => state.login.error);
+  const isLoginLoading = useSelector((state: State) => state.login.isLoading);
+
+  const handleLogin = async () => await authService.login(dispatch, data);
+
+  useEffect(() => {
+    setErrMessage(
+      error?.statusCode == HttpStatusCodes.NotFound
+        ? "User not Found "
+        : error?.statusCode == HttpStatusCodes.Unauthorized
+        ? "Password is Incorrect "
+        : ""
     );
-    navigate("/");
-  };
-  const handleLogin = () => {
-    customer
-      ? customer?.password == data.password
-        ? successLogin(customer)
-        : setErr("password is incorrect")
-      : setErr("user not found");
-  };
+    setLoading(isLoginLoading);
+  }, [error, isLoginLoading]);
   return (
-    <div className="nc-PageLogin" data-nc-id="PageLogin">
-      <div className="container mb-24 lg:mb-32">
-        <h2 className="my-28 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
+    <div className="nc-PageLogin items-center justify-center flex" data-nc-id="PageLogin">
+      <div className="container my-24 lg:mb-32">
+        <h2 className="my-12 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Login
         </h2>
         <div className="max-w-md mx-auto space-y-6">
@@ -105,13 +100,13 @@ const LoginPage = () => {
           <div className="grid grid-cols-1 gap-6">
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
-                Email address
+                Username
               </span>
               <input
-                onChange={(e) => setData({ ...data, email: e.target.value })}
+                onChange={(e) => setData({ ...data, username: e.target.value })}
                 className="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1"
-                placeholder="example@example.com"
-                type="email"
+                placeholder="mahmoud99"
+                type="text"
               />
             </label>
             <label className="block">
@@ -127,13 +122,13 @@ const LoginPage = () => {
                 type="password"
               />
             </label>
-            {err && <WrongAlert message={err} />}
+            {errMessage && <WrongAlert message={errMessage} />}
             <button
               onClick={handleLogin}
               className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0"
               type="submit"
             >
-              Continue
+              {!loading ? "Continue" : <SpannerIcon />}
             </button>
           </div>
           <span className="block text-center text-neutral-700 dark:text-neutral-300">

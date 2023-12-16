@@ -3,7 +3,7 @@ import AccountPageNav from "../../component/ChoicesList/accountPageNav/AccountPa
 
 const AccountPage = () => {
   return (
-    <div className="nc-AccountCommonLayout container pt-20">
+    <div className="nc-AccountCommonLayout px-10 pt-20">
       <div className="mt-14 sm:mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="max-w-2xl">

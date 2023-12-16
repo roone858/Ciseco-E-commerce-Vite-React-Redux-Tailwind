@@ -15,7 +15,7 @@ import logo from "../../assets/logo.svg";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { State } from "../../types";
+import { State } from "../../interfaces";
 
 const NavbarComponent = () => {
   const login = useSelector((state: State) => state.login);
@@ -111,7 +111,7 @@ const NavbarComponent = () => {
                 <li className="menu-item menu-dropdown relative">
                   <div className="h-20 flex-shrink-0 flex items-center">
                     <Link
-                      className="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                      className="inline-flex items-center text-sm lg:text-[15px] text-center whitespace-nowrap font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
                       to="/contact"
                     >
                       Contact us
@@ -129,10 +129,7 @@ const NavbarComponent = () => {
               </Link>
 
               {login.isLoggedIn ? (
-                <NavDropdown
-                  icon={<UserIcon />}
-                  list={<UserDropdown user={login.user} />}
-                />
+                <NavDropdown icon={<UserIcon />} list={<UserDropdown />} />
               ) : (
                 <Link
                   to={"/login"}

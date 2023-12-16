@@ -6,7 +6,7 @@ import ProductCard from "../../Cards/productCard/ProductCard";
 
 import ShowMoreSpanner from "../../Spanners/ShowMoreSpanner";
 import { useSelector } from "react-redux";
-import { State } from "../../../types";
+import { State } from "../../../interfaces";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 

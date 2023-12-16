@@ -4,7 +4,7 @@ import "./checkoutPage.css";
 
 import ProductCard from "../../component/Cards/productCard/ProductCard";
 import { useSelector } from "react-redux";
-import { State } from "../../types";
+import { State } from "../../interfaces";
 
 export default function CheckoutPage() {
   const products = useSelector((state: State) => state.products.data);
@@ -32,10 +32,10 @@ export default function CheckoutPage() {
           className="span-col-12 flex flex-col justify-center items-center  space-x-20 border-spacing-1  px-8 "
           id="pro"
         >
-          {products.slice(10, 17).map((p) => (
-            <>
-              <ProductCard product={p} /> <hr />
-            </>
+          {products.slice(10, 17).map((p, key: number) => (
+            <div key={key}>
+              <ProductCard product={p}  /> <hr />
+            </div>
           ))}
 
           <hr />

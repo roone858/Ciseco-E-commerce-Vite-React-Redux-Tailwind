@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import DarkButton from "../../Buttons/DarkButton/DarkButton";
 import CartCard from "../../Cards/cartCard/CartCard";
-import { State } from "../../../types";
+import { State } from "../../../interfaces";
 
 const ShoppingCart = () => {
   const cart = useSelector((state: State) => state.cart);

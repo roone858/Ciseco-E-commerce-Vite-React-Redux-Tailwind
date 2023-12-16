@@ -1,4 +1,4 @@
-import { Product } from "../../../types";
+import { Product } from "../../../interfaces";
 
 const CollectionCard = ({ product }: { product: Product }) => {
   return (
@@ -12,7 +12,7 @@ const CollectionCard = ({ product }: { product: Product }) => {
             height="449"
             className="object-contain w-full h-full rounded-2xl"
             sizes="400px"
-            src={product.image}
+            src={product?.image}
           />
         </div>
         <div className="grid grid-cols-3 gap-2.5 mt-2.5">
@@ -24,7 +24,7 @@ const CollectionCard = ({ product }: { product: Product }) => {
               height="158"
               className="object-cover w-full h-full rounded-2xl"
               sizes="150px"
-              src={product.images[0]}
+              src={product?.images[0]}
             />
           </div>
           <div className="w-full h-24 sm:h-28">
@@ -35,7 +35,7 @@ const CollectionCard = ({ product }: { product: Product }) => {
               height="158"
               className="object-cover w-full h-full rounded-2xl"
               sizes="150px"
-              src={product.images[1]}
+              src={product?.images[1]}
             />
           </div>
           <div className="w-full h-24 sm:h-28">
@@ -46,7 +46,7 @@ const CollectionCard = ({ product }: { product: Product }) => {
               height="158"
               className="object-cover w-full h-full rounded-2xl"
               sizes="150px"
-              src={product.images[2]}
+              src={product?.images[2]}
             />
           </div>
         </div>
@@ -54,7 +54,7 @@ const CollectionCard = ({ product }: { product: Product }) => {
       <div className="relative mt-5 flex justify-between">
         <div className="flex-1">
           <h2 className="font-semibold text-lg sm:text-xl ">
-          {product.title}
+          {product?.title}
           </h2>
           <div className="mt-3 flex items-center text-slate-500 dark:text-slate-400">
             <span className="text-sm ">

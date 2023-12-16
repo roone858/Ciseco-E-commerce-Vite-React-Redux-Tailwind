@@ -1,10 +1,29 @@
-import { Customer } from "../../../types";
-import { LogoutIcon } from "../../icons/Icons";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "../../../interfaces";
+import { LogoutIcon, SpannerIcon } from "../../icons/Icons";
+import Avatar from "../../../assets/user-avatar.png";
+import { Link } from "react-router-dom";
+import authService from "../../../services/auth.service";
 
-const UserDropdown = ({ user }: { user: Customer | null }) => {
-  const logOut = () => {
-    localStorage.removeItem("login");
-  };
+const UserDropdown = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state: State) => state.user.data);
+  const isLoading = useSelector((state: State) => state.user.isLoading);
+  const logout = () => authService.logout(dispatch);
+
+  if (isLoading || !user) {
+    return (
+      <div className="absolute z-10 w-screen max-w-[260px] px-4 -right-10 sm:right-0 sm:px-0 opacity-100 translate-y-0">
+        <div className="overflow-hidden rounded-3xl shadow-lg ring-1 ring-black ring-opacity-5">
+          <div className="relative grid grid-cols-1 gap-6 bg-white dark:bg-neutral-800 py-7 px-6">
+            <div className="flex items-center space-x-3">
+              <SpannerIcon />{" "}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="absolute z-10 w-screen max-w-[260px] px-4 -right-10 sm:right-0 sm:px-0 opacity-100 translate-y-0">
       <div className="overflow-hidden rounded-3xl shadow-lg ring-1 ring-black ring-opacity-5">
@@ -19,7 +38,10 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
                 className="absolute inset-0 w-full h-full object-cover rounded-full"
                 sizes="100px"
                 src={
-                  "http://127.0.0.1:5173/src/assets/customers/" + user?.image
+                  user?.image
+                    ? "http://127.0.0.1:5173/src/assets/customers/" +
+                      user?.image
+                    : Avatar
                 }
                 style={{
                   position: "absolute",
@@ -32,16 +54,16 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
               <span className="wil-avatar__name">J</span>
             </div>
             <div className="flex-grow">
-              <h4 className="font-semibold">{user?.name}</h4>
+              <h4 className="font-semibold">{user.name}</h4>
               <p className="text-xs mt-0.5">
-                {user?.address.city}, {user?.address.street}
+                {/* {user?.address[0]?.city}, {user?.address[0]?.street} */}
               </p>
             </div>
           </div>
           <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-          <a
+          <Link
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            href="/account"
+            to="/account"
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
               <svg
@@ -70,10 +92,10 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             <div className="ml-4">
               <p className="text-sm font-medium ">My Account</p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            href="/checkout"
+            to="/checkout"
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -114,10 +136,10 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             <div className="ml-4">
               <p className="text-sm font-medium ">My Order</p>
             </div>
-          </a>
-          <a
+          </Link>
+          <Link
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            href="/account-savelists"
+            to="/account-savelists"
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -133,11 +155,11 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             <div className="ml-4">
               <p className="text-sm font-medium ">Wishlist</p>
             </div>
-          </a>
+          </Link>
           <div className="w-full border-b border-neutral-200 dark:border-neutral-700"></div>
-          <a
+          <Link
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            href="/"
+            to="/"
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
               <svg
@@ -194,11 +216,11 @@ const UserDropdown = ({ user }: { user: Customer | null }) => {
             <div className="ml-4">
               <p className="text-sm font-medium ">Help</p>
             </div>
-          </a>
+          </Link>
           <a
             href="/"
             className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-            onClick={logOut}
+            onClick={logout}
           >
             <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
               <LogoutIcon />

@@ -1,5 +1,8 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Customer } from "../../types";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "../../utils/axios";
+import { AxiosError } from "axios";
+import { User } from "../../interfaces";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const data = [
   {
     id: " 1",
@@ -193,61 +196,76 @@ const data = [
   },
 ];
 
-// https://ciseco-nextjs.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F17.fcfa959c.png&w=640&q=75
-// Define the async thunk for fetching data from the customer route
-export const fetchCustomers: any = createAsyncThunk(
-  "customers/fetchCustomers",
-  async () => {
-    // return data
+export const fetchUserInfo = createAsyncThunk(
+  "user/fetchUserInfo",
+  async (_, thunkAPI) => {
+    console.log("fetching user from server");
+    try {
+      const response = await axios.get("http://localhost:3000/auth/profile");
+      return response.data;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      return thunkAPI.rejectWithValue({ error: axiosError.message });
+    }
   }
 );
 
+
+interface UpdateUserResponse {
+  // Define the structure of the response from the server
+}
+
+export const updateUser = createAsyncThunk<
+  UpdateUserResponse,
+  User,
+  { rejectValue: { error: string } }
+>("user/updateUser", async (updatedUserData, thunkAPI) => {
+  try {
+    const response = await axios.patch(
+      "http://localhost:3000/users",
+      updatedUserData
+    );
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    return thunkAPI.rejectWithValue({ error: axiosError.message });
+  }
+});
+
+
 const initialState = {
-  data: data as any[],
+  data: null,
   isLoading: false,
   error: null,
 };
-const customersSlice = createSlice({
-  name: "customers",
+const userSlice = createSlice({
+  name: "user",
   initialState,
-  reducers: {
-    addCustomer: (state, action: PayloadAction<Customer>) => {
-      state.data.push(action.payload);
-    },
-    deleteCustomer: (state, action: PayloadAction<any>) => {
-      return {
-        ...state,
-        data: state.data.filter(
-          (customer: Customer) => customer.id !== action.payload
-        ),
-      };
-    },
-    updateCustomer: (state, action: PayloadAction<any>) => {
-      const index = state.data.findIndex(
-        (customer: any) => customer.id == action.payload.id
-      );
-      if (index !== -1) {
-        state.data[index] = action.payload.data;
-      }
-    },
-  },
+  reducers: {},
   extraReducers: (builder: any) => {
-    // Add reducers for handling the fetchCustomers action
-    // builder.addCase(fetchCustomers.pending, (state) => {
-    //   state.status = 'loading';
-    // });
-    builder.addCase(fetchCustomers.pending, (state: any) => {
+    builder.addCase(fetchUserInfo.pending, (state: any) => {
       state.isLoading = true;
     });
-    builder.addCase(fetchCustomers.fulfilled, (state: any, action: any) => {
+    builder.addCase(fetchUserInfo.fulfilled, (state: any, action: any) => {
       return { ...state, data: action.payload, isLoading: false };
     });
-    builder.addCase(fetchCustomers.rejected, (state: any, action: any) => {
-      return { ...state, error: action.payload.error };
+    builder.addCase(fetchUserInfo.rejected, (state: any, action: any) => {
+      return { ...state, error: action.payload.error, isLoading: false };
+    });
+    builder.addCase(updateUser.pending, (state: any) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(updateUser.fulfilled, (state: any, action: any) => {
+      state.data = action.payload;
+      state.isLoading = false;
+    });
+
+    builder.addCase(updateUser.rejected, (state: any, action: any) => {
+      state.error = action.payload.error;
+      state.isLoading = false;
     });
   },
 });
 
-export const { addCustomer, updateCustomer, deleteCustomer } =
-  customersSlice.actions;
-export default customersSlice.reducer;
+export default userSlice.reducer;

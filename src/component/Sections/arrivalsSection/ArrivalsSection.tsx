@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import ProductCard from "../../Cards/productCard/ProductCard";
 
 import SwiperWithHeader from "../../Sliders/swiperWithHeader/SwiperWithHeader";
-import { State } from "../../../types";
+import { State } from "../../../interfaces";
 
 const ArrivalsSection = () => {
   const products = useSelector((state: State) => state.products.data);

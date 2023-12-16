@@ -1,4 +1,4 @@
-import { Product } from "../../../types";
+import { Product } from "../../../interfaces";
 import ProductCard from "../../Cards/productCard/ProductCard";
 
 const SaveListSection = ({ products }: { products: Product[] }) => {
