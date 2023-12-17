@@ -39,7 +39,7 @@ const UserDropdown = () => {
                 sizes="100px"
                 src={
                   user?.image
-                    ? "http://127.0.0.1:5173/src/assets/customers/" +
+                    ? "http://localhost:3000/users/profile-picture/" +
                       user?.image
                     : Avatar
                 }
@@ -56,7 +56,7 @@ const UserDropdown = () => {
             <div className="flex-grow">
               <h4 className="font-semibold">{user.name}</h4>
               <p className="text-xs mt-0.5">
-                {/* {user?.address[0]?.city}, {user?.address[0]?.street} */}
+                {user?.address?.city}, {user?.address?.state} {user?.address?.street}
               </p>
             </div>
           </div>

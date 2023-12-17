@@ -1,24 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import StateIcon, {
   AddressIcon,
-  ChangeImageIcon,
   CityIcon,
   DateIcon,
   EmailIcon,
   PhoneIcon,
   SpannerIcon,
 } from "../../icons/Icons";
-import Avatar from "../../../assets/user-avatar.png";
 
 import { Address, State, User } from "../../../interfaces";
 import { useEffect, useState } from "react";
-import authService from "../../../services/auth.service";
+import userService from "../../../services/user.service";
+import { InputImage } from "../../Inputs/ChangeImageInput";
 
 const AccountInformationForm = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: State) => state.user.data);
   const isLoading = useSelector((state: State) => state.user.isLoading);
   const [data, setData] = useState<User>(user);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const [address, setAddress] = useState<Address>(user?.address);
   const handleChange = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -27,11 +28,19 @@ const AccountInformationForm = () => {
     setAddress({ ...address, [e.target.name]: e.target.value });
     console.log(address);
   };
-  const handleUpdate = async () =>
-    authService.updateAuthenticatedUser(dispatch, {
+
+  const handleUpdate = async () => {
+    const updatedData = {
       ...data,
       address: address,
-    });
+    };
+
+    await userService.updateAuthenticatedUser(dispatch, updatedData);
+    if (selectedImage) {
+      await userService.updateUserImage(selectedImage);
+     
+    }
+  };
 
   useEffect(() => {
     if (user) {
@@ -55,29 +64,10 @@ const AccountInformationForm = () => {
         </h2>
         <div className="flex flex-col md:flex-row">
           <div className="flex-shrink-0 flex items-start">
-            <div className="relative rounded-full overflow-hidden flex">
-              <img
-                alt="avatar"
-                width="128"
-                height="128"
-                className="w-32 h-32 rounded-full object-cover z-0"
-                src={
-                  user?.image
-                    ? "http://127.0.0.1:5173/src/assets/customers/" +
-                      user?.image
-                    : Avatar
-                }
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-neutral-50 cursor-pointer">
-                <ChangeImageIcon />
-                <span className="mt-1 text-xs">Change Image</span>
-              </div>
-              <input
-                onChange={handleChange}
-                className="absolute inset-0 opacity-0 cursor-pointer"
-                type="file"
-              />
-            </div>
+            <InputImage
+              image={user?.image}
+              setSelectedImage={setSelectedImage}
+            />
           </div>
           <div className="flex-grow mt-10 md:mt-0 md:pl-16 max-w-3xl space-y-6">
             <div>

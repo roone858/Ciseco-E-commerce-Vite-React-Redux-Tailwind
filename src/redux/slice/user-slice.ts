@@ -210,7 +210,6 @@ export const fetchUserInfo = createAsyncThunk(
   }
 );
 
-
 interface UpdateUserResponse {
   // Define the structure of the response from the server
 }
@@ -231,7 +230,6 @@ export const updateUser = createAsyncThunk<
     return thunkAPI.rejectWithValue({ error: axiosError.message });
   }
 });
-
 
 const initialState = {
   data: null,

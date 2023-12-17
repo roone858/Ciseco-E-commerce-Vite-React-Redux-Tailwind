@@ -20,9 +20,9 @@ import CheckoutPage from "./page/Checkout";
 import OrderSection from "./component/Sections/orderSection/OrderSection";
 import SignupPage from "./page/Signup";
 import { useEffect } from "react";
-import authService from "./services/auth.service";
 import { setTokenInAxios } from "./utils/axios";
 import productsService from "./services/products.services";
+import userService from "./services/user.service";
 function App() {
   const dispatch = useDispatch();
   const login = useSelector((state: State) => state.login);
@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     if (login.isLoggedIn) {
       login.accessToken && setTokenInAxios(login.accessToken);
-      if (!user) authService.getAuthenticatedUserInfo(dispatch);
+      if (!user) userService.getAuthenticatedUserInfo(dispatch);
     }
   }, [dispatch, login.accessToken, login.isLoggedIn, user]);
 

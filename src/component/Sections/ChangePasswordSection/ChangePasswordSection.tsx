@@ -1,9 +1,9 @@
 import { Form, Formik } from "formik";
 import { Input } from "../../../page/Signup";
 import { changePasswordValidationSchema } from "../../../utils/yup";
-import authService from "../../../services/auth.service";
 import { useState } from "react";
 import { SpannerIcon } from "../../icons/Icons";
+import userService from "../../../services/user.service";
 
 const UpdatePasswordForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,7 @@ const UpdatePasswordForm = () => {
   };
   const handleSubmit = async (values: any) => {
     setIsLoading(true);
-    const res = await authService.changePassword(
+    const res = await userService.changePassword(
       values.currentPassword,
       values.newPassword
     );
