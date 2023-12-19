@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import CollapsePlus from "../../component/Buttons/collapsePlus/CollapsePlus";
 import {
-  BagIcon,
   HartIcon,
   MinusIcon,
   NationwideIcon,
@@ -10,7 +9,6 @@ import {
   RefundIcon,
   ReturnIcon,
   ShippingIcon,
-  SpannerIcon,
   StarIcon,
 } from "../../component/icons/Icons";
 import { Product, State } from "../../interfaces";
@@ -21,7 +19,7 @@ import PromoTow from "../../component/Promos/promoTow/PromoTow";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NewBadge from "../../component/Badges/newBadge/NewBadge";
-import { addItem } from "../../redux/slice/shoppingCart-slice";
+import CartService from "../../services/cart.service";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -29,16 +27,9 @@ const ProductDetails = () => {
   const productId = useParams().id;
   const products = useSelector((state: State) => state.products.data);
   const product = products.find(
-    (product: Product) => productId && product.id == +productId
+    (product: Product) => productId && product._id == productId
   );
-  const [loading, setLoading] = useState(false);
 
-  const getLoading = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000); // Adjust the delay time as needed
-  };
   useEffect(() => {
     setData({
       size: product?.sizes?.find((size) => size) || " ",
@@ -146,7 +137,7 @@ const ProductDetails = () => {
                     <span className="text-sm font-medium">
                       Color:
                       <span className="ml-1 font-semibold">
-                        {product?.colors[0].toUpperCase() || "Orange"}
+                        {product?.colors[0]?.toUpperCase() || "Orange"}
                       </span>
                     </span>
                   </label>
@@ -223,29 +214,16 @@ const ProductDetails = () => {
               </div>
               <button
                 onClick={() => {
-                  product &&
-                    dispatch(
-                      addItem({
-                        id: "0",
-                        productId: product.id,
-                        price: product.price,
-                        color: data.color,
-                        count: data.count,
-                        size: data.size,
-                      })
-                    );
-                  getLoading();
+                  productId &&
+                    CartService.addToCart(dispatch, {
+                      productId: productId,
+                      quantity: data.count,
+                    });
                 }}
                 className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  Buttonsky disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0"
               >
-                {loading ? (
-                  <SpannerIcon />
-                ) : (
-                  <>
-                    <BagIcon />
-                    <span className="ml-3">Add to cart</span>
-                  </>
-                )}
+                {" "}
+                Add To Cart
               </button>
             </div>
             <hr className=" 2xl:!my-10 border-slate-200 dark:border-slate-700" />
@@ -390,7 +368,7 @@ const ProductDetails = () => {
           subTitle=""
           slidesPerView={4}
           cards={products?.slice(0, 5).map((product: Product) => (
-            <ProductCard product={product} />
+            <ProductCard productId={product._id} />
           ))}
         />
         <hr className="border" />

@@ -4,7 +4,14 @@ import google from "../../assets/telegram.svg";
 import { useState } from "react";
 import { SpannerIcon } from "../../component/icons/Icons";
 import authService from "../../services/auth.service";
-import { Formik, Form, ErrorMessage, FormikHelpers, useField, Field } from "formik";
+import {
+  Formik,
+  Form,
+  ErrorMessage,
+  FormikHelpers,
+  useField,
+  Field,
+} from "formik";
 import { signupValidationSchema } from "../../utils/yup";
 import { SignupFormValues } from "../../interfaces";
 import { useDispatch } from "react-redux";
@@ -31,7 +38,11 @@ const Signup = () => {
     if (!usernameExists && !emailExists) {
       setIsLoading(true);
       const response = await authService.signup(values);
-      if (response.success) await authService.login(dispatch, values);
+      if (response.success)
+        await authService.login(dispatch, {
+          ...values,
+          identifier: values.username,
+        });
       resetForm();
       console.log(values);
       setIsLoading(false);
@@ -192,12 +203,12 @@ const Signup = () => {
                   <option value="Female" label="Female" />
                 </Field>
                 <ErrorMessage
-                name={"gender"}
-                component="div"
-                className="text-red-500 text-sm font-normal  px-4"
-              />
+                  name={"gender"}
+                  component="div"
+                  className="text-red-500 text-sm font-normal  px-4"
+                />
               </div>
-             
+
               <button
                 className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0"
                 type="submit"

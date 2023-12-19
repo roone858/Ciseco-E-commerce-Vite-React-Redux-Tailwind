@@ -4,11 +4,11 @@ import FilterNav from "../../ChoicesList/filterNav/FilterNav";
 
 import ProductCard from "../../Cards/productCard/ProductCard";
 
-import ShowMoreSpanner from "../../Spanners/ShowMoreSpanner";
 import { useSelector } from "react-redux";
 import { State } from "../../../interfaces";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ShowMoreSpanner from "../../Spanners/ShowMoreSpanner";
 
 const TrendingSection = () => {
   const products = useSelector((state: State) => state.products.data);
@@ -50,12 +50,12 @@ const TrendingSection = () => {
               .filter(
                 (product) => product.category == searchParams.get("category")
               )
-              .map((p) => <ProductCard product={p} />)
+              .map((p) => <ProductCard productId={p._id} />)
               .slice(0, 8)
           : products
               .slice(0, 8)
               .map((product, key: number) => (
-                <ProductCard key={key} product={product} />
+                <ProductCard key={key} productId={product._id} />
               ))}
       </div>
       <Link

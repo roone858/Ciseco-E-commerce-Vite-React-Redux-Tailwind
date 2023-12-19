@@ -12,7 +12,7 @@ export const login = createAsyncThunk(
   async (credentials: Credentials, thunkAPI) => {
     try {
       const response = await axios.post("http://localhost:3000/auth/login", {
-        username: credentials.username,
+        identifier: credentials.identifier,
         password: credentials.password,
       });
 

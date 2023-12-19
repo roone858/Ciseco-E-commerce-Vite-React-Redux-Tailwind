@@ -4,14 +4,15 @@ import CartCard from "../../Cards/cartCard/CartCard";
 import { State } from "../../../interfaces";
 
 const ShoppingCart = () => {
-  const cart = useSelector((state: State) => state.cart);
+  const cart = useSelector((state: State) => state.cart.items);
+
   return (
     <div className="overflow-hidden   duration-500 rounded-2xl shadow-lg  ring-1 ring-black/5 dark:ring-white/10">
       <div className="  relative bg-white dark:bg-neutral-800">
         <div className="max-h-[60vh] p-5 overflow-y-auto  no-scrollbar">
           <h3 className="text-xl font-semibold">Shopping cart</h3>
           <div className="divide-y  divide-slate-100 dark:divide-slate-700">
-            {cart.items.map((item, key: number) => (
+            {cart.map((item, key: number) => (
               <CartCard key={key} item={item} />
             ))}
           </div>
@@ -24,7 +25,7 @@ const ShoppingCart = () => {
                 Shipping and taxes calculated at checkout.
               </span>
             </span>
-            <span className="">${cart.total}</span>
+            <span className="">${55}</span>
           </p>
           <div className="flex space-x-2 mt-5">
             <DarkButton />

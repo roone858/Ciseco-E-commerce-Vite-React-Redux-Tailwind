@@ -10,7 +10,7 @@ const ArrivalsSection = () => {
     <div className="overflow-hidden">
       <SwiperWithHeader
         cards={products.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard productId={product._id} />
         ))}
         title="New Arrivals."
         subTitle=" REY backpacks & bags"

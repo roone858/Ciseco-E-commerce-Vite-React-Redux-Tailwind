@@ -21,8 +21,12 @@ import OrderSection from "./component/Sections/orderSection/OrderSection";
 import SignupPage from "./page/Signup";
 import { useEffect } from "react";
 import { setTokenInAxios } from "./utils/axios";
-import productsService from "./services/products.services";
+import productsService from "./services/products.service";
 import userService from "./services/user.service";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Navigate } from "react-router-dom";
+import wishlistService from "./services/wishlist.service";
+import CartService from "./services/cart.service";
 function App() {
   const dispatch = useDispatch();
   const login = useSelector((state: State) => state.login);
@@ -36,47 +40,61 @@ function App() {
   }, [dispatch, login.accessToken, login.isLoggedIn, user]);
 
   useEffect(() => {
+    wishlistService.getWishlist(dispatch);
+    CartService.getCart(dispatch);
+  }, [dispatch, login.isLoggedIn, products]);
+
+  useEffect(() => {
     if (!products.length) productsService.getProducts(dispatch);
   }, [dispatch, products]);
   return (
     <>
       <BrowserRouter>
-        <NavbarComponent />
-        <div className="light overflow-hidden   ">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/login"
-              element={login.isLoggedIn ? <Home /> : <LoginPage />}
-            />
-            <Route
-              path="/signup"
-              element={login.isLoggedIn ? <Home /> : <SignupPage />}
-            />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/collection" element={<CollectionPage />} />
-            <Route path="/collection/:id" element={<ProductDetails />} />
-            <Route path="/collection" element={<CollectionPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/account" element={<AccountPage />}>
-              <Route path="" element={<AccountInformationForm />} />
-              <Route path="payment" element={<PaymentSection />} />
-              <Route path="password" element={<UpdatePasswordForm />} />
-              <Route path="billing" element={<PaymentSection />} />
-              <Route path="order" element={<OrderSection />} />
+        <GoogleOAuthProvider clientId="267959229684-cb60rimtu2gkm8p0g472pnnbdgqmjsbg.apps.googleusercontent.com">
+          <NavbarComponent />
+          <div className="light overflow-hidden   ">
+            <Routes>
+              <Route path="/" element={<Home />} />
               <Route
-                path="savelist"
-                element={<SaveListSection products={[]} />}
+                path="/login"
+                element={login.isLoggedIn ? <Home /> : <LoginPage />}
               />
-            </Route>
-          </Routes>
-          <Footer />
-        </div>
+              <Route
+                path="/signup"
+                element={login.isLoggedIn ? <Home /> : <SignupPage />}
+              />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/collection" element={<CollectionPage />} />
+              <Route path="/collection/:id" element={<ProductDetails />} />
+              <Route path="/collection" element={<CollectionPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/search" element={<SearchPage />} />
+
+              <Route
+                path="/account"
+                element={<PrivateRoute element={AccountPage} />}
+              >
+                <Route path="" element={<AccountInformationForm />} />
+                <Route path="payment" element={<PaymentSection />} />
+                <Route path="password" element={<UpdatePasswordForm />} />
+                <Route path="billing" element={<PaymentSection />} />
+                <Route path="order" element={<OrderSection />} />
+                <Route path="savelist" element={<SaveListSection />} />
+              </Route>
+            </Routes>
+            <Footer />
+          </div>
+        </GoogleOAuthProvider>
       </BrowserRouter>
     </>
   );
 }
 
 export default App;
+
+const PrivateRoute: React.FC<any> = ({ element: Element }) => {
+  const isLoggedIn = useSelector((state: State) => state.login.isLoggedIn);
+
+  return <>{isLoggedIn ? <Element /> : <Navigate to="/login" replace />}</>;
+};

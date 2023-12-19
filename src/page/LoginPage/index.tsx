@@ -7,14 +7,61 @@ import { useDispatch, useSelector } from "react-redux";
 import { HttpStatusCodes, State } from "../../interfaces";
 import { SpannerIcon } from "../../component/icons/Icons";
 import authService from "../../services/auth.service";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState({ username: "", password: "" });
+  const [data, setData] = useState({ identifier: "", password: "" });
   const [errMessage, setErrMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const error = useSelector((state: State) => state.login.error);
   const isLoginLoading = useSelector((state: State) => state.login.isLoading);
+
+  
+const googleLogin = useGoogleLogin({
+  flow: 'auth-code',
+  onSuccess: async (codeResponse) => {
+      console.log(codeResponse);
+      const tokens = await axios.post(
+          'http://localhost:3000/auth/google', {
+              code: codeResponse.code,
+          });
+
+      console.log(tokens);
+  },
+  onError: errorResponse => console.log(errorResponse),
+});
+  // const onSuccess = async (payload: any) => {
+  //   console.log("Login Success:", payload);
+
+  //   // Send the Google authentication token to the backend for further verification
+  //   try {
+  //     // const backendResponse = await axios.get(
+  //     //   "http://localhost:3000/auth/google/callback"
+  //     // );
+  //     const response = await fetch(
+  //       "http://localhost:3000/auth/google",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ payload }),
+  //       }
+  //     );
+
+  //     const data = await response.json();
+  //     console.log("Server Response:", data);
+  //     // console.log(backendResponse);
+  //     // const backendData = await backendResponse.json();
+  //     // onLoginSuccess({ ...response.profileObj, backendData });
+  //     // console.log({ ...response.profileObj, backendData });
+  //   } catch (error) {
+  //     // onLoginFailure(error);
+  //     console.log(error);
+  //   }
+  // };
 
   const handleLogin = async () => await authService.login(dispatch, data);
 
@@ -29,11 +76,22 @@ const LoginPage = () => {
     setLoading(isLoginLoading);
   }, [error, isLoginLoading]);
   return (
-    <div className="nc-PageLogin items-center justify-center flex" data-nc-id="PageLogin">
+    <div
+      className="nc-PageLogin items-center justify-center flex"
+      data-nc-id="PageLogin"
+    >
       <div className="container my-24 lg:mb-32">
         <h2 className="my-12 flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
           Login
         </h2>
+        <GoogleLogin
+          onSuccess={googleLogin}
+          
+          onError={() => {
+            console.log("Login Failed");
+          }}
+        />
+ 
         <div className="max-w-md mx-auto space-y-6">
           <div className="grid gap-3">
             <a
@@ -73,7 +131,7 @@ const LoginPage = () => {
               </h3>
             </a>
             <a
-              href="#"
+              
               className="flex w-full rounded-lg bg-sky-50 dark:bg-neutral-800 px-4 py-3 transform transition-transform sm:px-6 hover:translate-y-[-2px]"
             >
               <img
@@ -100,10 +158,12 @@ const LoginPage = () => {
           <div className="grid grid-cols-1 gap-6">
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
-                Username
+                Email or Username
               </span>
               <input
-                onChange={(e) => setData({ ...data, username: e.target.value })}
+                onChange={(e) =>
+                  setData({ ...data, identifier: e.target.value })
+                }
                 className="block w-full border border-neutral-200 focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 bg-white dark:border-neutral-700 dark:focus:ring-sky-6000 dark:focus:ring-opacity-25 dark:bg-neutral-900 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 rounded-2xl text-sm font-normal h-11 px-4 py-3 mt-1"
                 placeholder="mahmoud99"
                 type="text"

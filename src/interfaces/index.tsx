@@ -1,5 +1,5 @@
 export interface Product {
-  id: number;
+  _id: string;
   image: string;
   expert: boolean;
   title: string;
@@ -39,16 +39,12 @@ export interface Address {
   zipcode: string;
 }
 export interface CartItem {
-  id: string;
-  productId: number;
-  price: number;
-  size: string;
-  color: string;
-  count: number;
+  productId: string;
+  quantity: number;
+  subtotal?: number;
 }
 export interface CartState {
   items: CartItem[];
-  total: number;
 }
 export interface LoginState {
   accessToken: null | string;
@@ -56,14 +52,24 @@ export interface LoginState {
   isLoading: boolean;
   error: any;
 }
+export interface WishlistState {
+  items: WishlistItem[];
+}
+export interface WishlistItem {
+  userId: string;
+
+  productId: string;
+}
+
 export interface State {
   products: { data: Product[]; isLoading: boolean; error: any };
   cart: CartState;
   login: LoginState;
+  wishlist: WishlistState;
   user: { data: User; isLoading: boolean; error: any };
 }
 export interface Credentials {
-  username: string;
+  identifier: string;
   password: string;
 }
 export enum HttpStatusCodes {

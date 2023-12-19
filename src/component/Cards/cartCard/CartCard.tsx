@@ -1,12 +1,12 @@
 import ProductPrice from "../../Badges/productPrice/ProductPrice";
 import { CartItem, State } from "../../../interfaces";
 import { useDispatch, useSelector } from "react-redux";
-import { removeItem } from "../../../redux/slice/shoppingCart-slice";
+import CartService from "../../../services/cart.service";
 
 const CartCard = ({ item }: { item: CartItem }) => {
   const dispatch = useDispatch();
   const product = useSelector((state: State) =>
-    state.products.data.find((product) => product.id == item.productId)
+    state.products.data.find((product) => product._id == item.productId)
   );
   return (
     <div className="flex py-5 last:pb-0">
@@ -34,9 +34,9 @@ const CartCard = ({ item }: { item: CartItem }) => {
                 <a href="/product-detail">{product?.title}</a>
               </h3>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                <span className="uppercase">{item.color}</span>
+                <span className="uppercase">{item?.color}</span>
                 <span className="mx-2 border-l border-slate-200 dark:border-slate-700 h-4"></span>
-                <span>{item.size}</span>
+                <span>{item?.size}</span>
               </p>
             </div>
             <div className="mt-0.5">
@@ -45,11 +45,15 @@ const CartCard = ({ item }: { item: CartItem }) => {
           </div>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
-          <p className="text-gray-500 dark:text-slate-400">Qty {item.count}</p>
+          <p className="text-gray-500 dark:text-slate-400">
+            Qty {item.quantity}
+          </p>
           <div className="flex">
             <button
               type="button"
-              onClick={() => dispatch(removeItem(item))}
+              onClick={() => {
+                CartService.removeFromCart(dispatch, item.productId);
+              }}
               className="font-medium text-sky-600 dark:text-primary-500 "
             >
               Remove

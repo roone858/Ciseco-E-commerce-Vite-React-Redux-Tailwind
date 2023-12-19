@@ -1,30 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addItem } from "../../../redux/slice/shoppingCart-slice";
-import { Product, State } from "../../../interfaces";
+import CartService from "../../../services/cart.service";
 
-const ProductActions = ({ productId }: any) => {
+const ProductActions = ({ productId }: { productId: string }) => {
   const dispatch = useDispatch();
-  const products = useSelector((state: State) => state.products.data);
-  const product = products.find(
-    (product: Product) => productId && product.id == +productId
-  );
+
   return (
     // absolute bottom-0 group-hover:bottom-4 inset-x-1 flex justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all
     <>
       <button
         onClick={() => {
-          product &&
-            dispatch(
-              addItem({
-                id: "0",
-                productId: product.id,
-                price: product.price,
-                color: "",
-                size: "",
-                count: 1,
-              })
-            );
+          CartService.addToCart(dispatch, {
+            productId: productId,
+            quantity: 1,
+          });
         }}
         className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
       >

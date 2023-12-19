@@ -34,7 +34,7 @@ export default function CheckoutPage() {
         >
           {products.slice(10, 17).map((p, key: number) => (
             <div key={key}>
-              <ProductCard product={p}  /> <hr />
+              <ProductCard productId={p._id} /> <hr />
             </div>
           ))}
 
