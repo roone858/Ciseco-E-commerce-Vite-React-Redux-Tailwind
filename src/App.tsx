@@ -40,8 +40,10 @@ function App() {
   }, [dispatch, login.accessToken, login.isLoggedIn, user]);
 
   useEffect(() => {
-    wishlistService.getWishlist(dispatch);
-    CartService.getCart(dispatch);
+    if (login.isLoggedIn) {
+      wishlistService.getWishlist(dispatch);
+      CartService.getCart(dispatch);
+    }
   }, [dispatch, login.isLoggedIn, products]);
 
   useEffect(() => {

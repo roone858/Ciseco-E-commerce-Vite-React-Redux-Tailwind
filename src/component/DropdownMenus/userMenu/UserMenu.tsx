@@ -56,7 +56,7 @@ const UserDropdown = () => {
             <div className="flex-grow">
               <h4 className="font-semibold">{user.name}</h4>
               <p className="text-xs mt-0.5">
-                {user?.address?.city}, {user?.address?.state} {user?.address?.street}
+                {/* {user?.address[0]?.city}, {user?.address[0]?.street} */}
               </p>
             </div>
           </div>

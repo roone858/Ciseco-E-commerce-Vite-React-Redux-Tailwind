@@ -28,6 +28,7 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
+
     gender: "",
   };
 
@@ -43,6 +44,7 @@ const Signup = () => {
           ...values,
           identifier: values.username,
         });
+      else console.log(response);
       resetForm();
       console.log(values);
       setIsLoading(false);

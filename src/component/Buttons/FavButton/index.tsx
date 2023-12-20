@@ -5,7 +5,7 @@ import { State, WishlistItem } from "../../../interfaces";
 import wishlistService from "../../../services/wishlist.service";
 
 export const FavButton = ({ productID }: { productID: string }) => {
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
   const isInWish = useSelector(
     (state: State) =>
       !!state.wishlist.items.find(
@@ -14,8 +14,10 @@ export const FavButton = ({ productID }: { productID: string }) => {
   );
   const [isFav, setIsFav] = useState(isInWish);
   const handleClick = async () => {
-    if (isFav) wishlistService.removeFromWishlist(dispach, productID);
-    if (!isFav) wishlistService.addToWishlist(dispach, productID);
+    // setIsFav(!isFav);
+    if (isFav) wishlistService.removeFromWishlist(dispatch, productID);
+    if (!isFav) wishlistService.addToWishlist(dispatch, productID);
+    // setIsFav(!isFav);
   };
   useEffect(() => {
     setIsFav(isInWish);
