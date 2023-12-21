@@ -19,7 +19,7 @@ export interface Product {
   feature: string;
 }
 export interface User {
-  id?: string;
+  _id?: string;
   name: string;
   username: string;
   email: string;
@@ -60,13 +60,31 @@ export interface WishlistItem {
 
   productId: string;
 }
+export interface AlertState {
+  show: boolean;
+  type: string; // success, warning, error
+  message: string;
+}
 
 export interface State {
   products: { data: Product[]; isLoading: boolean; error: any };
   cart: CartState;
   login: LoginState;
+  reviews: ReviewsState;
+  alert: AlertState;
   wishlist: WishlistState;
   user: { data: User; isLoading: boolean; error: any };
+}
+export interface ReviewsState {
+  reviews: Review[];
+  loading: boolean;
+  error: any;
+}
+export interface Review {
+  userId: User;
+  productId: string;
+  rate: number;
+  text: string;
 }
 export interface Credentials {
   identifier: string;

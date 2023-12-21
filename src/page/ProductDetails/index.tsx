@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import CollapsePlus from "../../component/Buttons/collapsePlus/CollapsePlus";
 import {
-  HartIcon,
   MinusIcon,
   NationwideIcon,
   NewIcon,
@@ -9,6 +8,7 @@ import {
   RefundIcon,
   ReturnIcon,
   ShippingIcon,
+  SpannerIcon,
   StarIcon,
 } from "../../component/icons/Icons";
 import { Product, State } from "../../interfaces";
@@ -20,6 +20,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NewBadge from "../../component/Badges/newBadge/NewBadge";
 import CartService from "../../services/cart.service";
+import { FavButton } from "../../component/Buttons/FavButton";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -36,9 +37,10 @@ const ProductDetails = () => {
       color: product?.colors?.find((size) => size) || " ",
       count: 1,
     });
-  }, []);
+  }, [product?.colors, product?.sizes]);
+  if (!product) return <SpannerIcon />;
   return (
-    <div className="container p-10 mt-16">
+    <div className="w-full p-10 mt-16">
       <div className="lg:flex">
         <div className="w-full lg:w-[55%] ">
           <div className="relative">
@@ -60,9 +62,7 @@ const ProductDetails = () => {
               <NewIcon />
               <span className="ml-1 leading-none">New in</span>
             </div>
-            <button className="w-9 h-9 flex items-center justify-center rounded-full bg-white dark:bg-slate-900 text-neutral-700 dark:text-slate-200 nc-shadow-lg absolute right-3 top-3 ">
-              <HartIcon isFav={true} />
-            </button>
+            <FavButton productID={product?._id} />
           </div>
           <div className="grid grid-cols-2 gap-3 mt-3 sm:gap-6 sm:mt-6 xl:gap-8 xl:mt-8">
             <div className="aspect-w-11 xl:aspect-w-10 2xl:aspect-w-11 aspect-h-16 relative">
@@ -361,7 +361,7 @@ const ProductDetails = () => {
           highlights={product?.highlights}
         />
         <hr className="border-slate-200 dark:border-slate-700" />
-        <ReviewSection />
+        <ReviewSection productId={product._id} />
         <hr className="border-slate-200 dark:border-slate-700" />
         <SwiperWithHeader
           title="Customers also purchased"

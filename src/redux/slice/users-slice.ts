@@ -1,5 +1,5 @@
-import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Product } from "../../interfaces";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { AxiosError } from "axios";
 import axios from "../../utils/axios";
 
@@ -9,7 +9,7 @@ export const fetchProducts: any = createAsyncThunk(
   async (_, thunkAPI) => {
     console.log("fetching Products from server");
     try {
-      const response = await axios.get("http://localhost:3000/products");
+      const response = await axios.get("http://localhost:3000/users");
       return response.data;
     } catch (error) {
       const axiosError = error as AxiosError;
@@ -26,27 +26,7 @@ const initialState = {
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    addProduct: (state, action: PayloadAction<Product>) => {
-      state.data.push(action.payload);
-    },
-    deleteProduct: (state, action: PayloadAction<any>) => {
-      return {
-        ...state,
-        data: state.data.filter(
-          (product: Product) => product._id !== action.payload
-        ),
-      };
-    },
-    updateProduct: (state, action: PayloadAction<any>) => {
-      const index = state.data.findIndex(
-        (product: any) => product.id == action.payload.id
-      );
-      if (index !== -1) {
-        state.data[index] = action.payload.data;
-      }
-    },
-  },
+  reducers: {},
   extraReducers: (builder: any) => {
     builder.addCase(fetchProducts.pending, (state: any) => {
       state.isLoading = true;
@@ -60,6 +40,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { addProduct, updateProduct, deleteProduct } =
-  productsSlice.actions;
+// export const { addProduct, updateProduct, deleteProduct } =
+//   productsSlice.actions;
 export default productsSlice.reducer;

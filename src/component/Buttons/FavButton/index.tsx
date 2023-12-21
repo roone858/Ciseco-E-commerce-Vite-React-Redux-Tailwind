@@ -14,10 +14,8 @@ export const FavButton = ({ productID }: { productID: string }) => {
   );
   const [isFav, setIsFav] = useState(isInWish);
   const handleClick = async () => {
-    // setIsFav(!isFav);
     if (isFav) wishlistService.removeFromWishlist(dispatch, productID);
     if (!isFav) wishlistService.addToWishlist(dispatch, productID);
-    // setIsFav(!isFav);
   };
   useEffect(() => {
     setIsFav(isInWish);

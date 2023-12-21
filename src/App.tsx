@@ -27,6 +27,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Navigate } from "react-router-dom";
 import wishlistService from "./services/wishlist.service";
 import CartService from "./services/cart.service";
+import GlobalAlert from "./component/GlobalAlert";
 function App() {
   const dispatch = useDispatch();
   const login = useSelector((state: State) => state.login);
@@ -51,6 +52,7 @@ function App() {
   }, [dispatch, products]);
   return (
     <>
+      <GlobalAlert />
       <BrowserRouter>
         <GoogleOAuthProvider clientId="267959229684-cb60rimtu2gkm8p0g472pnnbdgqmjsbg.apps.googleusercontent.com">
           <NavbarComponent />
