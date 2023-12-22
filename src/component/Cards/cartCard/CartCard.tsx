@@ -2,12 +2,14 @@ import ProductPrice from "../../Badges/productPrice/ProductPrice";
 import { CartItem, State } from "../../../interfaces";
 import { useDispatch, useSelector } from "react-redux";
 import CartService from "../../../services/cart.service";
+import { SpannerIcon } from "../../icons/Icons";
 
 const CartCard = ({ item }: { item: CartItem }) => {
   const dispatch = useDispatch();
   const product = useSelector((state: State) =>
     state.products.data.find((product) => product._id == item.productId)
   );
+  if (!product) return <SpannerIcon />;
   return (
     <div className="flex py-5 last:pb-0">
       <div className="relative h-24 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100">
@@ -40,7 +42,7 @@ const CartCard = ({ item }: { item: CartItem }) => {
               </p>
             </div>
             <div className="mt-0.5">
-              <ProductPrice price={product?.price || 0} />
+              <ProductPrice price={product?.price * item.quantity} />
             </div>
           </div>
         </div>

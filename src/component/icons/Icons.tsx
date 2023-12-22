@@ -781,7 +781,6 @@ export const ReturnIcon = () => {
   );
 };
 
-import React from "react";
 
 export const BlackStar = () => {
   return (

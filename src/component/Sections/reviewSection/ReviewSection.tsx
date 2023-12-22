@@ -10,6 +10,7 @@ import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 const ReviewSection = ({ productId }: { productId: string }) => {
   // const [reviews, setReviews] = useState<Review[]>();
   const reviews = useSelector(selectReviews);
+  const userId = useSelector((state: State) => state.user.data._id);
   const dispatch = useDispatch();
   useEffect(() => {
     (dispatch as ThunkDispatch<State, string, AnyAction>)(
@@ -24,9 +25,12 @@ const ReviewSection = ({ productId }: { productId: string }) => {
       <div className="flex flex-row justify-between items-center">
         <h2 className="text-2xl font-semibold flex items-center">
           <BlackStar />
-          <span className="ml-1.5"> 4,87 · 142 Reviews</span>
+          <span className="ml-1.5"> 4,87 · {reviews.length} Reviews</span>
         </h2>
-        <WriteReviewButton productId={productId} />
+        <WriteReviewButton
+          update={!!reviews.find((review) => review.userId._id == userId)}
+          productId={productId}
+        />
       </div>
       {reviews?.length ? (
         <>

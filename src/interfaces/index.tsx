@@ -81,7 +81,14 @@ export interface ReviewsState {
   error: any;
 }
 export interface Review {
+  _id?: string;
   userId: User;
+  productId: string;
+  rate: number;
+  text: string;
+}
+export interface NewReview {
+  userId: string;
   productId: string;
   rate: number;
   text: string;

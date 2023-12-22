@@ -3,10 +3,6 @@ import { State } from "../../../interfaces";
 import ProductCard from "../../Cards/productCard/ProductCard";
 
 const SaveListSection = () => {
-  // const { products, wishlist } = useSelector((state: State) => {
-  //   return { products: state.products.data, wishlist: state.wishlist.items };
-  // });
-
   const wishlist = useSelector((state: State) => state.wishlist.items);
   return (
     <div className="space-y-10 sm:space-y-12">

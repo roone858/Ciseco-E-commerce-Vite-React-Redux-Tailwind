@@ -62,7 +62,7 @@ const ProductDetails = () => {
               <NewIcon />
               <span className="ml-1 leading-none">New in</span>
             </div>
-            <FavButton productID={product?._id} />
+            <FavButton productId={product?._id} />
           </div>
           <div className="grid grid-cols-2 gap-3 mt-3 sm:gap-6 sm:mt-6 xl:gap-8 xl:mt-8">
             <div className="aspect-w-11 xl:aspect-w-10 2xl:aspect-w-11 aspect-h-16 relative">
@@ -218,6 +218,7 @@ const ProductDetails = () => {
                     CartService.addToCart(dispatch, {
                       productId: productId,
                       quantity: data.count,
+                      subtotal: product.price * data.count,
                     });
                 }}
                 className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6  Buttonsky disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-6000 dark:focus:ring-offset-0"

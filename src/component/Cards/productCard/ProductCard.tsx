@@ -18,18 +18,11 @@ const ProductCard = ({ productId }: { productId: string }) => {
   return (
     <div className=" nc-ProductCard relative flex flex-col bg-transparent   ">
       <Link
-        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
         className="absolute inset-0"
         to={"/collection/" + product?._id}
       ></Link>
       <div className=" relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group">
-        <Link
-          onClick={() =>
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-          }
-          className="block"
-          to={"/collection/" + product?._id}
-        >
+        <Link className="block" to={"/collection/" + product?._id}>
           <div className="flex aspect-w-11 aspect-h-12 h-72 relative ">
             <img
               alt="product"
@@ -47,12 +40,12 @@ const ProductCard = ({ productId }: { productId: string }) => {
             />
           </div>
         </Link>
-        <FavButton productID={product?._id} />
+        <FavButton productId={product?._id} />
         <div className="assets absolute bottom-0 inset-x-1 space-x-1.5 flex justify-center opacity-0 invisible group-hover:bottom-4 group-hover:opacity-100 group-hover:visible transition-all">
           {product.category == "clothing" ? (
             <ProductSizes />
           ) : (
-            <ProductActions productId={product?._id} />
+            <ProductActions product={product} />
           )}
         </div>
       </div>

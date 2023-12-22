@@ -1,8 +1,4 @@
-import {
-  addToWishlist,
-  removeFromWishlist,
-  setWishlist,
-} from "../redux/slice/wishlist-slice";
+import { setWishlist } from "../redux/slice/wishlist-slice";
 import axios from "../utils/axios";
 
 class wishlistService {
@@ -16,26 +12,22 @@ class wishlistService {
     }
   }
 
-  static async removeFromWishlist(dispatch: any, productId: string) {
+  static async removeFromWishlist(productId: string) {
     try {
       const response = await axios.delete(
         "http://localhost:3000/wishlist/remove/" + productId
       );
-
-      dispatch(removeFromWishlist(productId));
       return response.data;
     } catch (error) {
       console.log("error", error);
     }
   }
 
-  static async addToWishlist(dispatch: any, productId: string) {
+  static async addToWishlist(productId: string) {
     try {
       const response = await axios.post(
         "http://localhost:3000/wishlist/add/" + productId
       );
-
-      if (response.data) dispatch(addToWishlist(response.data));
       return response.data;
     } catch (error) {
       console.log("error", error);

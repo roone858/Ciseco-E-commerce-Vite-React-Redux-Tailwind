@@ -28,11 +28,14 @@ import { Navigate } from "react-router-dom";
 import wishlistService from "./services/wishlist.service";
 import CartService from "./services/cart.service";
 import GlobalAlert from "./component/GlobalAlert";
+import ScrollToTop from "./component/ScrollToTop";
+
 function App() {
   const dispatch = useDispatch();
   const login = useSelector((state: State) => state.login);
   const products = useSelector((state: State) => state.products.data);
   const user = useSelector((state: State) => state.user.data);
+
   useEffect(() => {
     if (login.isLoggedIn) {
       login.accessToken && setTokenInAxios(login.accessToken);
@@ -54,6 +57,7 @@ function App() {
     <>
       <GlobalAlert />
       <BrowserRouter>
+        <ScrollToTop />
         <GoogleOAuthProvider clientId="267959229684-cb60rimtu2gkm8p0g472pnnbdgqmjsbg.apps.googleusercontent.com">
           <NavbarComponent />
           <div className="light overflow-hidden   ">
