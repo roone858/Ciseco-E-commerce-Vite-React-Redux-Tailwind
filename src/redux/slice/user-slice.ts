@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "../../utils/axios";
 import { AxiosError } from "axios";
-import { User } from "../../interfaces";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const data = [
   {
@@ -210,27 +209,6 @@ export const fetchUserInfo = createAsyncThunk(
   }
 );
 
-interface UpdateUserResponse {
-  // Define the structure of the response from the server
-}
-
-export const updateUser = createAsyncThunk<
-  UpdateUserResponse,
-  User,
-  { rejectValue: { error: string } }
->("user/updateUser", async (updatedUserData, thunkAPI) => {
-  try {
-    const response = await axios.patch(
-      "http://localhost:3000/users",
-      updatedUserData
-    );
-    return response.data;
-  } catch (error) {
-    const axiosError = error as AxiosError;
-    return thunkAPI.rejectWithValue({ error: axiosError.message });
-  }
-});
-
 const initialState = {
   data: null,
   isLoading: false,
@@ -239,7 +217,13 @@ const initialState = {
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    updateUser: (state, action) => {
+      if (state.data && typeof state.data === "object") {
+        state.data = action.payload;
+      }
+    },
+  },
   extraReducers: (builder: any) => {
     builder.addCase(fetchUserInfo.pending, (state: any) => {
       state.isLoading = true;
@@ -250,20 +234,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUserInfo.rejected, (state: any, action: any) => {
       return { ...state, error: action.payload.error, isLoading: false };
     });
-    builder.addCase(updateUser.pending, (state: any) => {
-      state.isLoading = true;
-    });
-
-    builder.addCase(updateUser.fulfilled, (state: any, action: any) => {
-      state.data = action.payload;
-      state.isLoading = false;
-    });
-
-    builder.addCase(updateUser.rejected, (state: any, action: any) => {
-      state.error = action.payload.error;
-      state.isLoading = false;
-    });
   },
 });
-
+export const { updateUser } = userSlice.actions;
 export default userSlice.reducer;

@@ -41,10 +41,11 @@ export interface Address {
 export interface CartItem {
   productId: string;
   quantity: number;
-  subtotal?: number;
+  subtotal: number;
 }
 export interface CartState {
   items: CartItem[];
+  total: number;
 }
 export interface LoginState {
   accessToken: null | string;

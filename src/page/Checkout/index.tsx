@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./checkoutPage.css";
 
-import ProductCard from "../../component/Cards/productCard/ProductCard";
+import ProductCard from "../../component/Cards/ProductCard";
 import { useSelector } from "react-redux";
 import { State } from "../../interfaces";
 

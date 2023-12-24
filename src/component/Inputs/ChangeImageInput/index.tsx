@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 
-import { ChangeImageIcon } from "../../icons/Icons";
+import { ChangeImageIcon } from "../../icons";
 import Avatar from "../../../assets/user-avatar.png";
 import axios from "axios";
 

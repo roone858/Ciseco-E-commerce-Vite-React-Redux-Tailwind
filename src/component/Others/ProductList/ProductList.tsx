@@ -1,5 +1,5 @@
 import { Product } from "../../../interfaces";
-import ProductCard from "../../Cards/productCard/ProductCard";
+import ProductCard from "../../Cards/ProductCard";
 
 const ProductList = ({ products }: { products: Product[] }) => {
   return (

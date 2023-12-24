@@ -28,7 +28,7 @@ class CartService {
   }
 
   static async addToCart(dispatch: any, item: CartItem) {
-    try {
+    try {    
       const response = await axios.post(
         "http://localhost:3000/cart/add/",
         item

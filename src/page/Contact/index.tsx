@@ -1,4 +1,4 @@
-import ContactSection from "../../component/Sections/contactSection/ContactSection";
+import ContactSection from "../../component/Sections/ContactSection";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";
 
 const ContactPage = () => {

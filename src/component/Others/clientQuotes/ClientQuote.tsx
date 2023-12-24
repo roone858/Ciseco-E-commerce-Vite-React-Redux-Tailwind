@@ -1,4 +1,4 @@
-import { StarIcon } from "../../icons/Icons";
+import { StarIcon } from "../../icons";
 
 const ClientQuote = () => {
   return (

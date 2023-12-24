@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { PlusIcon } from "../../icons/Icons";
+import { PlusIcon } from "../../icons";
 import RatingInput from "../../Inputs/Rating";
 import { State } from "../../../interfaces";
 import { useRef, useState } from "react";

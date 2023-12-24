@@ -1,5 +1,5 @@
 import './hovertemplates.css'
-import DiscoverCard from '../Cards/discoverCard/DiscoverCard'
+import DiscoverCard from '../Cards/DiscoverCard'
 import dog from './../../assets/dog.webp'
 
 export default function Hovertemplates() {

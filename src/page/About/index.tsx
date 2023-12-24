@@ -1,8 +1,8 @@
 import aboutImage from "../../assets/hero-about.webp";
 import PromoThree from "../../component/Promos/promoThree/PromoThree";
-import ClientSection from "../../component/Sections/clientSection/ClientSection";
-import FactsSection from "../../component/Sections/factsSection/FactsSection";
-import FounderSection from "../../component/Sections/founderSection/FounderSection";
+import ClientSection from "../../component/Sections/ClientSection";
+import FactsSection from "../../component/Sections/FactsSection";
+import FounderSection from "../../component/Sections/FounderSection";
 
 const AboutPage = () => {
   return (

@@ -1,4 +1,4 @@
-import { HartIcon } from "../../icons/Icons";
+import { HartIcon } from "../../icons";
 import { useDispatch, useSelector } from "react-redux";
 import { State, WishlistItem } from "../../../interfaces";
 import wishlistService from "../../../services/wishlist.service";
@@ -9,7 +9,7 @@ import {
 
 export const FavButton = ({ productId }: { productId: string }) => {
   const dispatch = useDispatch();
-  const userId = useSelector((state: State) => state.user.data._id);
+  const userId = useSelector((state: State) => state.user.data?._id);
   const isItemInWishlist = useSelector(
     (state: State) =>
       !!state.wishlist.items.find(

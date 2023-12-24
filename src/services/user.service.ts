@@ -1,8 +1,8 @@
 import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
-import { Credentials, SignupFormValues, State } from "../interfaces";
+import { Credentials, State } from "../interfaces";
 import { AxiosError } from "axios";
 import axios from "../utils/axios";
-import { fetchUserInfo, updateUser } from "../redux/slice/user-slice";
+import { fetchUserInfo } from "../redux/slice/user-slice";
 
 const userService = {
   changePassword: async (currentPassword: string, newPassword: string) => {
@@ -20,10 +20,17 @@ const userService = {
   getAuthenticatedUserInfo: async (dispatch: any) => {
     (dispatch as ThunkDispatch<State, Credentials, AnyAction>)(fetchUserInfo());
   },
-  updateAuthenticatedUser: async (dispatch: any, updatedUserData: any) => {
-    (dispatch as ThunkDispatch<State, SignupFormValues, AnyAction>)(
-      updateUser(updatedUserData)
-    );
+  updateAuthenticatedUser: async (updatedUserData: any) => {
+    try {
+      const response = await axios.patch(
+        "http://localhost:3000/users",
+        updatedUserData
+      );
+      return response.data;
+    } catch (error) {
+      const axiosError = error as AxiosError;
+      return axiosError.message;
+    }
   },
   updateUserImage: async (imageFile: any) => {
     try {

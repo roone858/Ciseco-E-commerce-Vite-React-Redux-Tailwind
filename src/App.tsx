@@ -1,6 +1,6 @@
 import "./App.css";
-import Footer from "./layout/footer/Footer";
-import NavbarComponent from "./layout/navbar copy/Navbar";
+import Footer from "./layout/Footer";
+import NavbarComponent from "./layout/Navbar copy";
 import AboutPage from "./page/About";
 import CollectionPage from "./page/Collection";
 import ContactPage from "./page/Contact";
@@ -12,12 +12,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "./interfaces";
 import SearchPage from "./page/Search/SearchPage";
 import AccountPage from "./page/Account";
-import PaymentSection from "./component/Sections/paymentSection/PaymentSection";
-import UpdatePasswordForm from "./component/Sections/ChangePasswordSection/ChangePasswordSection";
-import SaveListSection from "./component/Sections/saveListSection/SaveListSection";
-import AccountInformationForm from "./component/Sections/accountInfo/AccountInfo";
+import PaymentSection from "./component/Sections/PaymentSection";
+import UpdatePasswordForm from "./component/Sections/ChangePasswordSection";
+import SaveListSection from "./component/Sections/WishlistSection";
+import AccountInformationForm from "./component/Sections/AccountInfo";
 import CheckoutPage from "./page/Checkout";
-import OrderSection from "./component/Sections/orderSection/OrderSection";
+import Cart from "./page/Cart";
+
+import OrderSection from "./component/Sections/OrderSection";
 import SignupPage from "./page/Signup";
 import { useEffect } from "react";
 import { setTokenInAxios } from "./utils/axios";
@@ -45,14 +47,16 @@ function App() {
 
   useEffect(() => {
     if (login.isLoggedIn) {
-      wishlistService.getWishlist(dispatch);
-      CartService.getCart(dispatch);
+      {
+        wishlistService.getWishlist(dispatch);
+        CartService.getCart(dispatch);
+      }
     }
   }, [dispatch, login.isLoggedIn, products]);
 
   useEffect(() => {
-    if (!products.length) productsService.getProducts(dispatch);
-  }, [dispatch, products]);
+    productsService.getProducts(dispatch);
+  }, [dispatch]);
   return (
     <>
       <GlobalAlert />
@@ -77,6 +81,7 @@ function App() {
               <Route path="/collection/:id" element={<ProductDetails />} />
               <Route path="/collection" element={<CollectionPage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/cart" element={<Cart />} />
               <Route path="/search" element={<SearchPage />} />
 
               <Route
