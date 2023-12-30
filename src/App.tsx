@@ -31,6 +31,7 @@ import wishlistService from "./services/wishlist.service";
 import CartService from "./services/cart.service";
 import GlobalAlert from "./component/GlobalAlert";
 import ScrollToTop from "./component/ScrollToTop";
+import PaymentGateway from "./page/payment";
 
 function App() {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ function App() {
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/search" element={<SearchPage />} />
+              <Route path="/payment" element={<PaymentGateway />} />
 
               <Route
                 path="/account"

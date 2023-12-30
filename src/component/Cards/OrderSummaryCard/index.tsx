@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 import { State } from "../../../interfaces";
+import { useState } from "react";
 
 const OrderSummaryCard = () => {
-  const cartProducts = useSelector((state: State) =>
-    state.cart.items.map((item) => item.subtotal || 0)
-  );
-
-  const total = cartProducts.reduce((acc, subtotal) => acc + subtotal, 0);
+  const [shipping, setShipping] = useState(5);
+  const [tax, setTax] = useState(24);
+  const total = useSelector((state: State) => state.cart.total);
 
   return (
     <div>
@@ -16,24 +15,24 @@ const OrderSummaryCard = () => {
           <div className="flex justify-between pb-4">
             <span>Subtotal</span>
             <span className="font-semibold text-slate-900 dark:text-slate-200">
-              $249.00
+              {total}
             </span>
           </div>
           <div className="flex justify-between py-4">
             <span>Shpping estimate</span>
             <span className="font-semibold text-slate-900 dark:text-slate-200">
-              $5.00
+              ${shipping}
             </span>
           </div>
           <div className="flex justify-between py-4">
             <span>Tax estimate</span>
             <span className="font-semibold text-slate-900 dark:text-slate-200">
-              $24.90
+              ${tax}
             </span>
           </div>
           <div className="flex justify-between font-semibold text-slate-900 dark:text-slate-200 text-base pt-4">
             <span>Order total</span>
-            <span>${total}</span>
+            <span>${total + tax + shipping}</span>
           </div>
         </div>
         <a
