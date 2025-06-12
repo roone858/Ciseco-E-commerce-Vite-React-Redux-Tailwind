@@ -1,7 +1,7 @@
-import OrderSummaryCard from "../../component/Cards/OrderSummaryCard";
-import ContactInfoForm from "../../component/forms/ContactInfoForm";
-import PaymentMethodForm from "../../component/forms/PaymentForm";
-import ShippingAddressForm from "../../component/forms/ShippingAddressForm";
+import OrderSummaryCard from "../../components/Cards/OrderSummaryCard";
+import ContactInfoForm from "../../components/forms/ContactInfoForm";
+import PaymentMethodForm from "../../components/forms/PaymentForm";
+import ShippingAddressForm from "../../components/forms/ShippingAddressForm";
 
 export default function CheckoutPage() {
   // const handleSubmit = async (event) => {

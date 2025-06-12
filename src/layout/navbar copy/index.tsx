@@ -6,10 +6,10 @@ import {
   SearchIcon,
   ToggleIcon,
   UserIcon,
-} from "../../component/icons";
-import ShoppingCart from "../../component/DropdownMenus/ShoppingCartMenu";
-import UserDropdown from "../../component/DropdownMenus/UserMenu";
-import NavDropdown from "../../component/Buttons/NavDropdownButton";
+} from "../../components/Icons";
+import ShoppingCart from "../../components/DropdownMenus/ShoppingCartMenu";
+import UserDropdown from "../../components/DropdownMenus/UserMenu";
+import NavDropdown from "../../components/Buttons/NavDropdownButton";
 import ResponsiveNavbar from "../ResponsiveNavbar";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";

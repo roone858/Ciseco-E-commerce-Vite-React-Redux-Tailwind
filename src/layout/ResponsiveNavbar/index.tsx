@@ -1,5 +1,5 @@
-import SocialList from "../../component/ChoicesList/SocialList";
-import { CloseIcon, SearchIcon, SunIcon } from "../../component/icons";
+import SocialList from "../../components/ChoicesList/SocialList";
+import { CloseIcon, SearchIcon, SunIcon } from "../../components/Icons";
 import logo from "../../assets/logo.svg"
 const ResponsiveNavbar = ({ setToggle }: { setToggle: (toggle: boolean) => void }) => {
      return (

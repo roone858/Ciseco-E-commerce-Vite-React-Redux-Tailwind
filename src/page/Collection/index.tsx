@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import FilterDropMenu from "../../component/DropdownMenus/FilterDropMenu";
+import FilterDropMenu from "../../components/DropdownMenus/FilterDropMenu";
 import { State } from "../../interfaces";
 import { useLocation } from "react-router-dom";
-import CollectionsSections from "../../component/Sections/CollectionsSection";
-import PromoOne from "../../component/Promos/promoOne/PromoOne";
-import PaginatedItems from "../../component/Pagination";
+import CollectionsSections from "../../components/Sections/CollectionsSection";
+import PromoOne from "../../components/Promos/promoOne/PromoOne";
+import PaginatedItems from "../../components/Pagination";
 
 const CollectionPage = () => {
   const products = useSelector((state: State) => state.products.data);

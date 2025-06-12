@@ -5,7 +5,7 @@ import google from "../../assets/telegram.svg";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { HttpStatusCodes, State } from "../../interfaces";
-import { SpannerIcon } from "../../component/icons";
+import { SpannerIcon } from "../../components/Icons";
 import authService from "../../services/auth.service";
 import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";

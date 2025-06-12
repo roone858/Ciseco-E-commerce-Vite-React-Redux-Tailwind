@@ -1,5 +1,5 @@
-import ContactSection from "../../component/Sections/ContactSection";
-import PromoOne from "../../component/Promos/promoOne/PromoOne";
+import ContactSection from "../../components/Sections/ContactSection";
+import PromoOne from "../../components/Promos/promoOne/PromoOne";
 
 const ContactPage = () => {
   return (

@@ -2,7 +2,7 @@ import twitter from "../../assets/twitter.svg";
 import facebook from "../../assets/facebook.svg";
 import google from "../../assets/telegram.svg";
 import { useState } from "react";
-import { SpannerIcon } from "../../component/icons";
+import { SpannerIcon } from "../../components/Icons";
 import authService from "../../services/auth.service";
 import {
   Formik,
