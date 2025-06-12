@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import FilterNav from "../../component/ChoicesList/FilterNav";
-import FilterDropMenu from "../../component/DropdownMenus/FilterDropMenu";
-import ShowMoreSpanner from "../../component/Spanners/ShowMoreSpanner";
-import { RightArrowIcon, SearchIcon } from "../../component/icons";
+import FilterNav from "../../Component/ChoicesList/FilterNav";
+import FilterDropMenu from "../../Component/DropdownMenus/FilterDropMenu";
+import ShowMoreSpanner from "../../Component/Spanners/ShowMoreSpanner";
+import { RightArrowIcon, SearchIcon } from "../../Component/icons";
 import { State } from "../../interfaces";
 import { useState } from "react";
-import CollectionsSections from "../../component/Sections/CollectionsSection";
-import PromoOne from "../../component/Promos/promoOne/PromoOne";
-import ProductList from "../../component/Others/ProductList";
+import CollectionsSections from "../../Component/Sections/CollectionsSection";
+import PromoOne from "../../Component/Promos/promoOne/PromoOne";
+import ProductList from "../../Component/Others/ProductList";
 import { useSearchParams } from "react-router-dom";
 
 const SearchPage = () => {

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import CollapsePlus from "../../component/Buttons/collapsePlus";
+import CollapsePlus from "../../Component/Buttons/collapsePlus";
 import {
   MinusIcon,
   NationwideIcon,
@@ -10,17 +10,17 @@ import {
   ShippingIcon,
   SpannerIcon,
   StarIcon,
-} from "../../component/icons";
+} from "../../Component/icons";
 import { Product, State } from "../../interfaces";
-import ReviewSection from "../../component/Sections/ReviewSection";
-import SwiperWithHeader from "../../component/Sliders/SwiperWithHeader";
-import ProductCard from "../../component/Cards/ProductCard";
-import PromoTow from "../../component/Promos/promoTow/PromoTow";
+import ReviewSection from "../../Component/Sections/ReviewSection";
+import SwiperWithHeader from "../../Component/Sliders/SwiperWithHeader";
+import ProductCard from "../../Component/Cards/ProductCard";
+import PromoTow from "../../Component/Promos/promoTow/PromoTow";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import NewBadge from "../../component/Badges/NewBadge";
+import NewBadge from "../../Component/Badges/NewBadge";
 import CartService from "../../services/cart.service";
-import { FavButton } from "../../component/Buttons/FavButton";
+import { FavButton } from "../../Component/Buttons/FavButton";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();

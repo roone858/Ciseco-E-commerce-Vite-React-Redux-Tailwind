@@ -12,14 +12,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "./interfaces";
 import SearchPage from "./page/Search/SearchPage";
 import AccountPage from "./page/Account";
-import PaymentSection from "./component/Sections/PaymentSection";
-import UpdatePasswordForm from "./component/Sections/ChangePasswordSection";
-import SaveListSection from "./component/Sections/WishlistSection";
-import AccountInformationForm from "./component/Sections/AccountInfo";
+import PaymentSection from "./Component/Sections/PaymentSection";
+import UpdatePasswordForm from "./Component/Sections/ChangePasswordSection";
+import SaveListSection from "./Component/Sections/WishlistSection";
+import AccountInformationForm from "./Component/Sections/AccountInfo";
 import CheckoutPage from "./page/Checkout";
 import Cart from "./page/Cart";
 
-import OrderSection from "./component/Sections/OrderSection";
+import OrderSection from "./Component/Sections/OrderSection";
 import SignupPage from "./page/Signup";
 import { useEffect } from "react";
 import { setTokenInAxios } from "./utils/axios";
@@ -29,8 +29,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Navigate } from "react-router-dom";
 import wishlistService from "./services/wishlist.service";
 import CartService from "./services/cart.service";
-import GlobalAlert from "./component/GlobalAlert";
-import ScrollToTop from "./component/ScrollToTop";
+import GlobalAlert from "./Component/GlobalAlert";
+import ScrollToTop from "./Component/ScrollToTop";
 import PaymentGateway from "./page/payment";
 
 function App() {

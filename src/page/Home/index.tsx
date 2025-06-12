@@ -1,16 +1,16 @@
-import DiscoverSection from "../../component/Sections/DiscoverSection";
-import ArrivalsSection from "../../component/Sections/ArrivalsSection";
-import FeaturesSection from "../../component/Sections/FeaturesSection";
-import PromoOne from "../../component/Promos/promoOne/PromoOne";
-import CategoriesSection from "../../component/Sections/CategoriesSection";
-import PromoTow from "../../component/Promos/promoTow/PromoTow";
-import CollectionsSections from "../../component/Sections/CollectionsSection";
-import DepartmentSection from "../../component/Sections/DepatrmentSection";
-import PromoThree from "../../component/Promos/promoThree/PromoThree";
-import TrendingSection from "../../component/Sections/TrendingSection";
-import BlogsSection from "../../component/Sections/BlogsSection";
-import ClientSection from "../../component/Sections/ClientSection";
-import Carousel from "../../component/Sliders/Carousel";
+import DiscoverSection from "../../Component/Sections/DiscoverSection";
+import ArrivalsSection from "../../Component/Sections/ArrivalsSection";
+import FeaturesSection from "../../Component/Sections/FeaturesSection";
+import PromoOne from "../../Component/Promos/promoOne/PromoOne";
+import CategoriesSection from "../../Component/Sections/CategoriesSection";
+import PromoTow from "../../Component/Promos/promoTow/PromoTow";
+import CollectionsSections from "../../Component/Sections/CollectionsSection";
+import DepartmentSection from "../../Component/Sections/DepatrmentSection";
+import PromoThree from "../../Component/Promos/promoThree/PromoThree";
+import TrendingSection from "../../Component/Sections/TrendingSection";
+import BlogsSection from "../../Component/Sections/BlogsSection";
+import ClientSection from "../../Component/Sections/ClientSection";
+import Carousel from "../../Component/Sliders/Carousel";
 
 const Home = () => {
   return (
