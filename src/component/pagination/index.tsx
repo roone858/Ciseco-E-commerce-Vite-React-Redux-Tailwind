@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
-import ProductList from "../Others/ProductList/ProductList";
+import ProductList from "../Others/ProductList";
 import "./pagination.css";
 // Example items, to simulate fetching from another resources.
 

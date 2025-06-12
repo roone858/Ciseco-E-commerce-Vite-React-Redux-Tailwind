@@ -7,7 +7,7 @@ import { State } from "../../interfaces";
 import { useState } from "react";
 import CollectionsSections from "../../component/Sections/CollectionsSection";
 import PromoOne from "../../component/Promos/promoOne/PromoOne";
-import ProductList from "../../component/Others/ProductList/ProductList";
+import ProductList from "../../component/Others/ProductList";
 import { useSearchParams } from "react-router-dom";
 
 const SearchPage = () => {

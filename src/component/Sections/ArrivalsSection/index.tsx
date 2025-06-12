@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import ProductCard from "../../Cards/ProductCard";
 
 import SwiperWithHeader from "../../Sliders/SwiperWithHeader";
 import { State } from "../../../interfaces";
+import ProductCard from "../../Cards/ProductCard";
 
 const ArrivalsSection = () => {
   const products = useSelector((state: State) => state.products.data);
