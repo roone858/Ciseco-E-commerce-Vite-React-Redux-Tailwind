@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import CartCard from "../../Component/Cards/CartCard";
+import CartCard from "../../component/Cards/CartCard";
 import { State } from "../../interfaces";
-import OrderSummaryCard from "../../Component/Cards/OrderSummaryCard";
+import OrderSummaryCard from "../../component/Cards/OrderSummaryCard";
 
 const Cart = () => {
   const cartProducts = useSelector((state: State) => state.cart.items);

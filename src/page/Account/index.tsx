@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import AccountPageNav from "../../Component/ChoicesList/AccountPageNav";
+import AccountPageNav from "../../component/ChoicesList/AccountPageNav";
 
 const AccountPage = () => {
   return (

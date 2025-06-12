@@ -1,6 +1,6 @@
 import logo from "../../assets/logo.svg";
 
-import SocialList from "../../Component/ChoicesList/SocialList";
+import SocialList from "../../component/ChoicesList/SocialList";
 
 const Footer = () => {
   return (
