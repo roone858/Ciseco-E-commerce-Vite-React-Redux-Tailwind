@@ -3,8 +3,8 @@ import { State } from "../../../interfaces";
 import { useState } from "react";
 
 const OrderSummaryCard = () => {
-  const [shipping, setShipping] = useState(5);
-  const [tax, setTax] = useState(24);
+  const [shipping, ] = useState(5);
+  const [tax, ] = useState(24);
   const total = useSelector((state: State) => state.cart.total);
 
   return (

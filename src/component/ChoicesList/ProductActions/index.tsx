@@ -15,6 +15,8 @@ const ProductActions = ({ product }: { product: Product }) => {
             productId: product._id,
             quantity: 1,
             subtotal: product.price,
+            color: product.colors[0] || "", // Provide a default or actual color
+            size: product.sizes[0] || "",   // Provide a default or actual size
           });
         }}
         className="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-xs py-2 px-4  ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"

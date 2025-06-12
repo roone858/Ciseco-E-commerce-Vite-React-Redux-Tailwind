@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./layout/Footer";
-import NavbarComponent from "./layout/Navbar copy";
+import NavbarComponent from "./layout/navbar copy";
 import AboutPage from "./page/About";
 import CollectionPage from "./page/Collection";
 import ContactPage from "./page/Contact";

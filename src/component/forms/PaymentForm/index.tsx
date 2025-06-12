@@ -1,8 +1,13 @@
 import { useState } from "react";
 
+type PaymentFormData = {
+  "payment-method"?: string;
+  // add other fields as needed
+};
+
 const PaymentMethodForm = () => {
   const [open, setOpen] = useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState<PaymentFormData>({});
   const handleChange = (e: any) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
@@ -159,7 +164,7 @@ const PaymentMethodForm = () => {
               >
                 <div className="max-w-lg">
                   <label
-                    className="nc-Label text-base font-medium text-neutral-900 dark:text-neutral-200 text-sm"
+                    className="nc-Label  font-medium text-neutral-900 dark:text-neutral-200 text-sm"
                     data-nc-id="Label"
                   >
                     Card number
@@ -172,7 +177,7 @@ const PaymentMethodForm = () => {
                 </div>
                 <div className="max-w-lg">
                   <label
-                    className="nc-Label text-base font-medium text-neutral-900 dark:text-neutral-200 text-sm"
+                    className="nc-Label  font-medium text-neutral-900 dark:text-neutral-200 text-sm"
                     data-nc-id="Label"
                   >
                     Name on Card
@@ -186,7 +191,7 @@ const PaymentMethodForm = () => {
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
                   <div className="sm:w-2/3">
                     <label
-                      className="nc-Label text-base font-medium text-neutral-900 dark:text-neutral-200 text-sm"
+                      className="nc-Label font-medium text-neutral-900 dark:text-neutral-200 text-sm"
                       data-nc-id="Label"
                     >
                       Expiration date (MM/YY)
@@ -200,7 +205,7 @@ const PaymentMethodForm = () => {
                   </div>
                   <div className="flex-1">
                     <label
-                      className="nc-Label text-base font-medium text-neutral-900 dark:text-neutral-200 text-sm"
+                      className="nc-Label font-medium text-neutral-900 dark:text-neutral-200 text-sm"
                       data-nc-id="Label"
                     >
                       CVC

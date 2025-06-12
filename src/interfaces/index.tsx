@@ -42,6 +42,8 @@ export interface CartItem {
   productId: string;
   quantity: number;
   subtotal: number;
+  color: string;
+  size: string;
 }
 export interface CartState {
   items: CartItem[];

@@ -1,9 +1,9 @@
 
 import './cartpage.css'
 
-import CartCard from '../Cards/CartCard'
+// import CartCard from '../Cards/CartCard'
 
-export default function Cartpage() {
+export default function CartPage() {
   return (
     <div className='container space-x-4 space-y-8'>
       <h1 className='text-dark w-900'>Shopping Cart</h1>
@@ -15,7 +15,7 @@ export default function Cartpage() {
       <div className="row  ">
         <div className=' home col-md-8  col-sm-12 flex space-x-20 space-y-12 border-r-black '>
             <div className='col-md-12 space-x-5 '>
-            
+{/*             
             <CartCard  />
             <hr />
             <CartCard  />
@@ -24,7 +24,7 @@ export default function Cartpage() {
             <hr />
             <CartCard  />
             <hr />
-            <CartCard  />
+            <CartCard  /> */}
         </div>
     
       <div className=" second col-md-12 space-y-12  sticky border-l-slate-700">
